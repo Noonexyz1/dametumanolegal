@@ -2,3 +2,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    /*Colores basicos*/
+    background: red;
+
+
+    background: #367EA4;
+    background: #42B9BF;
+    background: #42B9BF;
+    background: #5CB6A5;
+    background: #34C5E2;
+    background: #7592CD;
+    background: #F84592;
+    background: #CD378B;
+    background: #F23B48;
+    background: #E37B3A;
+    background: #E09C36;
+    background: #E494EC;
+    background: #57017E;
+    background: #AC198D;
+
+    
+
+
+
+}
