@@ -5,9 +5,6 @@
 
 body{
     /*Colores basicos*/
-    background: red;
-
-
     background: #367EA4;
     background: #42B9BF;
     background: #42B9BF;
@@ -22,9 +19,7 @@ body{
     background: #E494EC;
     background: #57017E;
     background: #AC198D;
-
     
-
-
-
+    
+    background-color: #F3F4F6;
 }
