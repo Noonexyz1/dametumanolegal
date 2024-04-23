@@ -11,7 +11,7 @@ const stats = [
     { name: 'Paid time off', value: 'Unlimited' },
 ]
 
-export default function BodyWelcome2() {
+export default function BodyWelcome() {
     return (
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
             <img
@@ -69,6 +69,7 @@ export default function BodyWelcome2() {
                     </dl>
                 </div>
             </div>
+            
         </div>
     )
 }

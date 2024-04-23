@@ -11,7 +11,7 @@ import Login from "./components/ui/Login"
 function App() {
 
   return (
-    <div>
+    <div className="background">
       <Header/>
       <BodyWelcome/>
       <BodyDeclarations/>
