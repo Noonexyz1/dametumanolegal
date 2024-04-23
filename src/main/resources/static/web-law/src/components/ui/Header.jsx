@@ -10,6 +10,8 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import logo from '../../assets/logo.png'
+import './Header.css'
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -31,13 +33,13 @@ export default function Headre() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-red-500">
+    <header className="">
 
-        <nav className="bg-yellow-200 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <nav className="bg-[#100C18] mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div className="flex lg:flex-1">
                 <a href="#" className="-m-1.5 p-1.5">
                     <span className="sr-only">Your Company</span>
-                    <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                    <img className="h-10 w-auto" src={logo} alt="" />
                 </a>
             </div>
             
@@ -47,12 +49,13 @@ export default function Headre() {
                         onClick={() => setMobileMenuOpen(true)}>
 
                     <span className="sr-only">Open main menu</span>
-                    <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="h-6 w-6 filter-bank" aria-hidden="true" />
                 </button>
             </div>
+
             <Popover.Group className="hidden lg:flex lg:gap-x-12">
                 <Popover className="relative">
-                    <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                    <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-[#FFFFFF]">
                         Product
                         <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                     </Popover.Button>
@@ -103,14 +106,18 @@ export default function Headre() {
                     </Transition>
                 </Popover>
 
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Features</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Company</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Inicio</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Areas de practica</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Galeria</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Resultados</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Nosotros</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Contacto</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Calculadora</a>
 
             </Popover.Group>
 
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">
                     Log in
                     <span aria-hidden="true">&rarr;</span>
                 </a>
@@ -128,8 +135,8 @@ export default function Headre() {
                 <div className="flex items-center justify-between">
                     <a href="#" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
-                        <img    className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        <img    className="h-10 w-auto"
+                                src={logo}
                                 alt=""/>
                     </a>
 
