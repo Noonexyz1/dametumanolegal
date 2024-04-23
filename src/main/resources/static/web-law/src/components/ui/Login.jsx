@@ -27,7 +27,7 @@ export default function Login() {
           ```
         */}
             <div className="flex min-h-full flex-1 flex-row justify-center px-6 py-12 lg:px-8  bg-[#233E4F]">
-                <div className="flex flex-col px-6 py-12 bg-[#100C18] min-w-96 tam rounded-3xl border-2 border-[#E37B3A]">
+                <div className="flex flex-col px-6 py-12 bg-[#100C18] tam rounded-3xl border-2 border-[#E37B3A]">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <img
                             className="mx-auto h-40 w-auto"
