@@ -6,18 +6,20 @@ import BodyWelcome from "./components/ui/BodyWelcome"
 import Dashboard from "./components/ui/Dashboard"
 import { FooterWithSocialLinks } from "./components/ui/FooterWithSocialLinks"
 import Header from "./components/ui/Header"
+import InformationText from "./components/ui/InformationText"
 import Login from "./components/ui/Login"
 
 function App() {
 
   return (
-    <div className="background">
+    <div className="flex flex-col">
       <Header/>
       <BodyWelcome/>
       <BodyDeclarations/>
       <BodyGallery/>
       <BodyResults/>
       <BodyCollaborators/>
+      <InformationText/>
       <FooterWithSocialLinks/>
       <Login/>
       <Dashboard/>
