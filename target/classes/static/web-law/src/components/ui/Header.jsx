@@ -13,6 +13,7 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import logo from '../../assets/logo.png'
 import './Header.css'
 import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll';
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -108,11 +109,11 @@ export default function Headre() {
                 </Popover>
 
                 <Link to="/" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Inicio</Link>
-                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Areas de practica</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Galeria</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Resultados</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Nosotros</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Contacto</a>
+                <ScrollLink to="section3" smooth={true} duration={500} className="text-sm font-semibold leading-6 text-[#FFFFFF]">Areas de practica</ScrollLink>
+                <ScrollLink to="section4" smooth={true} duration={500} className="text-sm font-semibold leading-6 text-[#FFFFFF]">Galeria</ScrollLink>
+                <ScrollLink to="section5" smooth={true} duration={500} className="text-sm font-semibold leading-6 text-[#FFFFFF]">Resultados</ScrollLink>
+                <ScrollLink to="section6" smooth={true} duration={500} className="text-sm font-semibold leading-6 text-[#FFFFFF]">Nosotros</ScrollLink>
+                <ScrollLink to="section8" smooth={true} duration={500} className="text-sm font-semibold leading-6 text-[#FFFFFF]">Contacto</ScrollLink>
                 <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Calculadora</a>
 
             </Popover.Group>
