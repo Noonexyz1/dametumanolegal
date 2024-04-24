@@ -12,6 +12,7 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import logo from '../../assets/logo.png'
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -106,7 +107,7 @@ export default function Headre() {
                     </Transition>
                 </Popover>
 
-                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Inicio</a>
+                <Link to="/" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Inicio</Link>
                 <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Areas de practica</a>
                 <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Galeria</a>
                 <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">Resultados</a>
@@ -117,10 +118,10 @@ export default function Headre() {
             </Popover.Group>
 
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" className="text-sm font-semibold leading-6 text-[#FFFFFF]">
+                <Link to="/login" className="text-sm font-semibold leading-6 text-[#FFFFFF]">
                     Log in
                     <span aria-hidden="true">&rarr;</span>
-                </a>
+                </Link>
             </div>
 
         </nav>
