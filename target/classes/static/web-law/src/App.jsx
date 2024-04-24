@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import BodyCollaborators from "./components/ui/BodyCollaborators"
 import BodyDeclarations from "./components/ui/BodyDeclarations"
 import BodyGallery from "./components/ui/BodyGallery"
@@ -13,16 +14,32 @@ function App() {
 
   return (
     <div className="flex flex-col">
-      <Header/>
-      <BodyWelcome/>
-      <BodyDeclarations/>
-      <BodyGallery/>
-      <BodyResults/>
-      <BodyCollaborators/>
-      <InformationText/>
-      <FooterWithSocialLinks/>
-      <Login/>
-      <Dashboard/>
+      <BrowserRouter>
+
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Header />
+              <BodyWelcome />
+              <BodyDeclarations />
+              <BodyGallery />
+              <BodyResults />
+              <BodyCollaborators />
+              <InformationText />
+              <FooterWithSocialLinks />
+            </>
+          } />
+          <Route path="/login" element={
+            <>
+              <Header />
+              <Login />
+              <FooterWithSocialLinks />
+            </>
+          } />
+          <Route path="/dash" element={<Dashboard />} />
+        </Routes>
+
+      </BrowserRouter>
     </div>
   )
 }
