@@ -1,0 +1,33 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    /*Colores basicos*/
+    background: #367EA4;
+    background: #42B9BF;
+    background: #42B9BF;
+    background: #5CB6A5;
+    background: #34C5E2;
+    background: #7592CD;
+    background: #F84592;
+    background: #CD378B;
+    background: #F23B48;
+    background: #E37B3A;
+    background: #E09C36;
+    background: #E494EC;
+    background: #57017E;
+    background: #AC198D;
+    
+    background: #1B1E31;
+    background: #233E4F;
+    background: #79ABA2;
+    background: #6D748E;
+    background: #006C6C;
+    background: #2A414F;
+    background: #100C18;
+    
+    
+    background-color: #100C18;
+}
