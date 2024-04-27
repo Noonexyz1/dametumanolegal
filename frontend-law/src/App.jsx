@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="flex flex-col">
       <BrowserRouter>
-
         <Routes>
           <Route path="/" element={
             <>

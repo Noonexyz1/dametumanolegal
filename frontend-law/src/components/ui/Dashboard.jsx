@@ -16,6 +16,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const sortOptions = [
     { name: 'Most Popular', href: '#', current: true },
@@ -73,7 +74,27 @@ const stats = [
     { id: 1, titulo: 'Transactions every 24 hours', valor: '44 million', icono: '#' },
     { id: 2, titulo: 'Assets under holding', valor: '$119 trillion', icono: '#' },
     { id: 3, titulo: 'New users annually', valor: '46,000', icono: '#' },
+    { id: 4, titulo: 'New users annually222', valor: '50,000', icono: '#' }
 ]
+
+const data = [
+    {name: "María", age: 10, weight: 60},
+    {name: 'Karina', age: 25, weight: 70},
+    {name: 'Susana', age: 15, weight: 65},
+    {name: 'Pedro', age: 35, weight: 85},
+    {name: 'Felipe', age: 12, weight: 48},
+    {name: 'Laura', age: 30, weight: 69},
+    {name: 'Adrián', age: 15, weight: 78},
+]
+const dataPay = [
+    { name: "Group A", value: 2400 },
+    { name: 'Group B', value: 4567 },
+    { name: 'Group C', value: 1398 },
+    { name: 'Group D', value: 9800 },
+    { name: 'Group E', value: 3908 },
+    { name: 'Group F', value: 4800 },
+]
+const COLORS = ['#ce93d8', '#5c6bc0', '#b39ddb', '#4dd0e1', '#f48fb1', '#d500f9']
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -325,44 +346,85 @@ export default function Dashboard() {
                                     {/*Contenedor para mis etiquetas */}
                                     <div className="flex flex-row justify-around flex-wrap bg-red-500 py-5 px-6">
                                         {/*Para mis tarjetas etiquetas */}
-                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
-                                            <div className='px-2 py-2'>IMAGEN</div>
-                                            <div className='flex flex-col'>
-                                                <h1>Hola1</h1>
-                                                <h1>Hola2</h1>
+                                        {stats.map((stat) => (
+                                            <div key={stat.id} className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
+                                                <div className='px-2 py-2'>{stat.icono}</div>
+                                                <div className='flex flex-col'>
+                                                    <h1>{stat.titulo}</h1>
+                                                    <h1>{stat.valor}</h1>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
-                                            <div className='px-2 py-2'>IMAGEN</div>
-                                            <div className='flex flex-col'>
-                                                <h1>Hola1</h1>
-                                                <h1>Hola2</h1>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
-                                            <div className='px-2 py-2'>IMAGEN</div>
-                                            <div className='flex flex-col'>
-                                                <h1>Hola1</h1>
-                                                <h1>Hola2</h1>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
-                                            <div className='px-2 py-2'>IMAGEN</div>
-                                            <div className='flex flex-col'>
-                                                <h1>Hola1</h1>
-                                                <h1>Hola2</h1>
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                        
+                                        ))}
                                         
                                     </div>
 
 
                                     {/*Contenedor para mis graficos estadisticos */}
                                     <div className="bg-yellow-300 mx-auto max-w-7xl px-6 lg:px-8">
-                                        hola 
+                                        <ResponsiveContainer width="100%" aspect={2}>
+                                            <BarChart
+                                                data={data}
+                                                width={500}
+                                                height={300}
+                                                margin={{
+                                                    top: 5,
+                                                    right: 30,
+                                                    left: 20,
+                                                    bottom: 5
+                                                }}
+                                            >
+                                                <CartesianGrid strokeDasharray="4 1 2" />
+                                                <XAxis dataKey="name" />
+                                                <YAxis />
+                                                <Tooltip />
+                                                <Legend />
+                                                <Bar dataKey="weight" fill="#6b48ff" />
+                                                <Bar dataKey="age" fill="#1ee3cf" />
+                                            </BarChart>
+                                        </ResponsiveContainer>
+
+                                        <ResponsiveContainer width="100%" aspect={2}>
+                                            <AreaChart
+                                                width={500}
+                                                height={400}
+                                                data={data}
+                                                margin={{
+                                                    top: 10,
+                                                    right: 30,
+                                                    left: 0,
+                                                    bottom: 0
+                                                }}
+                                            >
+                                                <CartesianGrid strokeDasharray="3 3" />
+                                                <XAxis dataKey="name" />
+                                                <YAxis />
+                                                <Tooltip />
+                                                <Area type="monotone" dataKey="age" stackId="1" stroke='#8884d8' fill="#8884d8" />
+                                                <Area type="monotone" dataKey="weight" stackId="1" stroke='#82caed' fill="#fad3cf" />
+                                            </AreaChart>
+                                        </ResponsiveContainer>
+
+                                        <div style={{ width: '100%', height: 400 }}>
+                                            <ResponsiveContainer>
+                                                <PieChart>
+                                                    <Pie
+                                                        dataKey="value"
+                                                        data={dataPay}
+                                                        innerRadius={60}
+                                                        outerRadius={85}
+                                                        fill="#82ca9d"
+                                                    >
+                                                        {dataPay.map((entry, index) => (
+                                                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                                        ))}
+                                                    </Pie>
+                                                    <Tooltip />
+                                                </PieChart>
+
+                                            </ResponsiveContainer>
+                                        </div>
+
+
                                     </div>
 
                                 </div>
