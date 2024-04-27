@@ -25,13 +25,13 @@ const sortOptions = [
     { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-    { name: 'Totes', href: '#' },
-    { name: 'Backpacks', href: '#' },
-    { name: 'Travel Bags', href: '#' },
-    { name: 'Hip Bags', href: '#' },
-    { name: 'Laptop Sleeves', href: '#' },
+    { name: 'dashboard', href: '#' },
+    { name: 'documentacion', href: '#' },
+    { name: 'agenda', href: '#' },
+    { name: 'clientes', href: '#' },
+    { name: 'subCategories5', href: '#' },
 ]
-const filters = [
+const subMenus = [
     {
         id: 'color',
         name: 'Color',
@@ -69,6 +69,12 @@ const filters = [
     },
 ]
 
+const stats = [
+    { id: 1, titulo: 'Transactions every 24 hours', valor: '44 million', icono: '#' },
+    { id: 2, titulo: 'Assets under holding', valor: '$119 trillion', icono: '#' },
+    { id: 3, titulo: 'New users annually', valor: '46,000', icono: '#' },
+]
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -91,7 +97,7 @@ export default function Dashboard() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <div className="fixed inset-0 bg-black bg-opacity-25" />
+                        <div className="fixed inset-0 bg-black bg-opacity-25" />
                         </Transition.Child>
 
                         <div className="fixed inset-0 z-40 flex">
@@ -106,7 +112,7 @@ export default function Dashboard() {
                             >
                                 <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
                                     <div className="flex items-center justify-between px-4">
-                                        <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                                        <h2 className="text-lg font-medium text-gray-900">Diego</h2>
                                         <button
                                             type="button"
                                             className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
@@ -130,7 +136,7 @@ export default function Dashboard() {
                                             ))}
                                         </ul>
 
-                                        {filters.map((section) => (
+                                        {subMenus.map((section) => (
                                             <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
                                                 {({ open }) => (
                                                     <>
@@ -179,12 +185,14 @@ export default function Dashboard() {
                     </Dialog>
                 </Transition.Root>
 
-                <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
+                <main className="bg-green-400 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className=" bg-slate-500 flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
 
-                        <div className="flex items-center">
-                            <Menu as="div" className="relative inline-block text-left">
+                        <h1 className="text-4xl font-bold tracking-tight text-gray-900">Nombre de la Marca</h1>
+
+                        <div className="bg-red-400 flex items-center">
+
+                            <Menu as="div" className="bg-purple-500 relative inline-block text-left">
                                 <div>
                                     <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                                         Sort
@@ -227,30 +235,28 @@ export default function Dashboard() {
                                 </Transition>
                             </Menu>
 
-                            <button type="button" className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
+                            <button type="button" className="bg-yellow-100 -m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
                                 <span className="sr-only">View grid</span>
                                 <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
                             </button>
-                            <button
-                                type="button"
-                                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                                onClick={() => setMobileFiltersOpen(true)}
-                            >
+                            
+                            <button type="button" className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                                onClick={() => setMobileFiltersOpen(true)}>
+
                                 <span className="sr-only">Filters</span>
                                 <FunnelIcon className="h-5 w-5" aria-hidden="true" />
                             </button>
+
                         </div>
+
                     </div>
 
-                    <section aria-labelledby="products-heading" className="pb-24 pt-6">
-                        <h2 id="products-heading" className="sr-only">
-                            Products
-                        </h2>
-
-                        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+                    <section aria-labelledby="products-heading" className="bg-blue-500 pb-24 pt-6">
+                        <div className="bg-orange-400 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                             {/* Filters */}
                             <form className="hidden lg:block">
-                                <h3 className="sr-only">Categories</h3>
+                                
+                                <h2>Categoria 1</h2>
                                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                                     {subCategories.map((category) => (
                                         <li key={category.name}>
@@ -259,7 +265,8 @@ export default function Dashboard() {
                                     ))}
                                 </ul>
 
-                                {filters.map((section) => (
+                                {subMenus.map((section) => (
+
                                     <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
                                         {({ open }) => (
                                             <>
@@ -300,14 +307,72 @@ export default function Dashboard() {
                                             </>
                                         )}
                                     </Disclosure>
+
                                 ))}
+
                             </form>
 
                             {/* Product grid */}
-                            <div className="lg:col-span-3">{/* Your content */}</div>
+                            {/*INSPIRACION: https://mui.com/store/previews/minimal-dashboard-free/ */}
+                            <div className="bg-white lg:col-span-3">{/* Your content */}
+                                <div className="bg-green-500 py-24 sm:py-8">
+
+                                    {/*Mensaje de bienvenida*/}
+                                    <div className="bg-blue-500 mx-auto max-w-7xl px-6 lg:px-8">
+                                        Bienvenido señor Dr. asdfasdf
+                                    </div>
+
+                                    {/*Contenedor para mis etiquetas */}
+                                    <div className="flex flex-row justify-around flex-wrap bg-red-500 py-5 px-6">
+                                        {/*Para mis tarjetas etiquetas */}
+                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
+                                            <div className='px-2 py-2'>IMAGEN</div>
+                                            <div className='flex flex-col'>
+                                                <h1>Hola1</h1>
+                                                <h1>Hola2</h1>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
+                                            <div className='px-2 py-2'>IMAGEN</div>
+                                            <div className='flex flex-col'>
+                                                <h1>Hola1</h1>
+                                                <h1>Hola2</h1>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
+                                            <div className='px-2 py-2'>IMAGEN</div>
+                                            <div className='flex flex-col'>
+                                                <h1>Hola1</h1>
+                                                <h1>Hola2</h1>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
+                                            <div className='px-2 py-2'>IMAGEN</div>
+                                            <div className='flex flex-col'>
+                                                <h1>Hola1</h1>
+                                                <h1>Hola2</h1>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                    </div>
+
+
+                                    {/*Contenedor para mis graficos estadisticos */}
+                                    <div className="bg-yellow-300 mx-auto max-w-7xl px-6 lg:px-8">
+                                        hola 
+                                    </div>
+
+                                </div>
+                            </div>
+
+
                         </div>
                     </section>
                 </main>
+
             </div>
         </div>
     )
