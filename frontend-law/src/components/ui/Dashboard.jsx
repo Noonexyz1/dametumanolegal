@@ -17,6 +17,7 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import logo from '../../assets/logo.png'
 
 const sortOptions = [
     { name: 'Most Popular', href: '#', current: true },
@@ -71,10 +72,10 @@ const subMenus = [
 ]
 
 const stats = [
-    { id: 1, titulo: 'Transactions every 24 hours', valor: '44 million', icono: '#' },
-    { id: 2, titulo: 'Assets under holding', valor: '$119 trillion', icono: '#' },
-    { id: 3, titulo: 'New users annually', valor: '46,000', icono: '#' },
-    { id: 4, titulo: 'New users annually222', valor: '50,000', icono: '#' }
+    { id: 1, titulo: 'Weekly', valor: '714k', icono: 'https://minimal-kit-react.vercel.app/assets/icons/glass/ic_glass_bag.png' },
+    { id: 2, titulo: 'New Users', valor: '1.35m', icono: 'https://minimal-kit-react.vercel.app/assets/icons/glass/ic_glass_users.png' },
+    { id: 3, titulo: 'Item Orders', valor: '1.72m', icono: 'https://minimal-kit-react.vercel.app/assets/icons/glass/ic_glass_buy.png' },
+    { id: 4, titulo: 'Bug Reports', valor: '234', icono: 'https://minimal-kit-react.vercel.app/assets/icons/glass/ic_glass_message.png' }
 ]
 
 const data = [
@@ -206,19 +207,24 @@ export default function Dashboard() {
                     </Dialog>
                 </Transition.Root>
 
-                <main className="bg-green-400 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className=" bg-slate-500 flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+                <main className="bg-slate-800 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="rounded-b-3xl border-b-2 border-[#FFFFFF] bg-[#100C18] mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
 
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900">Nombre de la Marca</h1>
+                        <div className="flex lg:flex-1">
+                            <a href="#" className="-m-1.5 p-1.5">
+                                <span className="sr-only">Dame tu Mano</span>
+                                <img className="h-10 w-auto" src={logo} alt="" />
+                            </a>
+                        </div>
 
-                        <div className="bg-red-400 flex items-center">
+                        <div className="flex items-center">
 
-                            <Menu as="div" className="bg-purple-500 relative inline-block text-left">
+                            <Menu as="div" className="relative inline-block text-left">
                                 <div>
-                                    <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                                    <Menu.Button className="group inline-flex justify-center text-sm font-medium text-white hover:text-[#E37B3A]">
                                         Sort
                                         <ChevronDownIcon
-                                            className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                                            className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-white group-hover:text-[#E37B3A]"
                                             aria-hidden="true"
                                         />
                                     </Menu.Button>
@@ -256,12 +262,12 @@ export default function Dashboard() {
                                 </Transition>
                             </Menu>
 
-                            <button type="button" className="bg-yellow-100 -m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
+                            <button type="button" className="-m-2 ml-5 p-2 text-white hover:text-[#E37B3A] sm:ml-7">
                                 <span className="sr-only">View grid</span>
                                 <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
                             </button>
                             
-                            <button type="button" className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                            <button type="button" className="-m-2 ml-4 p-2 text-white hover:text-[#E37B3A] sm:ml-6 lg:hidden"
                                 onClick={() => setMobileFiltersOpen(true)}>
 
                                 <span className="sr-only">Filters</span>
@@ -272,7 +278,7 @@ export default function Dashboard() {
 
                     </div>
 
-                    <section aria-labelledby="products-heading" className="bg-blue-500 pb-24 pt-6">
+                    <section aria-labelledby="products-heading" className="bg-slate-600 pb-24 pt-6">
                         <div className="bg-orange-400 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                             {/* Filters */}
                             <form className="hidden lg:block">
@@ -339,79 +345,85 @@ export default function Dashboard() {
                                 <div className="bg-green-500 py-24 sm:py-8">
 
                                     {/*Mensaje de bienvenida*/}
-                                    <div className="bg-blue-500 mx-auto max-w-7xl px-6 lg:px-8">
-                                        Bienvenido señor Dr. asdfasdf
+                                    <div className="bg-blue-500 mx-auto max-w-7xl px-10 lg:px-8">
+                                        <h3 className='text-2xl text-white'>Bienvenido Dr. Chapatin</h3>
                                     </div>
 
                                     {/*Contenedor para mis etiquetas */}
                                     <div className="flex flex-row justify-around flex-wrap bg-red-500 py-5 px-6">
                                         {/*Para mis tarjetas etiquetas */}
                                         {stats.map((stat) => (
-                                            <div key={stat.id} className="flex flex-row justify-start border border-black w-48 h-24 my-2 mx-2">
-                                                <div className='px-2 py-2'>{stat.icono}</div>
-                                                <div className='flex flex-col'>
+                                            <div key={stat.id} className="bg-slate-500 flex flex-row justify-start border border-white rounded-2xl w-48 h-24 my-2 mx-2">
+                                                <div className='px-2 py-2'>
+                                                    <img src={stat.icono} alt="icono-card" />
+                                                </div>
+                                                <div className='bg-green-800 flex flex-col justify-center'>
+                                                    <h1 className='text-2xl'>{stat.valor}</h1>
                                                     <h1>{stat.titulo}</h1>
-                                                    <h1>{stat.valor}</h1>
                                                 </div>
                                             </div>
                                         ))}
                                         
                                     </div>
 
-
                                     {/*Contenedor para mis graficos estadisticos */}
                                     <div className="bg-yellow-300 mx-auto max-w-7xl px-6 lg:px-8">
-                                        <ResponsiveContainer width="100%" aspect={2}>
-                                            <BarChart
-                                                data={data}
-                                                width={500}
-                                                height={300}
-                                                margin={{
-                                                    top: 5,
-                                                    right: 30,
-                                                    left: 20,
-                                                    bottom: 5
-                                                }}
-                                            >
-                                                <CartesianGrid strokeDasharray="4 1 2" />
-                                                <XAxis dataKey="name" />
-                                                <YAxis />
-                                                <Tooltip />
-                                                <Legend />
-                                                <Bar dataKey="weight" fill="#6b48ff" />
-                                                <Bar dataKey="age" fill="#1ee3cf" />
-                                            </BarChart>
-                                        </ResponsiveContainer>
+                                        <div className="sm:mx-auto bg-slate-500 flex flex-row justify-start border border-white rounded-2xl h-72 my-2 mx-2 pt-16 sm:pt-0">
+                                            <ResponsiveContainer width="100%" aspect={2}>
+                                                <BarChart
+                                                    data={data}
+                                                    width={500}
+                                                    height={400}
+                                                    margin={{
+                                                        top: 10,
+                                                        right: 30,
+                                                        left: 0,
+                                                        bottom: 0
+                                                    }}
+                                                >
+                                                    <CartesianGrid strokeDasharray="4 1 2" />
+                                                    <XAxis dataKey="name" />
+                                                    <YAxis />
+                                                    <Tooltip />
+                                                    <Legend />
+                                                    <Bar dataKey="weight" fill="#6b48ff" />
+                                                    <Bar dataKey="age" fill="#1ee3cf" />
+                                                </BarChart>
+                                            </ResponsiveContainer>
+                                        </div>
 
-                                        <ResponsiveContainer width="100%" aspect={2}>
-                                            <AreaChart
-                                                width={500}
-                                                height={400}
-                                                data={data}
-                                                margin={{
-                                                    top: 10,
-                                                    right: 30,
-                                                    left: 0,
-                                                    bottom: 0
-                                                }}
-                                            >
-                                                <CartesianGrid strokeDasharray="3 3" />
-                                                <XAxis dataKey="name" />
-                                                <YAxis />
-                                                <Tooltip />
-                                                <Area type="monotone" dataKey="age" stackId="1" stroke='#8884d8' fill="#8884d8" />
-                                                <Area type="monotone" dataKey="weight" stackId="1" stroke='#82caed' fill="#fad3cf" />
-                                            </AreaChart>
-                                        </ResponsiveContainer>
+                                        <div className="sm:mx-auto bg-slate-500 flex flex-row justify-start border border-white rounded-2xl h-72 my-2 mx-2 pt-16 sm:pt-0">
+                                            <ResponsiveContainer width="100%" aspect={2}>
+                                                <AreaChart
+                                                    width={500}
+                                                    height={400}
+                                                    data={data}
+                                                    margin={{
+                                                        top: 10,
+                                                        right: 30,
+                                                        left: 0,
+                                                        bottom: 0
+                                                    }}
+                                                >
+                                                    <CartesianGrid strokeDasharray="3 3" />
+                                                    <XAxis dataKey="name" />
+                                                    <YAxis />
+                                                    <Tooltip />
+                                                    <Area type="monotone" dataKey="age" stackId="1" stroke='#8884d8' fill="#8884d8" />
+                                                    <Area type="monotone" dataKey="weight" stackId="1" stroke='#82caed' fill="#fad3cf" />
+                                                </AreaChart>
+                                            </ResponsiveContainer>
+                                        </div>
 
-                                        <div style={{ width: '100%', height: 400 }}>
+
+                                        <div className="sm:mx-auto bg-slate-500 flex flex-row justify-start border border-white rounded-2xl h-72 my-2 mx-2">
                                             <ResponsiveContainer>
                                                 <PieChart>
                                                     <Pie
                                                         dataKey="value"
                                                         data={dataPay}
                                                         innerRadius={60}
-                                                        outerRadius={85}
+                                                        outerRadius={120}
                                                         fill="#82ca9d"
                                                     >
                                                         {dataPay.map((entry, index) => (
@@ -420,7 +432,6 @@ export default function Dashboard() {
                                                     </Pie>
                                                     <Tooltip />
                                                 </PieChart>
-
                                             </ResponsiveContainer>
                                         </div>
 
