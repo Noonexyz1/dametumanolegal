@@ -19,6 +19,7 @@ export default function BodyWelcome() {
                 alt=""
                 className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
             />
+            
             <div
                 className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
                 aria-hidden="true"
