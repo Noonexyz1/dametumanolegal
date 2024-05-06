@@ -18,6 +18,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MinusIcon, PlusIcon, Squares2X2Icon, Bars3Icon } from '@heroicons/react/20/solid'
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import logo from '../../assets/logo.png'
+import DataTableResults from './DataTableResults'
 
 const sortOptions = [
     { name: 'Most Popular', href: '#', current: true },
@@ -615,6 +616,9 @@ export default function Dashboard() {
                                         </form>
                                     </div>
                                 </div>
+
+
+                                <DataTableResults />
 
                             </div>
 
