@@ -1,14 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import BodyCollaborators from "./components/ui/BodyCollaborators"
-import BodyDeclarations from "./components/ui/BodyDeclarations"
-import BodyGallery from "./components/ui/BodyGallery"
-import BodyResults from "./components/ui/BodyResults"
-import BodyWelcome from "./components/ui/BodyWelcome"
-import Dashboard from "./components/ui/Dashboard"
-import { FooterWithSocialLinks } from "./components/ui/FooterWithSocialLinks"
-import Header from "./components/ui/Header"
-import InformationText from "./components/ui/InformationText"
-import Login from "./components/ui/Login"
+import HomePath from "./components/ui/HomePath"
+import LoginPath from "./components/ui/LoginPath"
+import DashboardPath from "./components/ui/DashboardPath"
 
 function App() {
 
@@ -16,28 +9,10 @@ function App() {
     <div className="flex flex-col">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={
-            <>
-              <Header />
-              <BodyWelcome />
-              <BodyDeclarations />
-              <BodyGallery />
-              <BodyResults />
-              <BodyCollaborators />
-              <InformationText />
-              <FooterWithSocialLinks />
-            </>
-          } />
-          <Route path="/login" element={
-            <>
-              <Header />
-              <Login />
-              <FooterWithSocialLinks />
-            </>
-          } />
-          <Route path="/dash" element={<Dashboard />} />
+          <Route path="/" element={<HomePath />} />
+          <Route path="/login" element={<LoginPath />} />
+          <Route path="/dash" element={<DashboardPath />} />
         </Routes>
-
       </BrowserRouter>
     </div>
   )
