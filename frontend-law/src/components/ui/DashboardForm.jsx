@@ -68,7 +68,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Dashboard() {
+export default function DashboardForm() {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
     return (
@@ -312,10 +312,7 @@ export default function Dashboard() {
                             <div className="lg:col-span-3 py-2">{/* Your content */}
                                 {/*Mensaje de bienvenida*/}
                                 <GreetingForPerson />
-                                {/*Contenedor para mis etiquetas */}
-                                <InfoCardsGroup />
-                                {/*Contenedor para mis graficos estadisticos */}
-                                <GrafStatGroup />
+                                <Form />
                             </div>
 
                         </div>

@@ -68,7 +68,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Dashboard() {
+export default function DashboardTable() {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
     return (
@@ -310,12 +310,8 @@ export default function Dashboard() {
                             {/* Product grid */}
                             {/*INSPIRACION: https://mui.com/store/previews/minimal-dashboard-free/ */}
                             <div className="lg:col-span-3 py-2">{/* Your content */}
-                                {/*Mensaje de bienvenida*/}
                                 <GreetingForPerson />
-                                {/*Contenedor para mis etiquetas */}
-                                <InfoCardsGroup />
-                                {/*Contenedor para mis graficos estadisticos */}
-                                <GrafStatGroup />
+                                <DataTableResults />
                             </div>
 
                         </div>
