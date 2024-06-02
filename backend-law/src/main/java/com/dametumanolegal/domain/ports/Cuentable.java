@@ -3,7 +3,8 @@ package com.dametumanolegal.domain.ports;
 import com.dametumanolegal.domain.Cuenta;
 
 public interface Cuentable {
-    void crearCuenta(Cuenta neuvaCuenta);
+    void crearCuentaParaStaff(Cuenta neuvaCuenta);
     void traerCuentaPorId(String idCuentas);
-    void desactivarCuenta(Cuenta cuentaDesactivada);
+    void desactivarCuentaDeStaff(Cuenta cuentaForChange);
+    void modifiPassCuentaDeStaff(Cuenta cuentaForChange);
 }

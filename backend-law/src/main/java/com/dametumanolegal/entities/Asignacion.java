@@ -8,28 +8,32 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "abogado")
-public class Abogado {
+@Table(name = "asignacion")
+public class Asignacion {
     @Id
     @SequenceGenerator(
-            name = "abogado_sequence",
-            sequenceName = "abogado_sequence",
+            name = "asignacion_sequence",
+            sequenceName = "asignacion_sequence",
             allocationSize = 1,
             initialValue = 999
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "abogado_sequence"
+            generator = "asignacion_sequence"
     )
     @Column(
             updatable = false
     )
-    private Long idAbogado;
-    private boolean isAdmin;
+    private Long idAsignacion;
+    private String fechaAsignacion;
+    private String fechaSustraccion;
+    private boolean isActive;
 
 
 
 
     @ManyToOne
     private StaffLegal idStaffLegal;
+    @ManyToOne
+    private Rol idRol;
 }
