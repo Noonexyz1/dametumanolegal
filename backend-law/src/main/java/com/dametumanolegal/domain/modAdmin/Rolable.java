@@ -1,5 +1,7 @@
 package com.dametumanolegal.domain.modAdmin;
 
+import com.dametumanolegal.domain.modStaffLegal.StaffLegal;
+
 import java.util.List;
 
 public interface Rolable {
