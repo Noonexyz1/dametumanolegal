@@ -4,6 +4,6 @@ import com.dametumanolegal.domain.modAdmin.Cuenta;
 
 public interface Autenticable {
     boolean iniciarSesion(Cuenta cuenta);
-    void cerrarSesion(Sesion sesion);
-    void modificarPassword(Cuenta cuenta);
+    boolean cerrarSesion(Sesion sesion);
+    boolean modificarPassword(Cuenta cuenta);
 }
