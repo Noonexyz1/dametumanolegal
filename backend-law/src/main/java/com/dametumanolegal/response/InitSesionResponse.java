@@ -1,11 +1,12 @@
 package com.dametumanolegal.response;
 
+import com.dametumanolegal.domain.modAdmin.CuentaDomain;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
 public class InitSesionResponse {
-    private String ciUser;
-    private String passUser;
+    private CuentaDomain cuentaDomain;
+    private String estado;
 }

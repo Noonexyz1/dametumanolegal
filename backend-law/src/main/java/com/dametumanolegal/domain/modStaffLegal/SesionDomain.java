@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Sesion {
+public class SesionDomain {
     private Long idSesion;
     private String fechaSesion;
     private boolean estadoSesion;
 
-    private StaffLegal idStaffLegal;
+    private StaffLegalDomain idStaffLegal;
 }

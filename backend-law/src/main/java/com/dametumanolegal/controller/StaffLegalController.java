@@ -1,11 +1,9 @@
 package com.dametumanolegal.controller;
 
-import com.dametumanolegal.domain.modStaffLegal.StaffLegal;
 import com.dametumanolegal.domain.port.Autenticable;
 import com.dametumanolegal.request.InitSesionRequest;
 import com.dametumanolegal.response.InitSesionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,9 +21,14 @@ public class StaffLegalController implements Autenticable {
     }
 
     @Override
-    @GetMapping("/cerrar_sesion")
-    public InitSesionResponse cerrarSesion(InitSesionRequest initSesion) {
-        Autenticable autenticable = new StaffLegal();
+    @PostMapping("/cerrar_sesion")
+    public InitSesionResponse cerrarSesion(@RequestBody InitSesionRequest initSesion) {
         return autenticable.cerrarSesion(initSesion);
+    }
+
+    @Override
+    @PostMapping("/cambiar_pass")
+    public InitSesionResponse modificarPassword(@RequestBody InitSesionResponse initSesion) {
+        return autenticable.modificarPassword(initSesion);
     }
 }

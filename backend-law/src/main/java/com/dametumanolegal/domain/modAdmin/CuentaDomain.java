@@ -1,6 +1,6 @@
 package com.dametumanolegal.domain.modAdmin;
 
-import com.dametumanolegal.domain.modStaffLegal.StaffLegal;
+import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +16,5 @@ public class CuentaDomain {
     private String passUsuario;
     private boolean isActive;
 
-    private StaffLegal idStaffLegal;
+    private StaffLegalDomain idStaffLegal;
 }

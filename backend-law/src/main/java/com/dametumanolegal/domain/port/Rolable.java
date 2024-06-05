@@ -1,15 +1,15 @@
 package com.dametumanolegal.domain.port;
 
-import com.dametumanolegal.domain.modAdmin.Rol;
-import com.dametumanolegal.domain.modStaffLegal.StaffLegal;
+import com.dametumanolegal.domain.modAdmin.RolDomain;
+import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
 
 import java.util.List;
 
 public interface Rolable {
-    void crearRol(Rol rolNuevo);
+    void crearRol(RolDomain rolNuevo);
     void traerRolPorId(String idRol);
-    void modificarRol(Rol rolModificado);
-    List<Rol> listarRoles();
-    void desactivarRol(Rol rolDesactivado);
-    void asiginarElRol(StaffLegal personal, Rol rol);
+    void modificarRol(RolDomain rolModificado);
+    List<RolDomain> listarRoles();
+    void desactivarRol(RolDomain rolDesactivado);
+    void asiginarElRol(StaffLegalDomain personal, RolDomain rol);
 }

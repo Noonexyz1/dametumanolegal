@@ -1,13 +1,13 @@
 package com.dametumanolegal.domain.modAdmin;
 
-import com.dametumanolegal.domain.modStaffLegal.StaffLegal;
+import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
 
-public class Asignacion {
+public class AsignacionDomain {
     private Long idAsignacion;
     private String fechaAsignacion;
     private String fechaSustraccion;
     private boolean isActive;
 
-    private StaffLegal idStaffLegal;
-    private Rol idRol;
+    private StaffLegalDomain idStaffLegal;
+    private RolDomain idRol;
 }
