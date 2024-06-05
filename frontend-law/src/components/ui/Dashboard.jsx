@@ -5,7 +5,7 @@ import { ChevronDownIcon, MinusIcon, PlusIcon, Squares2X2Icon, Bars3Icon } from 
 import logo from '../../assets/logo.png'
 import DataTableResults from './DataTableResults'
 import Form from './Form'
-import GrafStatGroup from '../GrafStatGroup'
+import GrafStatGroup from './GrafStatGroup'
 import InfoCardsGroup from './InfoCardsGroup'
 import GreetingForPerson from './GreetingForPerson'
 import BackgroundImage from './BackgroundImage'
