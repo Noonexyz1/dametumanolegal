@@ -4,10 +4,12 @@ import com.dametumanolegal.domain.port.Autenticable;
 import com.dametumanolegal.request.InitSesionRequest;
 import com.dametumanolegal.response.InitSesionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 public class StaffLegalController implements Autenticable {
     @Autowired
