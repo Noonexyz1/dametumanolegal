@@ -1,329 +1,186 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, MinusIcon, PlusIcon, Squares2X2Icon, Bars3Icon } from '@heroicons/react/20/solid'
-import logo from '../../assets/logo.png'
-import DataTableResults from './DataTableResults'
-import Form from './Form'
-import GrafStatGroup from './GrafStatGroup'
-import InfoCardsGroup from './InfoCardsGroup'
-import GreetingForPerson from './GreetingForPerson'
-import BackgroundImage from './BackgroundImage'
-import { Link } from 'react-router-dom'
+import { Fragment, useState } from "react";
+import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, Bars3Icon } from "@heroicons/react/20/solid";
+import logo from "../../assets/logo.png";
+import { Link, Outlet } from "react-router-dom";
+import BackgroundImage from "./BackgroundImage";
 
 const sortOptions = [
-    { name: 'Most Popular', href: '#', current: true },
-    { name: 'Best Rating', href: '#', current: false },
-    { name: 'Newest', href: '#', current: false },
-    { name: 'Price: Low to High', href: '#', current: false },
-    { name: 'Price: High to Low', href: '#', current: false },
-]
+  { name: "Cambiar contraseña", href: "#", current: false },
+  { name: "Cerrar sesión", href: "#", current: false },
+];
+
 const subCategories = [
-    { name: 'Dashboard', href: '/dash' },
-    { name: 'Documentacion', href: '#' },
-    { name: 'Agenda', href: '#' },
-    { name: 'Clientes', href: '#' },
-    { name: 'SubCategories4', href: '#' },
-    { name: 'Formulario', href: '/dash/form' },
-    { name: 'Tabla', href: '/dash/tab' }
-]
-const subMenus = [
-    {
-        id: 'color',
-        name: 'Color',
-        options: [
-            { value: 'white', label: 'White', checked: false },
-            { value: 'beige', label: 'Beige', checked: false },
-            { value: 'blue', label: 'Blue', checked: true },
-            { value: 'brown', label: 'Brown', checked: false },
-            { value: 'green', label: 'Green', checked: false },
-            { value: 'purple', label: 'Purple', checked: false },
-        ],
-    },
-    {
-        id: 'category',
-        name: 'Category',
-        options: [
-            { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-            { value: 'sale', label: 'Sale', checked: false },
-            { value: 'travel', label: 'Travel', checked: true },
-            { value: 'organization', label: 'Organization', checked: false },
-            { value: 'accessories', label: 'Accessories', checked: false },
-        ],
-    },
-    {
-        id: 'size',
-        name: 'Size',
-        options: [
-            { value: '2l', label: '2L', checked: false },
-            { value: '6l', label: '6L', checked: false },
-            { value: '12l', label: '12L', checked: false },
-            { value: '18l', label: '18L', checked: false },
-            { value: '20l', label: '20L', checked: false },
-            { value: '40l', label: '40L', checked: true },
-        ],
-    },
-]
+  { name: "Estadistica", href: "/dash/stat" },
+  { name: "Formulario", href: "/dash/form" },
+  { name: "Tabla", href: "/dash/tab" },
+];
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Dashboard() {
-    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-    return (
-        <div className="relative isolate overflow-hidden bg-gray-900">
-            <BackgroundImage />
+  return (
+    <div className="relative isolate overflow-hidden bg-gray-900">
+      <BackgroundImage />
 
-            <div>
-                {/* Mobile filter dialog */}
-                <Transition.Root show={mobileFiltersOpen} as={Fragment}>
-                    <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileFiltersOpen}>
-                        <Transition.Child
-                            as={Fragment}
-                            enter="transition-opacity ease-linear duration-300"
-                            enterFrom="opacity-0"
-                            enterTo="opacity-100"
-                            leave="transition-opacity ease-linear duration-300"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0" >
+      <Transition.Root show={mobileFiltersOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-40 lg:hidden"
+          onClose={setMobileFiltersOpen}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
 
-                            <div className="fixed inset-0 bg-black bg-opacity-25" />
-                        </Transition.Child>
+          <div className="fixed inset-0 z-40 flex">
+            <Transition.Child
+              as={Fragment}
+              enter="transition ease-in-out duration-300 transform"
+              enterFrom="translate-x-full"
+              enterTo="translate-x-0"
+              leave="transition ease-in-out duration-300 transform"
+              leaveFrom="translate-x-0"
+              leaveTo="translate-x-full"
+            >
+              <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                <div className="flex items-center justify-between px-4">
+                  <h2 className="text-lg font-medium text-gray-900"></h2>
+                  <button
+                    type="button"
+                    className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                    onClick={() => setMobileFiltersOpen(false)}
+                  >
+                    <XMarkIcon
+                      className="h-6 w-6 text-black"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
 
-                        <div className="fixed inset-0 z-40 flex">
-                            <Transition.Child
-                                as={Fragment}
-                                enter="transition ease-in-out duration-300 transform"
-                                enterFrom="translate-x-full"
-                                enterTo="translate-x-0"
-                                leave="transition ease-in-out duration-300 transform"
-                                leaveFrom="translate-x-0"
-                                leaveTo="translate-x-full" >
+                <form className="mt-4 border-t border-gray-200">
+                  <ul role="list" className="px-2 py-3 font-medium text-gray-900">
+                    {subCategories.map((category) => (
+                      <li key={category.name}>
+                        <Link to={category.href} className="block px-2 py-3">
+                          {category.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </form>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
 
-                                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
-                                    <div className="flex items-center justify-between px-4">
-                                        <h2 className="text-lg font-medium text-gray-900">Diego</h2>
-                                        <button
-                                            type="button"
-                                            className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
-                                            onClick={() => setMobileFiltersOpen(false)}
-                                        >
-                                            <span className="sr-only">Close menu</span>
-                                            <XMarkIcon className="h-6 w-6 text-black" aria-hidden="true" />
-                                        </button>
-                                    </div>
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-0">
+        <div
+          className="rounded-b-3xl border-b-2 border-[#FFFFFF] bg-[#100C18] mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
+          <div className="flex lg:flex-1">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Dame tu Mano</span>
+              <img className="h-10 w-auto" src={logo} alt="" />
+            </a>
+          </div>
 
-                                    {/* Filters */}
-                                    <form className="mt-4 border-t border-gray-200">
-                                        <h3 className="sr-only">Categories</h3>
-                                        <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                                            {subCategories.map((category) => (
-                                                <li key={category.name}>
-                                                    <Link to={category.href} className="block px-2 py-3">
-                                                        {category.name}
-                                                    </Link>
-                                                </li>
-                                            ))}
-                                        </ul>
+          <div className="flex items-center">
+            <Menu as="div" className="relative inline-block text-left">
+              <div>
+                <Menu.Button className="group inline-flex justify-center text-sm font-medium text-white hover:text-[#E37B3A]">
+                  Usuario
+                  <ChevronDownIcon
+                    className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-white group-hover:text-[#E37B3A]"
+                    aria-hidden="true"
+                  />
+                </Menu.Button>
+              </div>
 
-                                        {subMenus.map((section) => (
-                                            <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
-                                                {({ open }) => (
-                                                    <>
-                                                        <h3 className="-mx-2 -my-3 flow-root">
-                                                            <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                                                <span className="font-medium text-gray-900">{section.name}</span>
-                                                                <span className="ml-6 flex items-center">
-                                                                    {open ? (
-                                                                        <MinusIcon className="h-5 w-5" aria-hidden="true" />
-                                                                    ) : (
-                                                                        <PlusIcon className="h-5 w-5" aria-hidden="true" />
-                                                                    )}
-                                                                </span>
-                                                            </Disclosure.Button>
-                                                        </h3>
-                                                        <Disclosure.Panel className="pt-6">
-                                                            <div className="space-y-6">
-                                                                {section.options.map((option, optionIdx) => (
-                                                                    <div key={option.value} className="flex items-center">
-                                                                        <input
-                                                                            id={`filter-mobile-${section.id}-${optionIdx}`}
-                                                                            name={`${section.id}[]`}
-                                                                            defaultValue={option.value}
-                                                                            type="checkbox"
-                                                                            defaultChecked={option.checked}
-                                                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                                                        />
-                                                                        <label
-                                                                            htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                                                            className="ml-3 min-w-0 flex-1 text-gray-900"
-                                                                        >
-                                                                            {option.label}
-                                                                        </label>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </Disclosure.Panel>
-                                                    </>
-                                                )}
-                                            </Disclosure>
-                                        ))}
-                                    </form>
-                                </Dialog.Panel>
-                            </Transition.Child>
-                        </div>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div className="py-1">
+                    {sortOptions.map((option) => (
+                      <Menu.Item key={option.name}>
+                        {({ active }) => (
+                          <a
+                            href={option.href}
+                            className={classNames(
+                              option.current
+                                ? "font-medium text-gray-900"
+                                : "text-gray-500",
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            {option.name}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu>
 
-                    </Dialog>
-                </Transition.Root>
-
-                <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-0">
-                    <div className="rounded-b-3xl border-b-2 border-[#FFFFFF] bg-[#100C18] mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-
-                        <div className="flex lg:flex-1">
-                            <a href="#" className="-m-1.5 p-1.5">
-                                <span className="sr-only">Dame tu Mano</span>
-                                <img className="h-10 w-auto" src={logo} alt="" />
-                            </a>
-                        </div>
-
-                        <div className="flex items-center">
-                            <Menu as="div" className="relative inline-block text-left">
-                                <div>
-                                    <Menu.Button className="group inline-flex justify-center text-sm font-medium text-white hover:text-[#E37B3A]">
-                                        Sort
-                                        <ChevronDownIcon
-                                            className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-white group-hover:text-[#E37B3A]"
-                                            aria-hidden="true"
-                                        />
-                                    </Menu.Button>
-                                </div>
-
-                                <Transition
-                                    as={Fragment}
-                                    enter="transition ease-out duration-100"
-                                    enterFrom="transform opacity-0 scale-95"
-                                    enterTo="transform opacity-100 scale-100"
-                                    leave="transition ease-in duration-75"
-                                    leaveFrom="transform opacity-100 scale-100"
-                                    leaveTo="transform opacity-0 scale-95" >
-
-                                    <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                        <div className="py-1">
-                                            {sortOptions.map((option) => (
-                                                <Menu.Item key={option.name}>
-                                                    {({ active }) => (
-                                                        <a
-                                                            href={option.href}
-                                                            className={classNames(
-                                                                option.current ? 'font-medium text-gray-900' : 'text-gray-500',
-                                                                active ? 'bg-gray-100' : '',
-                                                                'block px-4 py-2 text-sm'
-                                                            )}
-                                                        >
-                                                            {option.name}
-                                                        </a>
-                                                    )}
-                                                </Menu.Item>
-                                            ))}
-                                        </div>
-                                    </Menu.Items>
-                                </Transition>
-
-                            </Menu>
-
-                            <button type="button" className="-m-2 ml-5 p-2 text-white hover:text-[#E37B3A] sm:ml-7">
-                                <span className="sr-only">View grid</span>
-                                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
-                            </button>
-
-                            <button type="button" className="-m-2 ml-4 p-2 text-white hover:text-[#E37B3A] sm:ml-6 lg:hidden"
-                                onClick={() => setMobileFiltersOpen(true)}>
-                                <span className="sr-only">Filters</span>
-                                <Bars3Icon className="h-5 w-5" aria-hidden="true" />
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <section aria-labelledby="products-heading" className="pb-6 pt-6">
-                        <div className="grid grid-cols-1 p-2 gap-x-8 gap-y-10 lg:grid-cols-4">
-                            {/* Filters */}
-                            <form className="hidden lg:block">
-                                <div className='bg-[#100C18] text-base text-white h-full border border-white rounded-2xl px-3 py-3'>
-                                    <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 font-medium">
-                                        {subCategories.map((category) => (
-                                            <li key={category.name}>
-                                                <Link to={category.href}>{category.name}</Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    {subMenus.map((section) => (
-
-                                        <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
-                                            {({ open }) => (
-                                                <>
-                                                    <h3 className="-my-3 flow-root">
-                                                        <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                                                            <span className="font-medium text-gray-900">{section.name}</span>
-                                                            <span className="ml-6 flex items-center">
-                                                                {open ? (
-                                                                    <MinusIcon className="h-5 w-5" aria-hidden="true" />
-                                                                ) : (
-                                                                    <PlusIcon className="h-5 w-5" aria-hidden="true" />
-                                                                )}
-                                                            </span>
-                                                        </Disclosure.Button>
-                                                    </h3>
-                                                    <Disclosure.Panel className="pt-6">
-                                                        <div className="space-y-4">
-                                                            {section.options.map((option, optionIdx) => (
-                                                                <div key={option.value} className="flex items-center">
-                                                                    <input
-                                                                        id={`filter-${section.id}-${optionIdx}`}
-                                                                        name={`${section.id}[]`}
-                                                                        defaultValue={option.value}
-                                                                        type="checkbox"
-                                                                        defaultChecked={option.checked}
-                                                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                                                    />
-                                                                    <label
-                                                                        htmlFor={`filter-${section.id}-${optionIdx}`}
-                                                                        className="ml-3 text-sm text-white"
-                                                                    >
-                                                                        {option.label}
-                                                                    </label>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </Disclosure.Panel>
-                                                </>
-                                            )}
-                                        </Disclosure>
-
-                                    ))}
-                                </div>
-                            </form>
-
-                            {/* Product grid */}
-                            {/*INSPIRACION: https://mui.com/store/previews/minimal-dashboard-free/ */}
-                            <div className="lg:col-span-3 py-2">{/* Your content */}
-                                {/*Mensaje de bienvenida*/}
-                                <GreetingForPerson />
-                                {/*Contenedor para mis etiquetas */}
-                                <InfoCardsGroup />
-                                {/*Contenedor para mis graficos estadisticos */}
-                                <GrafStatGroup />
-                            </div>
-
-                        </div>
-                    </section>
-                </main>
-
-            </div>
+            <button
+              type="button"
+              className="-m-2 ml-4 p-2 text-white hover:text-[#E37B3A] sm:ml-6 lg:hidden"
+              onClick={() => setMobileFiltersOpen(true)}
+            >
+              <span className="sr-only">Filters</span>
+              <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
         </div>
-    )
+
+        <section aria-labelledby="products-heading" className="pb-6 pt-6">
+          <div className="grid grid-cols-1 p-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <form className="hidden lg:block">
+              <div className="bg-[#100C18] text-base text-white h-full border border-white rounded-2xl px-3 py-3">
+                <ul role="list" className="space-y-4 pb-6 font-medium">
+                  {subCategories.map((category) => (
+                    <li key={category.name}>
+                      <Link className="p-4" to={category.href}>
+                        {category.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </form>
+
+            <div className="lg:col-span-3 py-2">
+              {/*ESTO HACE LA MAGIA*/}
+              <Outlet />
+            </div>
+
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }
