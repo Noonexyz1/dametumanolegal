@@ -16,6 +16,7 @@ function App() {
           <Route path="/dash" element={<DashboardPath />} />
           <Route path="/dash/form" element={<DashboardForm />} />
           <Route path="/dash/tab" element={<DashboardTable />} />
+          <Route path="*" element={<div>404 caracteristica no implementada</div>} />
         </Routes>
       </BrowserRouter>
     </div>
