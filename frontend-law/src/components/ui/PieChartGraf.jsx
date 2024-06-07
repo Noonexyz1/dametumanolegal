@@ -13,7 +13,7 @@ const COLORS = ['#ce93d8', '#5c6bc0', '#b39ddb', '#4dd0e1', '#f48fb1', '#d500f9'
 export default function PieChartGraf() {
     return (
         <div>
-            <h3 className='text-2xl text-white pt-4 pl-2'>Bienvenido Dr. Chapatin</h3>
+            <h3 className='text-2xl text-white pt-4 pl-2'>Titulo torta</h3>
             <div className="sm:mx-auto flex flex-row justify-start border border-white rounded-2xl h-72 my-2 mx-2">
                 <ResponsiveContainer>
                     <PieChart>

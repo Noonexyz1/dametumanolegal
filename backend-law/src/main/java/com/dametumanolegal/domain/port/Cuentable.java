@@ -1,10 +1,11 @@
 package com.dametumanolegal.domain.port;
 
-import com.dametumanolegal.domain.modAdmin.CuentaDomain;
+import com.dametumanolegal.request.CuentaRequest;
+import com.dametumanolegal.response.CreateCuentaResponse;
 
 public interface Cuentable {
-    void crearCuentaParaStaff(CuentaDomain neuvaCuenta);
-    void traerCuentaPorId(String idCuentas);
-    void desactivarCuentaDeStaff(CuentaDomain cuentaForChange);
-    void modifiPassCuentaDeStaff(CuentaDomain cuentaForChange);
+    void crearCuentaParaStaff(CuentaRequest crearCuenta);
+    CreateCuentaResponse traerCuentaPorId(Long idCuenta);
+    void desactivarCuentaDeStaff(Long idCuenta);
+    void modifiPassCuentaDeStaff(CuentaRequest neuvaCuenta);
 }

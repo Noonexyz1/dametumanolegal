@@ -14,7 +14,7 @@ const data = [
 export default function AreaChartGraf() {
     return (
         <div>
-            <h3 className='text-2xl text-white pt-4 pl-2'>Bienvenido Dr. Chapatin</h3>
+            <h3 className='text-2xl text-white pt-4 pl-2'>titulo del graf area grafica</h3>
 
             <div className="sm:mx-auto flex flex-row justify-start border border-white rounded-2xl h-72 my-2 mx-2 pt-16 sm:pt-0">
                 <ResponsiveContainer width="100%" aspect={2}>

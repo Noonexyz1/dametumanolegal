@@ -1,11 +1,11 @@
-package com.dametumanolegal.domain.modAdmin;
+package com.dametumanolegal.request;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class RolDomain {
+public class RolRequest {
     private Long idRol;
     private String nombreRol;
     private String descripcionRol;
