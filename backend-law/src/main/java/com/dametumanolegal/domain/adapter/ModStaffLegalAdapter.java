@@ -5,7 +5,6 @@ import com.dametumanolegal.domain.modStaffLegal.SesionDomain;
 import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
 import com.dametumanolegal.entities.Cuenta;
 import com.dametumanolegal.entities.Sesion;
-import com.dametumanolegal.entities.StaffLegal;
 import com.dametumanolegal.repository.CuentaRepository;
 import com.dametumanolegal.repository.SesionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import org.modelmapper.ModelMapper;
 import java.util.Optional;
 
 @Component
-public class PersistenciaStaffLegal implements PersistenciaModStaffLegal {
+public class ModStaffLegalAdapter implements ModStaffLegal {
     @Autowired
     private CuentaRepository cuentaRepository;
     @Autowired
@@ -42,7 +41,7 @@ public class PersistenciaStaffLegal implements PersistenciaModStaffLegal {
     public CuentaDomain buscarPorUserYPass(String ci, String pass) {
         Optional<Cuenta> cuenta = cuentaRepository.findByUsuarioAndContrasena(ci, pass);
         if (cuenta.isPresent()) {
-            StaffLegal staffLegal = cuenta.get().getIdStaffLegal();
+            com.dametumanolegal.entities.StaffLegal staffLegal = cuenta.get().getIdStaffLegal();
             StaffLegalDomain staffLegalDomain = modelMapper.map(staffLegal, StaffLegalDomain.class);
             return CuentaDomain.builder()
                     .idUsuario(cuenta.orElseThrow().getIdUsuario())
@@ -60,7 +59,7 @@ public class PersistenciaStaffLegal implements PersistenciaModStaffLegal {
         sesion.setEstadoSesion(sesionDomain.isEstadoSesion());
         sesion.setFechaSesion(sesionDomain.getFechaSesion());
 
-        StaffLegal staffLegal = modelMapper.map(sesionDomain.getIdStaffLegal(), StaffLegal.class);
+        com.dametumanolegal.entities.StaffLegal staffLegal = modelMapper.map(sesionDomain.getIdStaffLegal(), com.dametumanolegal.entities.StaffLegal.class);
 
         sesion.setIdStaffLegal(staffLegal);
         sesionRepository.save(sesion);
@@ -70,15 +69,5 @@ public class PersistenciaStaffLegal implements PersistenciaModStaffLegal {
     public void actualizar(CuentaDomain cuentaDomain) {
         Cuenta cuenta = modelMapper.map(cuentaDomain, Cuenta.class);
         cuentaRepository.save(cuenta);
-    }
-
-    @Override
-    public void leer() {
-
-    }
-
-    @Override
-    public void eliminar() {
-
     }
 }

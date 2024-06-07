@@ -1,6 +1,6 @@
 package com.dametumanolegal.domain.modStaffLegal;
 
-import com.dametumanolegal.domain.adapter.PersistenciaModStaffLegal;
+import com.dametumanolegal.domain.adapter.ModStaffLegal;
 import com.dametumanolegal.domain.modAdmin.CuentaDomain;
 import com.dametumanolegal.domain.port.Autenticable;
 import com.dametumanolegal.request.InitSesionRequest;
@@ -20,9 +20,9 @@ public class StaffLegalDomain implements Autenticable {
     private String ci;
     private boolean isActive;
 
-    private PersistenciaModStaffLegal persistencia;
+    private ModStaffLegal persistencia;
 
-    public StaffLegalDomain(PersistenciaModStaffLegal persistenticia) {
+    public StaffLegalDomain(ModStaffLegal persistenticia) {
         this.persistencia = persistenticia;
     }
 
