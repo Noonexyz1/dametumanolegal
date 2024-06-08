@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "stafflegal")
 public class StaffLegal {
-    @Id
+    /*@Id
     @SequenceGenerator(
             name = "stafflegal_sequence",
             sequenceName = "stafflegal_sequence",
@@ -26,8 +26,11 @@ public class StaffLegal {
     )
     @Column(
             updatable = false
-    )
-    private Long id;
+    )*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    private Long idStaffLegal;
     private String nombres;
     private String apellidos;
     private String ci;
@@ -38,9 +41,9 @@ public class StaffLegal {
 
     @OneToMany(mappedBy = "idStaffLegal")
     private List<Abogado> listaAbogados;
-    @OneToMany(mappedBy = "idStaffLegal")
+    @OneToMany(mappedBy = "fk")
     private List<Cuenta> listaCuentas;
-    @OneToMany(mappedBy = "idStaffLegal")
+    @OneToMany(mappedBy = "fk")
     private List<Sesion> listaSesiones;
     @OneToMany(mappedBy = "idStaffLegal")
     private List<Asignacion> listaAsginaciones;

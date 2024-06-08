@@ -1,0 +1,23 @@
+INSERT INTO stafflegal(is_active, apellidos, ci, nombres) VALUES
+(1, 'Gomez', '123456789', 'Ana'),
+(1, 'Martinez', '987654321', 'Carlos'),
+(1, 'Perez', '234567890', 'Maria'),
+(1, 'Rodriguez', '345678901', 'Juan'),
+(1, 'Garcia', '456789012', 'Luisa'),
+(1, 'Fernandez', '567890123', 'Pedro'),
+(1, 'Lopez', '678901234', 'Marta'),
+(1, 'Gonzalez', '789012345', 'Luis'),
+(1, 'Hernandez', '890123456', 'Elena'),
+(1, 'Ruiz', '901234567', 'Jorge');
+
+INSERT INTO cuenta(is_active, fk_id_staff_legal, ci_usuario, pass_usuario) VALUES
+(1, 1, '123456789', '123'),
+(1, 2, '987654321', '234'),
+(1, 3, '234567890', '345'),
+(1, 4, '345678901', '456'),
+(1, 5, '456789012', '567'),
+(1, 6, '567890123', '678'),
+(1, 7, '678901234', '789'),
+(1, 8, '789012345', '890'),
+(1, 9, '890123456', '901'),
+(1, 10, '901234567', '012');

@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CuentaDomain {
-    private Long idUsuario;
+    private Long idCuenta;
     private String ciUsuario;
     private String passUsuario;
     private boolean isActive;
 
-    private StaffLegalDomain idStaffLegal;
+    private StaffLegalDomain fk;
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "rol")
 public class Rol {
-    @Id
+    /*@Id
     @SequenceGenerator(
             name = "rol_sequence",
             sequenceName = "rol_sequence",
@@ -25,7 +25,10 @@ public class Rol {
     )
     @Column(
             updatable = false
-    )
+    )*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
     private Long idRol;
     private String nombreRol;
     private String descripcionRol;

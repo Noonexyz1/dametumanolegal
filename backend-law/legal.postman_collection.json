@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "107d6182-c8a3-4e49-a076-5018da29f7e2",
+		"name": "legal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36183337"
+	},
+	"item": [
+		{
+			"name": "mod StaffLegal",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mod Abogado Admin",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,101 +1,94 @@
 package com.dametumanolegal.domain.modAdmin;
 
-import com.dametumanolegal.domain.adapter.ModAdminPersist;
+import com.dametumanolegal.domain.port.output.ModAdmin;
 import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
-import com.dametumanolegal.domain.port.Cuentable;
-import com.dametumanolegal.domain.port.Rolable;
-import com.dametumanolegal.request.CuentaRequest;
-import com.dametumanolegal.response.CreateCuentaResponse;
+import com.dametumanolegal.domain.port.input.Cuentable;
+import com.dametumanolegal.domain.port.input.Rolable;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-//Esta clase se encarga de parsear entradas de TIPOS o ATRIBUTOS a ENTIDADES DE DOMINIO
-//y hacer la operacion de devolver de ENTIDADES DE DOMINIO a TIPOS como respuesta
+    //Esta clase se encarga de parsear entradas de TIPOS o ATRIBUTOS a ENTIDADES DE DOMINIO
+    //y hacer la operacion de devolver de ENTIDADES DE DOMINIO a TIPOS como respuesta
 
 public class AbogadoDomain implements Cuentable, Rolable {
     private Long idAbogado;
     private boolean isAdmin;
     private StaffLegalDomain idStaffLegal;
 
-    private final ModAdminPersist modAdminPersist;
+    private ModAdmin modAdmin;
 
-    public AbogadoDomain(ModAdminPersist modAdminPersist){
-        this.modAdminPersist = modAdminPersist;
+    public AbogadoDomain(ModAdmin modAdmin){
+        this.modAdmin = modAdmin;
     }
 
     @Override
-    public void crearCuentaParaStaff(CuentaRequest request) {
+    public void crearCuentaParaStaff(CuentaDomain crearCuenta) {
         CuentaDomain cuentaDomain = CuentaDomain.builder()
-                .ciUsuario(request.getCiUsuario())
-                .passUsuario(request.getPassUsuario())
-                .isActive(request.isActive())
+                .ciUsuario(crearCuenta.getCiUsuario())
+                .passUsuario(crearCuenta.getPassUsuario())
+                .isActive(crearCuenta.isActive())
                 .build();
-        modAdminPersist.crearCuentaParaStaff(cuentaDomain);
+        modAdmin.crearCuentaParaStaff(cuentaDomain);
     }
 
     @Override
-    public CreateCuentaResponse traerCuentaPorId(Long idCuenta) {
-        var cuentaDomain = modAdminPersist.traerCuentaPorID(idCuenta);
-        cuentaDomain.setPassUsuario(null);
+    public CuentaDomain traerCuentaPorId(Long idCuenta) {
+        CuentaDomain cuentaDomain = modAdmin.traerCuentaPorID(idCuenta);
         if (cuentaDomain == null) {
-            return CreateCuentaResponse.builder()
-                    .cuentaDomain(null)
-                    .estado("CUENTA NO ENCONTRADA")
-                    .build();
+            return null;
         }
-        return CreateCuentaResponse.builder()
-                .cuentaDomain(cuentaDomain)
-                .estado("CUENTA ENCONTRADA")
-                .build();
+        cuentaDomain.setPassUsuario(null);
+        return cuentaDomain;
     }
 
     @Override
     public void desactivarCuentaDeStaff(Long idCuenta) {
-        CuentaDomain cuentaDomain = modAdminPersist.traerCuentaPorID(idCuenta);
+        CuentaDomain cuentaDomain = modAdmin.traerCuentaPorID(idCuenta);
         cuentaDomain.setActive(false);
-        modAdminPersist.crearCuentaParaStaff(cuentaDomain);
+        modAdmin.crearCuentaParaStaff(cuentaDomain);
     }
 
     @Override
-    public void modifiPassCuentaDeStaff(CuentaRequest request) {
-        CuentaDomain cuentaDomain = modAdminPersist.traerCuentaPorID(request.getId());
+    public void modifiPassCuentaDeStaff(CuentaDomain request) {
+        CuentaDomain cuentaDomain = modAdmin.traerCuentaPorID(request.getIdCuenta());
         cuentaDomain.setPassUsuario(request.getPassUsuario());
-        modAdminPersist.crearCuentaParaStaff(cuentaDomain);
+        modAdmin.crearCuentaParaStaff(cuentaDomain);
     }
+
 
 
 
     @Override
     public void crearRol(RolDomain rolNuevo) {
-        modAdminPersist.crearRol(rolNuevo);
+        modAdmin.crearRol(rolNuevo);
     }
 
     @Override
     public RolDomain traerRolPorId(Long id) {
-        return modAdminPersist.traerRolPorId(id);
+        return modAdmin.traerRolPorId(id);
     }
 
     @Override
     public void modificarRol(RolDomain rolModificado) {
-        modAdminPersist.modificarRol(rolModificado);
+        modAdmin.modificarRol(rolModificado);
     }
 
     @Override
     public List<RolDomain> listarRoles() {
-        return modAdminPersist.listarRoles();
+        return modAdmin.listarRoles();
     }
 
     @Override
     public void desactivarRol(RolDomain rolDesactivado) {
         rolDesactivado.setActive(false);
-        modAdminPersist.desactivarRol(rolDesactivado);
+        modAdmin.desactivarRol(rolDesactivado);
     }
 
     @Override
     public void asiginarElRol(Long idPersonal, Long idRol) {
-        StaffLegalDomain staffLegalDomain = modAdminPersist.traerStaffPorId(idPersonal);
-        RolDomain rolDomain = modAdminPersist.traerRolPorId(idRol);
+        StaffLegalDomain staffLegalDomain = modAdmin.traerStaffPorId(idPersonal);
+        RolDomain rolDomain = modAdmin.traerRolPorId(idRol);
 
         AsignacionDomain asignacionDomain = new AsignacionDomain();
         asignacionDomain.setFechaAsignacion(LocalDateTime.now().toString());
@@ -103,6 +96,6 @@ public class AbogadoDomain implements Cuentable, Rolable {
         asignacionDomain.setIdStaffLegal(staffLegalDomain);
         asignacionDomain.setIdRol(rolDomain);
 
-        modAdminPersist.asiginarElRol(asignacionDomain);
+        modAdmin.asiginarElRol(asignacionDomain);
     }
 }
