@@ -11,7 +11,7 @@ import lombok.*;
 @Entity
 @Table(name = "cuenta")
 public class Cuenta {
-    @Id
+    /*@Id
     @SequenceGenerator(
             name = "cuenta_sequence",
             sequenceName = "cuenta_sequence",
@@ -24,8 +24,11 @@ public class Cuenta {
     )
     @Column(
             updatable = false
-    )
-    private Long idUsuario;
+    )*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    private Long idCuenta;
     private String ciUsuario;
     private String passUsuario;
     private boolean isActive;
@@ -34,5 +37,5 @@ public class Cuenta {
 
 
     @ManyToOne
-    private StaffLegal idStaffLegal;
+    private StaffLegal fk;
 }

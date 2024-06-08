@@ -10,7 +10,7 @@ import lombok.*;
 @Entity
 @Table(name = "abogado")
 public class Abogado {
-    @Id
+    /*@Id
     @SequenceGenerator(
             name = "abogado_sequence",
             sequenceName = "abogado_sequence",
@@ -23,7 +23,10 @@ public class Abogado {
     )
     @Column(
             updatable = false
-    )
+    )*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
     private Long idAbogado;
     private boolean isAdmin;
 

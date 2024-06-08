@@ -1,10 +1,8 @@
 package com.dametumanolegal.domain.modStaffLegal;
 
-import com.dametumanolegal.domain.adapter.ModStaffLegal;
+import com.dametumanolegal.domain.port.output.ModStaffLegal;
 import com.dametumanolegal.domain.modAdmin.CuentaDomain;
-import com.dametumanolegal.domain.port.Autenticable;
-import com.dametumanolegal.request.InitSesionRequest;
-import com.dametumanolegal.response.InitSesionResponse;
+import com.dametumanolegal.domain.port.input.Autenticable;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class StaffLegalDomain implements Autenticable {
-    private Long id;
+    private Long idStaffLegal;
     private String nombres;
     private String apellidos;
     private String ci;
@@ -27,41 +25,35 @@ public class StaffLegalDomain implements Autenticable {
     }
 
     @Override   //esto es lo que voy a testear
-    public InitSesionResponse iniciarSesion(InitSesionRequest initSesion) {
-        CuentaDomain cuentaDomain = persistencia.buscarPorUserYPass(initSesion.getCiUser(), initSesion.getPassUser());
-        if (cuentaDomain == null) {
-            return InitSesionResponse.builder().estado("ESTA CUENTA NO ES ACEPTADA").build();
+    public SesionDomain iniciarSesion(CuentaDomain cuentaDomain) {
+        CuentaDomain cuenta = persistencia.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
+        if (cuenta == null) {
+            return null;
         } else {
             SesionDomain sesionDomain = SesionDomain.builder()
                     .estadoSesion(true)
                     .fechaSesion(LocalDateTime.now().toString())
-                    .idStaffLegal(cuentaDomain.getIdStaffLegal())
+                    .fk(cuenta.getFk())
                     .build();
             persistencia.crearSesion(sesionDomain);
-            return InitSesionResponse.builder().cuentaDomain(cuentaDomain).build();
-        }
-
-    }
-
-    @Override
-    public InitSesionResponse cerrarSesion(InitSesionRequest closeSesion) {
-        CuentaDomain cuentaDomain = persistencia.buscarPorUserYPass(closeSesion.getCiUser(), closeSesion.getPassUser());
-        if (cuentaDomain == null) {
-            return InitSesionResponse.builder().estado("ESTA CUENTA NO ES ACEPTADAaaa").build();
-        } else {
-            SesionDomain sesionDomain = SesionDomain.builder()
-                    .estadoSesion(false)
-                    .fechaSesion(LocalDateTime.now().toString())
-                    .idStaffLegal(cuentaDomain.getIdStaffLegal())
-                    .build();
-            persistencia.crearSesion(sesionDomain);
-            return InitSesionResponse.builder().estado("SESION TERMINADO").build();
+            return sesionDomain;
         }
     }
 
     @Override
-    public InitSesionResponse modificarPassword(InitSesionResponse initSesion) {
-        persistencia.actualizar(initSesion.getCuentaDomain());
-        return InitSesionResponse.builder().estado("CONTRASEÑA CAMBIADO").build();
+    public void cerrarSesion(SesionDomain closeSesion) {
+        //closeSesion.setIdSesion(null);
+        closeSesion.setEstadoSesion(false);
+        closeSesion.setFechaSesion(LocalDateTime.now().toString());
+        persistencia.crearSesion(closeSesion);
+    }
+
+    @Override
+    public void modificarPassword(CuentaDomain cuentaDomain) {
+        CuentaDomain cuenta = persistencia.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
+        if (!(cuenta == null)) {
+            cuenta.setPassUsuario(cuentaDomain.getPassUsuario());
+            persistencia.actualizar(cuenta);
+        }
     }
 }

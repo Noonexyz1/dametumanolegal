@@ -10,7 +10,7 @@ import lombok.*;
 @Entity
 @Table(name = "asignacion")
 public class Asignacion {
-    @Id
+    /*@Id
     @SequenceGenerator(
             name = "asignacion_sequence",
             sequenceName = "asignacion_sequence",
@@ -23,7 +23,10 @@ public class Asignacion {
     )
     @Column(
             updatable = false
-    )
+    )*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
     private Long idAsignacion;
     private String fechaAsignacion;
     private String fechaSustraccion;
