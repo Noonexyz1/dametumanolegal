@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "107d6182-c8a3-4e49-a076-5018da29f7e2",
+		"_postman_id": "f5b1242e-bbe1-4675-85f4-bac171a21b19",
 		"name": "legal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36183337"
@@ -10,10 +10,89 @@
 			"name": "mod StaffLegal",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "iniciar sesion",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"ciUsuario\": \"123456789\",\r\n    \"passUsuario\": \"123\",\r\n    \"isActive\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modStaffLegal/inicioSesion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modStaffLegal",
+								"inicioSesion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cerrar sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idSesion\": 7,\r\n    \"fechaSesion\": \"2024-06-09T15:27:45.313557300\",\r\n    \"estadoSesion\": true,\r\n    \"idStaffLegal\": {\r\n        \"idStaffLegal\": 1,\r\n        \"nombres\": \"Ana\",\r\n        \"apellidos\": \"Gomez\",\r\n        \"ci\": \"123456789\",\r\n        \"active\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modStaffLegal/cerrarSesion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modStaffLegal",
+								"cerrarSesion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar pass",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idSesion\": 7,\r\n    \"fechaSesion\": \"2024-06-09T15:27:45.313557300\",\r\n    \"estadoSesion\": true,\r\n    \"idStaffLegal\": {\r\n        \"idStaffLegal\": 1,\r\n        \"nombres\": \"Ana\",\r\n        \"apellidos\": \"Gomez\",\r\n        \"ci\": \"123456789\",\r\n        \"active\": true\r\n    },\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"newPass\": \"Diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modStaffLegal/cambiarPass",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modStaffLegal",
+								"cambiarPass"
+							]
+						}
 					},
 					"response": []
 				}
@@ -26,7 +105,10 @@
 					"name": "New Request",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}

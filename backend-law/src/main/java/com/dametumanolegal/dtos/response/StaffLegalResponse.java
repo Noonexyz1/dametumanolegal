@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SesionResponse {
-    private Long idSesion;
-    private String fechaSesion;
-    private boolean estadoSesion;
-
-    private StaffLegalResponse idStaffLegal;
+public class StaffLegalResponse {
+    private Long idStaffLegal;
+    private String nombres;
+    private String apellidos;
+    private String ci;
+    private boolean isActive;
 }

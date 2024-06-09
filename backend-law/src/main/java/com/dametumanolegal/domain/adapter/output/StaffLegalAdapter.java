@@ -6,6 +6,7 @@ import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
 import com.dametumanolegal.domain.port.output.ModStaffLegal;
 import com.dametumanolegal.entities.Cuenta;
 import com.dametumanolegal.entities.Sesion;
+import com.dametumanolegal.entities.StaffLegal;
 import com.dametumanolegal.repository.CuentaRepository;
 import com.dametumanolegal.repository.SesionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,15 +56,11 @@ public class StaffLegalAdapter implements ModStaffLegal {
     }
 
     @Override
-    public void crearSesion(SesionDomain sesionDomain) {
-        Sesion sesion = new Sesion();
-        sesion.setEstadoSesion(sesionDomain.isEstadoSesion());
-        sesion.setFechaSesion(sesionDomain.getFechaSesion());
-
-        com.dametumanolegal.entities.StaffLegal staffLegal = modelMapper.map(sesionDomain.getFk(), com.dametumanolegal.entities.StaffLegal.class);
-
-        sesion.setIdStaffLegal(staffLegal);
-        sesionRepository.save(sesion);
+    public SesionDomain crearSesion(SesionDomain sesionDomain) {
+        Sesion sesion = modelMapper.map(sesionDomain, Sesion.class);
+        sesion = sesionRepository.save(sesion);
+        sesionDomain = modelMapper.map(sesion, SesionDomain.class);
+        return sesionDomain;
     }
 
     @Override
