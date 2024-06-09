@@ -6,5 +6,5 @@ import com.dametumanolegal.domain.modStaffLegal.SesionDomain;
 public interface Autenticable {
     SesionDomain iniciarSesion(CuentaDomain cuentaDomain);
     void cerrarSesion(SesionDomain closeSesion);
-    void modificarPassword(CuentaDomain modSesion);
+    void modificarPassword(SesionDomain sesionDomain, CuentaDomain cuentaDomain, String newPass);
 }

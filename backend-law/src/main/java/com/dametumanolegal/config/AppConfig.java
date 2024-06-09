@@ -16,14 +16,20 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    @Bean
+    /*@Bean no necesito este bean para registrarlo al scope porque la implementacion StaffLegalAdapter
+    ya esta anotado con @component y por ende resitrado al Scope de Spring
     public ModStaffLegal persistenciaCuentaAdapter() {
         return new StaffLegalAdapter();
-    }
-    @Bean
-    public Autenticable staffLegal(@Qualifier("staffLegalAdapter") ModStaffLegal modStaffLegal) {
+    }comentamos esto porque al haber dos iguales, Spring no sabia que Injectar en el metodo de abajo */
+
+    @Bean //registrando este componente manualmente al Scope de Spring para quien sea que quiera la implementacion
+    public Autenticable staffLegalDomain(/*@Qualifier("staffLegalAdapter")*/ ModStaffLegal modStaffLegal) {
         return new StaffLegalDomain(modStaffLegal);
     }
+
+
+
+
 
 
     @Bean

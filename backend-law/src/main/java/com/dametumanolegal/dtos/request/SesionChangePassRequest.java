@@ -5,10 +5,13 @@ import lombok.Data;
 
 @Data
 @Builder
-public class SesionRequest {
+public class SesionChangePassRequest {
     private Long idSesion;
     private String fechaSesion;
     private boolean estadoSesion;
 
     private StaffLegalRequest idStaffLegal;
+    private CuentaRequest cuentaRequest;
+    private String newPass;
+
 }
