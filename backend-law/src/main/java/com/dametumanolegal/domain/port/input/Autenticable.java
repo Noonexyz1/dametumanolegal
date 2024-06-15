@@ -1,7 +1,7 @@
 package com.dametumanolegal.domain.port.input;
 
-import com.dametumanolegal.domain.modAdmin.CuentaDomain;
-import com.dametumanolegal.domain.modStaffLegal.SesionDomain;
+import com.dametumanolegal.domain.CuentaDomain;
+import com.dametumanolegal.domain.SesionDomain;
 
 public interface Autenticable {
     SesionDomain iniciarSesion(CuentaDomain cuentaDomain);

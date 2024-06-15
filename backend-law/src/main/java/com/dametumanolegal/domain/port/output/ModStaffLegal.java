@@ -1,7 +1,7 @@
 package com.dametumanolegal.domain.port.output;
 
-import com.dametumanolegal.domain.modAdmin.CuentaDomain;
-import com.dametumanolegal.domain.modStaffLegal.SesionDomain;
+import com.dametumanolegal.domain.CuentaDomain;
+import com.dametumanolegal.domain.SesionDomain;
 
 public interface ModStaffLegal {
     CuentaDomain crear(CuentaDomain cuenta);

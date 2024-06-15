@@ -1,6 +1,5 @@
 package com.dametumanolegal.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,38 +12,28 @@ import java.util.List;
 @Entity
 @Table(name = "stafflegal")
 public class StaffLegal {
-    /*@Id
-    @SequenceGenerator(
-            name = "stafflegal_sequence",
-            sequenceName = "stafflegal_sequence",
-            allocationSize = 1,
-            initialValue = 0
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "stafflegal_sequence"
-    )
-    @Column(
-            updatable = false
-    )*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
-    private Long idStaffLegal;
-    private String nombres;
-    private String apellidos;
-    private String ci;
-    private boolean isActive;
+    private Long id;
 
 
+    @ManyToOne
+    private FiguraLegal fkFigLegal;
 
 
-    @OneToMany(mappedBy = "idStaffLegal")
+    @OneToMany(mappedBy = "fkStaffLegal")
     private List<Abogado> listaAbogados;
-    @OneToMany(mappedBy = "fk")
+    @OneToMany(mappedBy = "fkStaffLegal")
+    private List<Cliente> listaClientes;
+    @OneToMany(mappedBy = "fkStaffLegal")
+    private List<Procurador> listaProcuradores;
+    @OneToMany(mappedBy = "fkStaffLegal")
+    private List<Secretaria> listaSecretarias;
+
+
+    @OneToMany(mappedBy = "fkStaffLegal")
     private List<Cuenta> listaCuentas;
-    @OneToMany(mappedBy = "fk")
+    @OneToMany(mappedBy = "fkStaffLegal")
     private List<Sesion> listaSesiones;
-    @OneToMany(mappedBy = "idStaffLegal")
-    private List<Asignacion> listaAsginaciones;
 }

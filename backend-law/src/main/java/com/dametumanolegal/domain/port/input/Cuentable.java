@@ -1,6 +1,6 @@
 package com.dametumanolegal.domain.port.input;
 
-import com.dametumanolegal.domain.modAdmin.CuentaDomain;
+import com.dametumanolegal.domain.CuentaDomain;
 
 public interface Cuentable {
     void crearCuentaParaStaff(CuentaDomain crearCuenta);

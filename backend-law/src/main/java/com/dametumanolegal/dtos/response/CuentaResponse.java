@@ -1,6 +1,6 @@
 package com.dametumanolegal.dtos.response;
 
-import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
+import com.dametumanolegal.domain.StaffLegalDomain;
 import lombok.Builder;
 import lombok.Data;
 
