@@ -10,24 +10,10 @@ import lombok.*;
 @Entity
 @Table(name = "sesion")
 public class Sesion {
-    /*@Id
-    @SequenceGenerator(
-            name = "sesion_sequence",
-            sequenceName = "sesion_sequence",
-            allocationSize = 1,
-            initialValue = 2999
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "sesion_sequence"
-    )
-    @Column(
-            updatable = false
-    )*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
-    private Long idSesion;
+    private Long id;
     private String fechaSesion;
     private boolean estadoSesion;
 
@@ -35,5 +21,5 @@ public class Sesion {
 
 
     @ManyToOne
-    private StaffLegal fk;
+    private StaffLegal fkStaffLegal;
 }

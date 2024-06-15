@@ -1,8 +1,8 @@
 package com.dametumanolegal.domain.adapter.input;
 
-import com.dametumanolegal.domain.modAdmin.CuentaDomain;
-import com.dametumanolegal.domain.modStaffLegal.SesionDomain;
-import com.dametumanolegal.domain.modStaffLegal.StaffLegalDomain;
+import com.dametumanolegal.domain.CuentaDomain;
+import com.dametumanolegal.domain.SesionDomain;
+import com.dametumanolegal.domain.StaffLegalDomain;
 import com.dametumanolegal.domain.port.input.Autenticable;
 import com.dametumanolegal.dtos.request.CuentaRequest;
 import com.dametumanolegal.dtos.request.SesionChangePassRequest;

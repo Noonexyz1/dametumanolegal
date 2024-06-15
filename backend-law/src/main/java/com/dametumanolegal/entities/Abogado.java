@@ -3,6 +3,8 @@ package com.dametumanolegal.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -10,29 +12,18 @@ import lombok.*;
 @Entity
 @Table(name = "abogado")
 public class Abogado {
-    /*@Id
-    @SequenceGenerator(
-            name = "abogado_sequence",
-            sequenceName = "abogado_sequence",
-            allocationSize = 1,
-            initialValue = 999
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "abogado_sequence"
-    )
-    @Column(
-            updatable = false
-    )*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
-    private Long idAbogado;
+    private Long id;
     private boolean isAdmin;
 
 
 
 
     @ManyToOne
-    private StaffLegal idStaffLegal;
+    private StaffLegal fkStaffLegal;
+
+    @OneToMany(mappedBy = "fkAbogado")
+    private List<Caso> listaCasos;
 }
