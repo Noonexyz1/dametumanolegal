@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f5b1242e-bbe1-4675-85f4-bac171a21b19",
+		"_postman_id": "0f4cf371-b705-4982-96d6-4f34a27c9309",
 		"name": "legal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36183337"
@@ -102,12 +102,72 @@
 			"name": "mod Abogado Admin",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "crear cuenta staff",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8081/modAdmin/crearCuenta/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modAdmin",
+								"crearCuenta",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "traer cuenta staff",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/modAdmin/getCuenta/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modAdmin",
+								"getCuenta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "desactivar cuenta staff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modAdmin/changeCuenta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modAdmin",
+								"changeCuenta"
+							]
 						}
 					},
 					"response": []

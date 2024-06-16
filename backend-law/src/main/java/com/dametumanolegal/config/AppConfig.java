@@ -25,19 +25,9 @@ public class AppConfig {
         return new StaffLegalDomain(staffLegalPersistence);
     }
 
-
-
-
-
-
-    @Bean
-    public AdminPersistence persistenciaModAdmin(){
-       return new AdminPersistenceAdapter();
-    }
-
-    @Bean(name = "abogadoCuentable")
-    public Cuentable abogadoAdministradorCuentable(@Qualifier("persistenciaModAdmin") AdminPersistence adminPersistence) {
-        return new AbogadoDomain(adminPersistence);
+    @Bean/*(name = "abogadoCuentable")*/
+    public Cuentable abogadoAdministradorCuentable(/*@Qualifier("persistenciaModAdmin")*/ AdminPersistence adminPersistence, StaffLegalPersistence staffLegalPersistence) {
+        return new AbogadoDomain(adminPersistence, staffLegalPersistence);
     }
 
     @Bean

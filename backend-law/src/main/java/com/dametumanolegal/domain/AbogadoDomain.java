@@ -2,9 +2,10 @@ package com.dametumanolegal.domain;
 
 import com.dametumanolegal.domain.port.output.AdminPersistence;
 import com.dametumanolegal.domain.port.input.Cuentable;
+import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
 
-//Esta clase se encarga de parsear entradas de TIPOS o ATRIBUTOS a ENTIDADES DE DOMINIO
-//y hacer la operacion de devolver de ENTIDADES DE DOMINIO a TIPOS como respuesta
+//Esta clase se encarga de recibir entradas de TIPOS o ATRIBUTOS o ENTIDADES DE DOMINIO
+//y hacer la operacion de devolver de ENTIDADES DE DOMINIO o TIPOS como respuesta
 
 public class AbogadoDomain implements Cuentable{
     private Long idAbogado;
@@ -12,19 +13,27 @@ public class AbogadoDomain implements Cuentable{
     private StaffLegalDomain fkStaffLegal;
 
     private AdminPersistence adminPersistence;
+    private StaffLegalPersistence staffLegalPersistence;
 
-    public AbogadoDomain(AdminPersistence adminPersistence){
+    public AbogadoDomain(AdminPersistence adminPersistence, StaffLegalPersistence staffLegalPersistence){
         this.adminPersistence = adminPersistence;
+        this.staffLegalPersistence = staffLegalPersistence;
     }
 
     @Override
-    public void crearCuentaParaStaff(CuentaDomain crearCuenta) {
-        CuentaDomain cuentaDomain = CuentaDomain.builder()
-                .ciUsuario(crearCuenta.getCiUsuario())
-                .passUsuario(crearCuenta.getPassUsuario())
-                .isActive(crearCuenta.isActive())
-                .build();
-        adminPersistence.crearCuentaParaStaff(cuentaDomain);
+    public void crearCuentaParaStaff(Long idCuenta) {
+        //traer el staff que tiene este idCuenta
+        StaffLegalDomain staffLegalDomain = adminPersistence.traerStaffPorId(idCuenta);
+        if (staffLegalDomain != null && staffLegalDomain.getFkFigLegal().isActive()){
+            //crear la cuenta con los datos de el staff legal obtenido
+            CuentaDomain cuentaDomain = CuentaDomain.builder()
+                    .ciUsuario(staffLegalDomain.getFkFigLegal().getCi())
+                    .passUsuario(staffLegalDomain.getFkFigLegal().getCi())
+                    .isActive(staffLegalDomain.getFkFigLegal().isActive())
+                    .fkStaffLegal(staffLegalDomain)
+                    .build();
+            adminPersistence.crearCuentaParaStaff(cuentaDomain);
+        }
     }
 
     @Override
@@ -40,14 +49,20 @@ public class AbogadoDomain implements Cuentable{
     @Override
     public void desactivarCuentaDeStaff(Long idCuenta) {
         CuentaDomain cuentaDomain = adminPersistence.traerCuentaPorID(idCuenta);
-        cuentaDomain.setActive(false);
-        adminPersistence.crearCuentaParaStaff(cuentaDomain);
+        if (cuentaDomain != null) {
+            cuentaDomain.setActive(false);
+            adminPersistence.crearCuentaParaStaff(cuentaDomain);
+        }
     }
 
     @Override
-    public void modifiPassCuentaDeStaff(CuentaDomain request) {
-        CuentaDomain cuentaDomain = adminPersistence.traerCuentaPorID(request.getId());
-        cuentaDomain.setPassUsuario(request.getPassUsuario());
-        adminPersistence.crearCuentaParaStaff(cuentaDomain);
+    public void modifiPassCuentaDeStaff(CuentaDomain cuentaAdmin, Long idCuenta, String newPass) {
+        CuentaDomain cuentaDomainAdmin = staffLegalPersistence.buscarPorUserYPass(cuentaAdmin.getCiUsuario(), cuentaAdmin.getPassUsuario());
+        CuentaDomain cuentaDomainChange = adminPersistence.traerCuentaPorID(idCuenta);
+        if (cuentaDomainAdmin != null && cuentaDomainChange != null) {
+            cuentaDomainChange.setPassUsuario(newPass);
+            adminPersistence.crearCuentaParaStaff(cuentaDomainChange);
+            //PROBAR ESTE METODO
+        }
     }
 }
