@@ -19,8 +19,20 @@ public class Documentacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private String nombre;
+    private String tipoCaso;
+    private boolean isDocumentoInicial;
+    private String fechaCreacion;
+    private String fechaUltimaActualizacion;
+    private String estado;
+    private String descripcion;
+    private String responsable; // Persona o entidad responsable del documento
+    private String observaciones;
 
 
     @OneToMany(mappedBy = "fkDocu")
-    private List<Archivo> listaArchivos;
+    private List<ArchivoCaso> listaArchivoCasos;
+
+    @OneToMany(mappedBy = "fkDocu")
+    private List<ArchivoTramite> listaArchivoTrami;
 }

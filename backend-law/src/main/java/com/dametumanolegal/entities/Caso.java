@@ -19,9 +19,19 @@ public class Caso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private String titulo;
+    private String descripcion;
+    private String fechaInicio;
+    private String fechaCierre;
+    private String estado;
+    private String tipoCaso;
+    private String responsable;
+    private String observaciones;
+
+
 
     @OneToMany(mappedBy = "fkCaso")
-    private List<Archivo> listaArchivos;
+    private List<ArchivoCaso> listaArchivoCasos;
     @OneToMany(mappedBy = "fkCaso")
     private List<Memorial> listaMemoriales;
 

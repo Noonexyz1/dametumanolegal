@@ -19,8 +19,15 @@ public class Honorario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private String tipoServicio;
+    private String descripcion;
+    private Double monto;
+    private String moneda;
 
 
     @OneToMany(mappedBy = "fkHonor")
     private List<Caso> listaCaso;
+
+    @OneToMany(mappedBy = "fkHonor")
+    private List<Tramite> listaTramites;
 }

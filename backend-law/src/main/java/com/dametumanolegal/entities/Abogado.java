@@ -26,4 +26,10 @@ public class Abogado {
 
     @OneToMany(mappedBy = "fkAbogado")
     private List<Caso> listaCasos;
+
+    @OneToMany(mappedBy = "fkAbogado")
+    private List<Tramite> listaTramites;
+
+    @OneToMany(mappedBy = "fkAbogado")
+    private List<Minuta> listaMinutas;
 }

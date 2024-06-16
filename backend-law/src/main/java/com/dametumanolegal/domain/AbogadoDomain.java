@@ -3,10 +3,17 @@ package com.dametumanolegal.domain;
 import com.dametumanolegal.domain.port.output.AdminPersistence;
 import com.dametumanolegal.domain.port.input.Cuentable;
 import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //Esta clase se encarga de recibir entradas de TIPOS o ATRIBUTOS o ENTIDADES DE DOMINIO
 //y hacer la operacion de devolver de ENTIDADES DE DOMINIO o TIPOS como respuesta
-
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AbogadoDomain implements Cuentable{
     private Long idAbogado;
     private boolean isAdmin;

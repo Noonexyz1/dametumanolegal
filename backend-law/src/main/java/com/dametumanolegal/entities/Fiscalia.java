@@ -19,6 +19,14 @@ public class Fiscalia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private String nombre;
+    private String direccion;
+    private String telefono;
+    private String email;
+    private String ciudad;
+    private String departamento;
+    private String pais;
+    private String tipo;
 
     @OneToMany(mappedBy = "fkFiscalia")
     private List<Fiscal> listaFiscales;
