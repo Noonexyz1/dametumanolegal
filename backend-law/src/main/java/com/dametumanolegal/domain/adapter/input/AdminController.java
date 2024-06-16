@@ -2,6 +2,7 @@ package com.dametumanolegal.domain.adapter.input;
 
 import com.dametumanolegal.domain.CuentaDomain;
 import com.dametumanolegal.domain.port.input.Cuentable;
+import com.dametumanolegal.dtos.request.ChangePassStaffRequest;
 import com.dametumanolegal.dtos.request.CuentaRequest;
 import com.dametumanolegal.dtos.response.CuentaResponse;
 import org.modelmapper.ModelMapper;
@@ -9,37 +10,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
-
+//Esta clase se encarga de recibir entidades DTO y entregar DATOS de DOMINIO
 @CrossOrigin
 @RequestMapping("/modAdmin")
 @RestController//ADAPTADOR de ENTRADA      //PUERTO de SALIDA de OTRO SERVICIO
 public class AdminController /*implements Cuentable, Rolable*/ {
 
     @Autowired //PUERTO DE ENTRADA a mi SERVICIO que toca adaptar
-    @Qualifier("abogadoCuentable")
+    //@Qualifier("abogadoCuentable")
     private Cuentable cuentable;
 
     @Autowired
     private ModelMapper modelMapper;
 
 
-    @PostMapping("/crearCuenta")
-    public void crearCuentaParaStaff(@RequestBody CuentaRequest nuevaCuentaRequest) {
-        cuentable.crearCuentaParaStaff(modelMapper.map(nuevaCuentaRequest, CuentaDomain.class));
+    @GetMapping("/crearCuenta/{id}")
+    public void crearCuentaParaStaff(@PathVariable Long id) {
+        cuentable.crearCuentaParaStaff(id);
     }
 
-    @GetMapping("/getCuentaId")
-    public CuentaResponse traerCuentaPorId(@RequestBody Long idCuenta) {
-        return modelMapper.map(cuentable.traerCuentaPorId(idCuenta), CuentaResponse.class);
+    @GetMapping("/getCuenta/{id}")
+    public CuentaResponse traerCuentaPorId(@PathVariable Long id) {
+        CuentaDomain cuentaDomain = cuentable.traerCuentaPorId(id);
+        return modelMapper.map(cuentaDomain, CuentaResponse.class);
     }
 
-    @GetMapping("/descCuenta")
-    public void desactivarCuentaDeStaff(@RequestBody Long idCuenta) {
-        cuentable.desactivarCuentaDeStaff(idCuenta);
+    @GetMapping("/descCuenta/{id}")
+    public void desactivarCuentaDeStaff(@PathVariable Long id) {
+        cuentable.desactivarCuentaDeStaff(id);
     }
 
     @PostMapping("/changeCuenta")
-    public void modifiPassCuentaDeStaff(@RequestBody CuentaRequest request) {
-        cuentable.modifiPassCuentaDeStaff(modelMapper.map(request, CuentaDomain.class));
+    public void modifiPassCuentaDeStaff(@RequestBody ChangePassStaffRequest request) {
+        CuentaDomain cuentaAdmin = modelMapper.map(request.getCuentaRequest(), CuentaDomain.class);
+        cuentable.modifiPassCuentaDeStaff(cuentaAdmin, request.getIdCountToChangePass(), request.getNewPass());
     }
 }
