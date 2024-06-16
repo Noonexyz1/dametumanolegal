@@ -1,5 +1,6 @@
 package com.dametumanolegal.dtos.request;
 
+import com.dametumanolegal.dtos.response.FiguraLegalResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StaffLegalRequest {
     private Long idStaffLegal;
-    private String nombres;
-    private String apellidos;
-    private String ci;
-    private boolean isActive;
+
+    private FiguraLegalResponse fkFigLegalDomain;
 }

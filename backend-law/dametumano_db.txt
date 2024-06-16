@@ -1,4 +1,4 @@
-INSERT INTO stafflegal(is_active, apellidos, ci, nombres) VALUES
+INSERT INTO figuralegal(is_active, apellidos, ci, nombres) VALUES
 (1, 'Gomez', '123456789', 'Ana'),
 (1, 'Martinez', '987654321', 'Carlos'),
 (1, 'Perez', '234567890', 'Maria'),
@@ -10,7 +10,19 @@ INSERT INTO stafflegal(is_active, apellidos, ci, nombres) VALUES
 (1, 'Hernandez', '890123456', 'Elena'),
 (1, 'Ruiz', '901234567', 'Jorge');
 
-INSERT INTO cuenta(is_active, fk_id_staff_legal, ci_usuario, pass_usuario) VALUES
+INSERT INTO stafflegal(fk_fig_legal_id) VALUES
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10);
+
+INSERT INTO cuenta(is_active, fk_staff_legal_id, ci_usuario, pass_usuario) VALUES
 (1, 1, '123456789', '123'),
 (1, 2, '987654321', '234'),
 (1, 3, '234567890', '345'),

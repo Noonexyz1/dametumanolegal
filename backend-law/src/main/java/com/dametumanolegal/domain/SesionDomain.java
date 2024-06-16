@@ -14,5 +14,5 @@ public class SesionDomain {
     private String fechaSesion;
     private boolean estadoSesion;
 
-    private StaffLegalDomain fk;
+    private StaffLegalDomain fkStaffLegal;
 }

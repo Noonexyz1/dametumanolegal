@@ -7,12 +7,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class SesionRequest {
-    private Long idSesion;
-    private String fechaSesion;
-    private boolean estadoSesion;
-
-    private StaffLegalRequest fkStaffLegal;
+@NoArgsConstructor
+public class ChangePassRequest {
+    private SesionRequest sesionRequest;
+    private CuentaRequest cuentaRequest;
+    private String newPass;
 }

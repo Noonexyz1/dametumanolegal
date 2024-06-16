@@ -1,8 +1,8 @@
 package com.dametumanolegal.config;
 
-import com.dametumanolegal.domain.adapter.output.AdminAdapter;
-import com.dametumanolegal.domain.port.output.ModAdmin;
-import com.dametumanolegal.domain.port.output.ModStaffLegal;
+import com.dametumanolegal.domain.adapter.output.AdminPersistenceAdapter;
+import com.dametumanolegal.domain.port.output.AdminPersistence;
+import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
 import com.dametumanolegal.domain.AbogadoDomain;
 import com.dametumanolegal.domain.StaffLegalDomain;
 import com.dametumanolegal.domain.port.input.Autenticable;
@@ -21,8 +21,8 @@ public class AppConfig {
     }comentamos esto porque al haber dos iguales, Spring no sabia que Injectar en el metodo de abajo */
 
     @Bean //registrando este componente manualmente al Scope de Spring para quien sea que quiera la implementacion
-    public Autenticable staffLegalDomain(/*@Qualifier("staffLegalAdapter")*/ ModStaffLegal modStaffLegal) {
-        return new StaffLegalDomain(modStaffLegal);
+    public Autenticable staffLegalDomain(/*@Qualifier("staffLegalAdapter")*/ StaffLegalPersistence staffLegalPersistence) {
+        return new StaffLegalDomain(staffLegalPersistence);
     }
 
 
@@ -31,13 +31,13 @@ public class AppConfig {
 
 
     @Bean
-    public ModAdmin persistenciaModAdmin(){
-       return new AdminAdapter();
+    public AdminPersistence persistenciaModAdmin(){
+       return new AdminPersistenceAdapter();
     }
 
     @Bean(name = "abogadoCuentable")
-    public Cuentable abogadoAdministradorCuentable(@Qualifier("persistenciaModAdmin") ModAdmin modAdmin) {
-        return new AbogadoDomain(modAdmin);
+    public Cuentable abogadoAdministradorCuentable(@Qualifier("persistenciaModAdmin") AdminPersistence adminPersistence) {
+        return new AbogadoDomain(adminPersistence);
     }
 
     @Bean

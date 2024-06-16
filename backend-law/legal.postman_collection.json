@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idSesion\": 7,\r\n    \"fechaSesion\": \"2024-06-09T15:27:45.313557300\",\r\n    \"estadoSesion\": true,\r\n    \"idStaffLegal\": {\r\n        \"idStaffLegal\": 1,\r\n        \"nombres\": \"Ana\",\r\n        \"apellidos\": \"Gomez\",\r\n        \"ci\": \"123456789\",\r\n        \"active\": true\r\n    }\r\n}",
+							"raw": "{\r\n    \"idSesion\": 30,\r\n    \"fechaSesion\": \"2024-06-15T17:19:00.861246200\",\r\n    \"estadoSesion\": true,\r\n    \"fkStaffLegal\": {\r\n        \"idStaffLegal\": 1,\r\n        \"fkFigLegalDomain\": {\r\n            \"id\": 1,\r\n            \"nombres\": \"Ana\",\r\n            \"apellidos\": \"Gomez\",\r\n            \"ci\": \"123456789\",\r\n            \"active\": true\r\n        }\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -74,7 +74,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idSesion\": 7,\r\n    \"fechaSesion\": \"2024-06-09T15:27:45.313557300\",\r\n    \"estadoSesion\": true,\r\n    \"idStaffLegal\": {\r\n        \"idStaffLegal\": 1,\r\n        \"nombres\": \"Ana\",\r\n        \"apellidos\": \"Gomez\",\r\n        \"ci\": \"123456789\",\r\n        \"active\": true\r\n    },\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"newPass\": \"Diego\"\r\n}",
+							"raw": "{\r\n    \"sesionRequest\": {\r\n        \"idSesion\": 30,\r\n        \"fechaSesion\": \"2024-06-15T17:19:00.861246200\",\r\n        \"estadoSesion\": true,\r\n        \"fkStaffLegal\": {\r\n            \"idStaffLegal\": 1,\r\n            \"fkFigLegalDomain\": {\r\n                \"id\": 1,\r\n                \"nombres\": \"Ana\",\r\n                \"apellidos\": \"Gomez\",\r\n                \"ci\": \"123456789\",\r\n                \"active\": true\r\n            }\r\n        }\r\n    },\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"Diego\",\r\n        \"isActive\": null\r\n    },\r\n    \"newPass\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

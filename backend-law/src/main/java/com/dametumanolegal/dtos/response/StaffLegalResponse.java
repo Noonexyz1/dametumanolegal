@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StaffLegalResponse {
     private Long idStaffLegal;
-    private String nombres;
-    private String apellidos;
-    private String ci;
-    private boolean isActive;
+
+    private FiguraLegalResponse fkFigLegalDomain;
 }

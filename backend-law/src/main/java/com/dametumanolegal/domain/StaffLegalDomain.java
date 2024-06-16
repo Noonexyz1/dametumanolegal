@@ -1,6 +1,6 @@
 package com.dametumanolegal.domain;
 
-import com.dametumanolegal.domain.port.output.ModStaffLegal;
+import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
 import com.dametumanolegal.domain.port.input.Autenticable;
 import lombok.*;
 
@@ -11,16 +11,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder    //esto no esta registrado en el scope de Spring, lo tengo que hacer manual, por AppConfig
 public class StaffLegalDomain implements Autenticable {
-    private Long idStaffLegal;
-    private String nombres;
-    private String apellidos;
-    private String ci;
-    private boolean isActive;
+    private Long id;
+
+    private FiguraLegalDomain fkFigLegal;
 
     //esto es para recibir la injeccion
-    private ModStaffLegal persistencia;
+    private StaffLegalPersistence persistencia;
     //aqui esta el unico Constructor
-    public StaffLegalDomain(ModStaffLegal persistenticia) {
+    public StaffLegalDomain(StaffLegalPersistence persistenticia) {
         this.persistencia = persistenticia;
     }
 
@@ -33,7 +31,7 @@ public class StaffLegalDomain implements Autenticable {
             SesionDomain sesionDomain = SesionDomain.builder()
                     .estadoSesion(true)
                     .fechaSesion(LocalDateTime.now().toString())
-                    .fk(cuenta.getFk())
+                    .fkStaffLegal(cuenta.getFkStaffLegal())
                     .build();
 
             sesionDomain = persistencia.crearSesion(sesionDomain);
@@ -55,7 +53,7 @@ public class StaffLegalDomain implements Autenticable {
     @Override
     public void modificarPassword(SesionDomain sesionDomain, CuentaDomain cuentaDomain, String newPass) {
         CuentaDomain cuenta = persistencia.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
-        if (!(cuenta == null) && (sesionDomain.getFk().equals(cuenta.getFk()))) {
+        if (!(cuenta == null) && (sesionDomain.getFkStaffLegal().equals(cuenta.getFkStaffLegal()))) {
             cuenta.setPassUsuario(newPass);
             persistencia.actualizar(cuenta);
         }

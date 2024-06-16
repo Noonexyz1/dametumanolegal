@@ -1,6 +1,5 @@
 package com.dametumanolegal.dtos.response;
 
-import com.dametumanolegal.domain.StaffLegalDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,11 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CuentaResponse {
-    private Long idUsuario;
-    private String ciUsuario;
-    private String passUsuario;
+public class FiguraLegalResponse {
+    private Long id;
+    private String nombres;
+    private String apellidos;
+    private String ci;
     private boolean isActive;
-
-    private StaffLegalDomain fkStaffLegal;
 }
