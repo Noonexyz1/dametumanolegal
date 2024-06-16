@@ -14,5 +14,5 @@ public class SesionResponse {
     private String fechaSesion;
     private boolean estadoSesion;
 
-    private StaffLegalResponse idStaffLegal;
+    private StaffLegalResponse fkStaffLegal;
 }

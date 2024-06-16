@@ -1,6 +1,6 @@
 package com.dametumanolegal.domain;
 
-import com.dametumanolegal.domain.port.output.ModAdmin;
+import com.dametumanolegal.domain.port.output.AdminPersistence;
 import com.dametumanolegal.domain.port.input.Cuentable;
 
 //Esta clase se encarga de parsear entradas de TIPOS o ATRIBUTOS a ENTIDADES DE DOMINIO
@@ -9,12 +9,12 @@ import com.dametumanolegal.domain.port.input.Cuentable;
 public class AbogadoDomain implements Cuentable{
     private Long idAbogado;
     private boolean isAdmin;
-    private StaffLegalDomain idStaffLegal;
+    private StaffLegalDomain fkStaffLegal;
 
-    private ModAdmin modAdmin;
+    private AdminPersistence adminPersistence;
 
-    public AbogadoDomain(ModAdmin modAdmin){
-        this.modAdmin = modAdmin;
+    public AbogadoDomain(AdminPersistence adminPersistence){
+        this.adminPersistence = adminPersistence;
     }
 
     @Override
@@ -24,12 +24,12 @@ public class AbogadoDomain implements Cuentable{
                 .passUsuario(crearCuenta.getPassUsuario())
                 .isActive(crearCuenta.isActive())
                 .build();
-        modAdmin.crearCuentaParaStaff(cuentaDomain);
+        adminPersistence.crearCuentaParaStaff(cuentaDomain);
     }
 
     @Override
     public CuentaDomain traerCuentaPorId(Long idCuenta) {
-        CuentaDomain cuentaDomain = modAdmin.traerCuentaPorID(idCuenta);
+        CuentaDomain cuentaDomain = adminPersistence.traerCuentaPorID(idCuenta);
         if (cuentaDomain == null) {
             return null;
         }
@@ -39,15 +39,15 @@ public class AbogadoDomain implements Cuentable{
 
     @Override
     public void desactivarCuentaDeStaff(Long idCuenta) {
-        CuentaDomain cuentaDomain = modAdmin.traerCuentaPorID(idCuenta);
+        CuentaDomain cuentaDomain = adminPersistence.traerCuentaPorID(idCuenta);
         cuentaDomain.setActive(false);
-        modAdmin.crearCuentaParaStaff(cuentaDomain);
+        adminPersistence.crearCuentaParaStaff(cuentaDomain);
     }
 
     @Override
     public void modifiPassCuentaDeStaff(CuentaDomain request) {
-        CuentaDomain cuentaDomain = modAdmin.traerCuentaPorID(request.getIdCuenta());
+        CuentaDomain cuentaDomain = adminPersistence.traerCuentaPorID(request.getId());
         cuentaDomain.setPassUsuario(request.getPassUsuario());
-        modAdmin.crearCuentaParaStaff(cuentaDomain);
+        adminPersistence.crearCuentaParaStaff(cuentaDomain);
     }
 }

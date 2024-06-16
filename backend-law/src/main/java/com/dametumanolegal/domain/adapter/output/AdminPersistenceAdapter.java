@@ -2,7 +2,7 @@ package com.dametumanolegal.domain.adapter.output;
 
 import com.dametumanolegal.domain.CuentaDomain;
 import com.dametumanolegal.domain.StaffLegalDomain;
-import com.dametumanolegal.domain.port.output.ModAdmin;
+import com.dametumanolegal.domain.port.output.AdminPersistence;
 import com.dametumanolegal.entities.Cuenta;
 import com.dametumanolegal.repository.CuentaRepository;
 import com.dametumanolegal.repository.StaffLegalRepository;
@@ -16,7 +16,7 @@ import java.util.Optional;
 //Y este debe devolverlo en entidades de BD a ENTIDADES DE DOMINIO
 
 @Component  //ADAPTADOR de SALIDA   //PUERTO de SALIDA de mi DOMAIN
-public class AdminAdapter implements ModAdmin {
+public class AdminPersistenceAdapter implements AdminPersistence {
 
     @Autowired //PUERTO DE ENTRADA a mi SERVICIO para PERSISTENCIA
     private CuentaRepository cuentaRepository;
