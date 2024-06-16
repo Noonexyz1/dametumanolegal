@@ -6,22 +6,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "archivo")
-public class Archivo {
+@Table(name = "subsanacion")
+public class Subsanacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private int plazoEnDias;
+    private String fechaInicio;
+    private String fechaLimite;
+    private String descripcion;
 
-
-    @ManyToOne
-    private Caso fkCaso;
-    @ManyToOne
-    private Documentacion fkDocu;
+    @OneToMany(mappedBy = "fkSubsanacion")
+    private List<Tramite> listaTramite;
 
 }

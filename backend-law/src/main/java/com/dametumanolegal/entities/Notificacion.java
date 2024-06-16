@@ -19,6 +19,9 @@ public class Notificacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private String tipo;
+    private String fecha;
+    private String contenido;
 
     @OneToMany(mappedBy = "fkNotificacion")
     private List<ProcesoFiscal> listaProcesosFiscal;

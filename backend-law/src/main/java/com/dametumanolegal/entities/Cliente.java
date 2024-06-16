@@ -28,4 +28,12 @@ public class Cliente {
 
     @OneToMany(mappedBy = "fkCliente")
     private List<Caso> listaCasos;
+
+    @OneToMany(mappedBy = "fkCliente")
+    private List<Tramite> listaTramites;
+
+
+    @OneToMany(mappedBy = "fkCliente")
+    private List<Minuta> listaMinutas;
+
 }

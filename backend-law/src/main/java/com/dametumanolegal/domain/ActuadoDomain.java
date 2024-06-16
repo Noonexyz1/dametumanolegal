@@ -1,21 +1,12 @@
-package com.dametumanolegal.entities;
+package com.dametumanolegal.domain;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "actuado")
-public class Actuado {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
+public class ActuadoDomain {
     private Long id;
     private String tipo; // Tipo de actuado (e.g., demanda, resolución, notificación)
     private String descripcion; // Descripción detallada del actuado
@@ -24,6 +15,5 @@ public class Actuado {
     private String contenido; // Contenido del actuado (puede ser el texto del documento)
 
 
-    @ManyToOne
-    private Caso fkCaso;
+    private CasoDomain fkCaso;
 }

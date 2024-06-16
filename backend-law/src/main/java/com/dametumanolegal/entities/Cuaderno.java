@@ -19,6 +19,15 @@ public class Cuaderno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private String numero;
+    private String titulo;
+    private String descripcion;
+    private String fechaCreacion;
+    private String fechaUltimaActualizacion;
+    private String estado;
+    private String responsable;
+    private String observaciones;
+    private String tipoCuaderno;
 
     @OneToMany(mappedBy = "fkCuaderno")
     private List<ProcesoFiscal> listaProcesosFiscal;

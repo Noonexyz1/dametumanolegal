@@ -18,6 +18,9 @@ public class Memorial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     private Long id;
+    private String titulo;
+    private String contenido;
+    private String fechaCreacion;
 
     @ManyToOne
     private Caso fkCaso;
