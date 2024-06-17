@@ -54,3 +54,11 @@ INSERT INTO abogado (is_admin, fk_staff_legal_id) VALUES
 INSERT INTO tramite (dura_meses, estado, num_etapas, fk_abogado_id, fk_cliente_id, fk_honor_id, fk_subsanacion_id, instancia) VALUES
 ('10', b'1', '3', '1', '2', '2', '2', 'Fiscalia'),
 ('14', b'1', '5', '2', '3', '1', '1', 'Derechos Reales');
+
+INSERT INTO documentacion (is_documento_inicial, descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, nombre, observaciones, responsable, tipo_caso) VALUES
+(b'1', 'Documentos para tramite', 'Sin copias', '888888888888888', '99999999999999999', 'Certificado nacimiento', 'Sin Observaciones', 'Abogado y cliente', 'Tramite'),
+(b'0', 'declaracion de impuestos', 'sin utilizar', '444444444', '5555555555', 'certificado de NIT de trabajo', 'ninguno', 'Procurador, abogado, cliente', 'Cambio de poseedor de bien inmueble');
+
+INSERT INTO notificacion (id, contenido, fecha, tipo) VALUES ('Notificacion para el caso legal penal TAL', '777777777', 'Penal'),
+(Notificacion para el cambio de nombre', '8888888888888', 'Derechos Reales');
+
