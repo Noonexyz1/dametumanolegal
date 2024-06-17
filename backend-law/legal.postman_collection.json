@@ -173,6 +173,107 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "mod Cliente",
+			"item": [
+				{
+					"name": "ver proc tramite",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/modCliente/verTram/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modCliente",
+								"verTram",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver docu tramite",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/modCliente/verDocuProcTram/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modCliente",
+								"verDocuProcTram",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver honorario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/modCliente/verHonorario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modCliente",
+								"verHonorario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver notificacion",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modCliente/verNotificacion/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modCliente",
+								"verNotificacion",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

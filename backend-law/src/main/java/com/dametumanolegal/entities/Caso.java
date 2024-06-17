@@ -29,20 +29,8 @@ public class Caso {
     private String observaciones;
 
 
-
-    @OneToMany(mappedBy = "fkCaso")
-    private List<ArchivoCaso> listaArchivoCasos;
-    @OneToMany(mappedBy = "fkCaso")
-    private List<Memorial> listaMemoriales;
-
     @ManyToOne
     private Honorario fkHonor;
-
-    @OneToMany(mappedBy = "fkCaso")
-    private List<CasoJuzgado> listaCasosJuzgados;
-    @OneToMany(mappedBy = "fkCaso")
-    private List<Actuado> listaActuados;
-
     @ManyToOne
     private Cliente fkCliente;
     @ManyToOne
@@ -50,6 +38,13 @@ public class Caso {
     @ManyToOne
     private Procurador fkProcurador;
 
+
+    @OneToMany(mappedBy = "fkCaso")
+    private List<ArchivoCaso> listaArchivoCasos;
+    @OneToMany(mappedBy = "fkCaso")
+    private List<Memorial> listaMemoriales;
+    @OneToMany(mappedBy = "fkCaso")
+    private List<Actuado> listaActuados;
     @OneToMany(mappedBy = "fkCaso")
     private List<CasoJuzgado> listaCasosJuzgado;
     @OneToMany(mappedBy = "fkCaso")

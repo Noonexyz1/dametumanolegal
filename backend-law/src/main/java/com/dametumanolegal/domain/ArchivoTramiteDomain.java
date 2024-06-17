@@ -21,6 +21,6 @@ public class ArchivoTramiteDomain {
 
 
     private Documentacion fkDocu;
-    private Tramite fkTramite;
+    private TramiteDomain fkTramite;
 
 }

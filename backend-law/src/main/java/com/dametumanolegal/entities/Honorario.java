@@ -26,7 +26,7 @@ public class Honorario {
 
 
     @OneToMany(mappedBy = "fkHonor")
-    private List<Caso> listaCaso;
+    private List<Caso> listaCasos;
 
     @OneToMany(mappedBy = "fkHonor")
     private List<Tramite> listaTramites;

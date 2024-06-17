@@ -1,14 +1,17 @@
-INSERT INTO figuralegal(is_active, apellidos, ci, nombres) VALUES
-(1, 'Gomez', '123456789', 'Ana'),
-(1, 'Martinez', '987654321', 'Carlos'),
-(1, 'Perez', '234567890', 'Maria'),
-(1, 'Rodriguez', '345678901', 'Juan'),
-(1, 'Garcia', '456789012', 'Luisa'),
-(1, 'Fernandez', '567890123', 'Pedro'),
-(1, 'Lopez', '678901234', 'Marta'),
-(1, 'Gonzalez', '789012345', 'Luis'),
-(1, 'Hernandez', '890123456', 'Elena'),
-(1, 'Ruiz', '901234567', 'Jorge');
+INSERT INTO figuralegal (is_active, apellidos, ci, direccion, email, fecha_nacimiento, fecha_registro, genero, nombres, rol, telefono)
+VALUES
+(1, 'Pérez', '1234567', 'Calle Principal 123', 'perez@example.com', '1980-01-01', '2022-01-01', 'Masculino', 'Juan', 'Abogado', '555-1234'),
+(1, 'Pérez', '1234567', 'Calle Principal 123', 'perez@example.com', '1980-01-01', '2022-01-01', 'Femenino', 'Laura', 'Abogada', '555-1234'),
+(1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Jose', 'Cliente', '555-5678'),
+(1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Mocos', 'Cliente', '555-5678'),
+(1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Joselo', 'Cliente', '555-5678'),
+(1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Pancho', 'Cliente', '555-5678'),
+(1, 'López', '7654321', 'Avenida Norte 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Femenino', 'Ana', 'Secretaria', '555-5678'),
+(1, 'López', '7654321', 'Avenida Los Procuradores', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Roberto', 'Procurador', '555-5678'),
+
+(1, 'López', '7654321', 'Avenida cielo Mall 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Femenino', 'María', 'Juez', '555-5678'),
+(1, 'López', '7654321', 'Avenida Norte Calle', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Mario', 'Fiscal', '555-5678'),
+(1, 'López', '7654321', 'Avenida Medio Local', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Carlos', 'Investigador', '555-5678');
 
 INSERT INTO stafflegal(fk_fig_legal_id) VALUES
 (1),
@@ -18,18 +21,36 @@ INSERT INTO stafflegal(fk_fig_legal_id) VALUES
 (5),
 (6),
 (7),
-(8),
-(9),
-(10);
+(8);
 
 INSERT INTO cuenta(is_active, fk_staff_legal_id, ci_usuario, pass_usuario) VALUES
-(1, 1, '123456789', '123'),
-(1, 2, '987654321', '234'),
-(1, 3, '234567890', '345'),
-(1, 4, '345678901', '456'),
-(1, 5, '456789012', '567'),
-(1, 6, '567890123', '678'),
-(1, 7, '678901234', '789'),
-(1, 8, '789012345', '890'),
-(1, 9, '890123456', '901'),
-(1, 10, '901234567', '012');
+(1, 1, '1234567', '123'),
+(1, 2, '1234567', '123'),
+(1, 3, '7654321', '123'),
+(1, 4, '7654321', '123'),
+(1, 5, '7654321', '123'),
+(1, 6, '7654321', '123'),
+(1, 7, '7654321', '123'),
+(1, 8, '7654321', '123');
+
+INSERT INTO subsanacion (plazo_en_dias, descripcion, fecha_inicio, fecha_limite) VALUES
+('4', 'Subsanar Memorial', '23232323', '45454545'),
+('5', 'Subsanar Memorial Del Cliente', '6666666', '0000000999999');
+
+INSERT INTO honorario (monto, descripcion, moneda, tipo_servicio) VALUES
+('23', 'Tramite', 'Dolares', 'Tramite'),
+('25', 'Caso de Penales', 'Dolares', 'Caso Judicial');
+
+INSERT INTO cliente (fk_staff_legal_id) VALUES
+('3'),
+('4'),
+('5'),
+('6');
+
+INSERT INTO abogado (is_admin, fk_staff_legal_id) VALUES
+(b'1', '2'),
+(b'0', '1');
+
+INSERT INTO tramite (dura_meses, estado, num_etapas, fk_abogado_id, fk_cliente_id, fk_honor_id, fk_subsanacion_id, instancia) VALUES
+('10', b'1', '3', '1', '2', '2', '2', 'Fiscalia'),
+('14', b'1', '5', '2', '3', '1', '1', 'Derechos Reales');
