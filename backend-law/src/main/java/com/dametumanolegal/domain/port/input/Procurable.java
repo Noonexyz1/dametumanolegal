@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Procurable {
     void registrarNotificacion(NotificacionDomain nuevaNotificacion);
-    void registrarActuado(ActuadoDomain nuevoActuado);
+    void registrarActuado(ActuadoDomain nuevoActuado, Long idCaso);
 
     List<CasoDomain> verCasos();
     List<CuadernoDomain> verCuadernos();

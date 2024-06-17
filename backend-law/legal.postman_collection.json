@@ -462,6 +462,197 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "mod Procurador",
+			"item": [
+				{
+					"name": "set notificacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": \"Notificación Urgente\",\r\n    \"fecha\": \"2024-06-17T15:30:00\",\r\n    \"contenido\": \"Sentencia Condenatoria para nuestro cliente Mr. Don Gato\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modProcurador/setNotificacion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modProcurador",
+								"setNotificacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set actuado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"actRequest\": {\r\n        \"tipo\": \"Notificación Real\",\r\n        \"descripcion\": \"El Rey ha emitido un decreto oficial respecto al pantano de Shrek.\",\r\n        \"fechaCreacion\": \"2024-06-17T10:00:00\",\r\n        \"creador\": \"Lord Farquaad\",\r\n        \"contenido\": \"Por la presente, se notifica que el pantano de Shrek ahora es propiedad del Reino de Duloc\"\r\n    },\r\n    \"idCaso\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modProcurador/setActuado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modProcurador",
+								"setActuado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista caso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modProcurador/listaCaso",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modProcurador",
+								"listaCaso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista cuaderno",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modProcurador/listaCuaderno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modProcurador",
+								"listaCuaderno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista fiscal",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modProcurador/listaFiscal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modProcurador",
+								"listaFiscal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista caso fiscalia",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modProcurador/listaCasosFiscalia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modProcurador",
+								"listaCasosFiscalia"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
