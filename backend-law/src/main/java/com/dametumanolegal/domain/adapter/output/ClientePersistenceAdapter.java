@@ -5,6 +5,9 @@ import com.dametumanolegal.domain.HonorarioDomain;
 import com.dametumanolegal.domain.NotificacionDomain;
 import com.dametumanolegal.domain.TramiteDomain;
 import com.dametumanolegal.domain.port.output.ClientePersitence;
+import com.dametumanolegal.entities.Documentacion;
+import com.dametumanolegal.entities.Honorario;
+import com.dametumanolegal.entities.Notificacion;
 import com.dametumanolegal.entities.Tramite;
 import com.dametumanolegal.repository.DocumentancionRepository;
 import com.dametumanolegal.repository.HonorarioRepository;
@@ -44,16 +47,19 @@ public class ClientePersistenceAdapter implements ClientePersitence {
 
     @Override
     public DocumentacionDomain verDocumentacionTram(Long idTramite) {
-        return modelMapper.map(documentancionRepository.findById(idTramite), DocumentacionDomain.class);
+        Optional<Documentacion> doc = documentancionRepository.findById(idTramite);
+        return doc.map(y -> modelMapper.map(y, DocumentacionDomain.class)).orElse(null);
     }
 
     @Override
     public HonorarioDomain getHonorario(Long idTramite) {
-        return modelMapper.map(honorarioRepository.findById(idTramite), HonorarioDomain.class);
+        Optional<Honorario> honor = honorarioRepository.findById(idTramite);
+        return honor.map(z -> modelMapper.map(z, HonorarioDomain.class)).orElse(null);
     }
 
     @Override
     public NotificacionDomain getNotificacion(Long idCaso) {
-        return modelMapper.map(notificacionRepository.findById(idCaso), NotificacionDomain.class);
+        Optional<Notificacion> notifi = notificacionRepository.findById(idCaso);
+        return notifi.map(u -> modelMapper.map(u, NotificacionDomain.class)).orElse(null);
     }
 }

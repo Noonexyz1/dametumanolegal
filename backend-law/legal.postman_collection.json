@@ -178,7 +178,7 @@
 			"name": "mod Cliente",
 			"item": [
 				{
-					"name": "ver proc tramite",
+					"name": "ver tramite",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -204,7 +204,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/modCliente/verDocuProcTram/10",
+							"raw": "http://localhost:8081/modCliente/verDocuTram/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -212,8 +212,8 @@
 							"port": "8081",
 							"path": [
 								"modCliente",
-								"verDocuProcTram",
-								"10"
+								"verDocuTram",
+								"1"
 							]
 						}
 					},
@@ -258,7 +258,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/modCliente/verNotificacion/",
+							"raw": "http://localhost:8081/modCliente/verNotificacion/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -267,7 +267,7 @@
 							"path": [
 								"modCliente",
 								"verNotificacion",
-								""
+								"1"
 							]
 						}
 					},
