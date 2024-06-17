@@ -1,8 +1,5 @@
 package com.dametumanolegal.domain;
 
-import com.dametumanolegal.entities.Abogado;
-import com.dametumanolegal.entities.Cliente;
-import com.dametumanolegal.entities.Honorario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,8 +17,9 @@ public class TramiteDomain {
     private int numEtapas;
     private String instancia;
 
-    private Cliente fkCliente;
-    private Abogado fkAbogado;
-    private Honorario fkHonor;
+    private ClienteDomain fkCliente;
+    private AbogadoDomain fkAbogado;
+    private HonorarioDomain fkHonor;
+    private SubsanacionDomain fkSubsanacion;
 
 }

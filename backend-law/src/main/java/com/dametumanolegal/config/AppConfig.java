@@ -1,7 +1,10 @@
 package com.dametumanolegal.config;
 
+import com.dametumanolegal.domain.ClienteDomain;
 import com.dametumanolegal.domain.adapter.output.AdminPersistenceAdapter;
+import com.dametumanolegal.domain.port.input.Seguible;
 import com.dametumanolegal.domain.port.output.AdminPersistence;
+import com.dametumanolegal.domain.port.output.ClientePersitence;
 import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
 import com.dametumanolegal.domain.AbogadoDomain;
 import com.dametumanolegal.domain.StaffLegalDomain;
@@ -29,6 +32,12 @@ public class AppConfig {
     public Cuentable abogadoAdministradorCuentable(/*@Qualifier("persistenciaModAdmin")*/ AdminPersistence adminPersistence, StaffLegalPersistence staffLegalPersistence) {
         return new AbogadoDomain(adminPersistence, staffLegalPersistence);
     }
+
+    @Bean
+    public Seguible clienteModulo(ClientePersitence clientePersitence){
+        return new ClienteDomain(clientePersitence);
+    }
+
 
     @Bean
     public ModelMapper modelMapper(){

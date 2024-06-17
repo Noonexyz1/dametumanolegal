@@ -25,6 +25,7 @@ public class ArchivoCaso {
 
     @ManyToOne
     private Caso fkCaso;
+
     @ManyToOne
     private Documentacion fkDocu;
 

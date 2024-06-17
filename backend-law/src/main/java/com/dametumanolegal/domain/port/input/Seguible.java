@@ -6,8 +6,8 @@ import com.dametumanolegal.domain.NotificacionDomain;
 import com.dametumanolegal.domain.TramiteDomain;
 
 public interface Seguible {
-    TramiteDomain verProcesoTramite(Long idTramite);
-    DocumentacionDomain verDocumentacionProcTram(Long idTramite);
-    HonorarioDomain verHonorarios(Long idTramite);
-    NotificacionDomain verNotificaciones(Long idCaso);
+    TramiteDomain verTramite(Long idTramite);
+    DocumentacionDomain verDocumentacionTram(Long idTramite);
+    HonorarioDomain verHonorario(Long idTramite);
+    NotificacionDomain verNotificacion(Long idCaso);
 }
