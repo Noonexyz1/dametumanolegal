@@ -39,7 +39,13 @@ INSERT INTO subsanacion (plazo_en_dias, descripcion, fecha_inicio, fecha_limite)
 
 INSERT INTO honorario (monto, descripcion, moneda, tipo_servicio) VALUES
 ('23', 'Tramite', 'Dolares', 'Tramite'),
-('25', 'Caso de Penales', 'Dolares', 'Caso Judicial');
+('25', 'Caso de Penales', 'Dolares', 'Caso Judicial'),
+('50', 'Investigaciones de quién dejó la tapa del inodoro levantada', 'Dolares', 'Caso Doméstico'),
+('75', 'Casos de conflictos por ronquidos nocturnos', 'Dolares', 'Caso Vecinal'),
+('100', 'Defensas de gatos acusado de robar pescado', 'Dolares', 'Caso Animal'),
+('150', 'Casos del vecinos que canta en la ducha a las 3 AM', 'Dolares', 'Caso Vecinal'),
+('200', 'Tramites para declarar a las plantas de oficinas como mascotas', 'Dolares', 'Tramite Especial');
+
 
 INSERT INTO cliente (fk_staff_legal_id) VALUES
 ('3'),
@@ -62,3 +68,43 @@ INSERT INTO documentacion (is_documento_inicial, descripcion, estado, fecha_crea
 INSERT INTO notificacion (id, contenido, fecha, tipo) VALUES ('Notificacion para el caso legal penal TAL', '777777777', 'Penal'),
 (Notificacion para el cambio de nombre', '8888888888888', 'Derechos Reales');
 
+INSERT INTO cuaderno(descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, numero, observaciones, responsable, tipo_cuaderno, titulo) VALUES
+('cuaderno del juzgado', 'en progreso', '77777777', '8888888888', '5', 'Subsanar una cosa', 'Abgado, cliente, procurador', 'Penal', 'Caso Jabon en la olla'),
+('cuaderno de la abuela', 'finalizado', '12345678', '87654321', '7', 'No perder la receta de las galletas', 'Abuela, nieto, gato', 'Civil', 'Disputa por la receta secreta'),
+('cuaderno del procurador distraído', 'pendiente', '11111111', '22222222', '13', 'Encontrar el bolígrafo rojo perdido', 'Procurador, detective privado, perro rastreador', 'Penal', 'El bolígrafo desaparecido'),
+('cuaderno del caso de la pizza', 'en progreso', '33333333', '44444444', '21', 'Averiguar quién se comió la última porción', 'Chef, repartidor, ratón', 'Comercial', 'El misterio de la pizza desaparecida'),
+('cuaderno del abogado soñador', 'suspendido', '55555555', '66666666', '42', 'Resolver el caso del sueño misterioso', 'Abogado, psicoanalista, almohada', 'Laboral', 'El sueño del fumador misterioso'),
+('cuaderno del gato detective', 'concluido', '99999999', '00000000', '9', 'Descubrir quién robó el pescado', 'Gato, ratón sospechoso, pez dorado', 'Penal', 'El gran robo del acuario');
+
+INSERT INTO procurador (fk_staff_legal_id) VALUES ('8');
+
+INSERT INTO caso (fk_abogado_id, fk_cliente_id, fk_honor_id, fk_procurador_id, descripcion, estado, fecha_cierre, fecha_inicio, observaciones, responsable, tipo_caso, titulo) VALUES
+('1', '1', '1', '1', 'Caso Quien se comio todoo el dulce de leche', 'En Progreso', '44444444', '22222222', 'ninguna', 'abogado, procurador, cliente', 'Judicial', 'Dulce de leche vacia'),
+('2', '2', '2', '1', 'Caso del zapato desaparecido', 'Pendiente', '11111111', '88888888', 'Solo encontramos uno', 'abogado, procurador, cliente', 'Civil', 'El zapato fantasma'),
+('1', '3', '3', '1', 'Caso de la lámpara que nunca se apagaba', 'Resuelto', '22222222', '99999999', 'Los vecinos no podían dormir', 'abogado, procurador, cliente', 'Vecinal', 'Luz eterna'),
+('2', '4', '4', '1', 'Caso de la nevera parlante', 'En Progreso', '33333333', '10101010', 'La nevera tiene muchas historias', 'abogado, procurador, cliente', 'Consumo', 'Cuentos fríos');
+
+
+INSERT INTO memorial (fk_caso_id, contenido, fecha_creacion, titulo) VALUES
+('4', 'Tiene muchos archivos', '77777777777', 'Memorial para el Caso nevera parlante'),
+('3', 'El caso está congelado... literalmente', '55555555555', 'Memorial para el Caso del congelador que se rebela'),
+('2', 'Un caso lleno de agujeros... de donas', '66666666666', 'Memorial para el Caso de la invasión de donas'),
+('1', 'Está lleno de pelos de perro, cuidado', '88888888888', 'Memorial para el Caso del perro que se graduó de abogado'),
+('4', 'Cuidado: contiene documentos masticados', '99999999999', 'Memorial para el Caso del ratón de oficina'),
+('3', 'No abrir: contiene spoilers de la serie', '44444444444', 'Memorial para el Caso del vecino spoileador de series'),
+('2', 'Archivos en lenguaje alienígena', '33333333333', 'Memorial para el Caso del ovni en el jardín'),
+('1', 'Incluye receta secreta de la abuela', '22222222222', 'Memorial para el Caso del robo de galletas mágicas'),
+('4', 'Este caso es un chiste... literalmente', '11111111111', 'Memorial para el Caso del payaso en juicio'),
+('3', 'Muchos post-its involucrados', '10101010101', 'Memorial para el Caso del secuestro de post-its'),
+('2', 'Contiene archivos de las vacaciones del abogado', '20202020202', 'Memorial para el Caso de la oficina en la playa'),
+('1', 'Atención: contiene memes en los anexos', '30303030303', 'Memorial para el Caso de los memes virales'),
+('4', 'Incluye mapa del tesoro', '40404040404', 'Memorial para el Caso de los piratas urbanos'),
+('3', 'El archivo huele a pizza', '50505050505', 'Memorial para el Caso del pizzero misterioso'),
+('2', 'Cuidado con los spoilers de películas', '60606060606', 'Memorial para el Caso del cinéfilo indiscreto'),
+('1', 'Archivos con tinta invisible', '70707070707', 'Memorial para el Caso del espía amateur'),
+('4', 'Documentos empapados en café', '80808080808', 'Memorial para el Caso del adicto al café'),
+('3', 'Contiene archivos cantantes', '90909090909', 'Memorial para el Caso del coro en el juzgado'),
+('2', 'Archivos escritos en jeroglíficos', '11122233344', 'Memorial para el Caso del arqueólogo aficionado'),
+('1', 'Este caso tiene más giros que una novela', '22233344455', 'Memorial para el Caso del escritor creativo');
+
+INSERT INTO secretaria (fk_staff_legal_id) VALUES ('7');

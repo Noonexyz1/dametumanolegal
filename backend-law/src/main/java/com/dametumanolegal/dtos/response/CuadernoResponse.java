@@ -1,12 +1,15 @@
-package com.dametumanolegal.domain;
+package com.dametumanolegal.dtos.response;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CuadernoDomain {
+public class CuadernoResponse {
     private Long id;
     private String numero;
     private String titulo;
@@ -17,5 +20,4 @@ public class CuadernoDomain {
     private String responsable;
     private String observaciones;
     private String tipoCuaderno;
-
 }
