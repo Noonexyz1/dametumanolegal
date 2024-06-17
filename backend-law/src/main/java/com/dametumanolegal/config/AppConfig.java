@@ -1,18 +1,9 @@
 package com.dametumanolegal.config;
 
-import com.dametumanolegal.domain.ClienteDomain;
-import com.dametumanolegal.domain.SecretariaDomain;
+import com.dametumanolegal.domain.*;
 import com.dametumanolegal.domain.adapter.output.AdminPersistenceAdapter;
-import com.dametumanolegal.domain.port.input.Gestionable;
-import com.dametumanolegal.domain.port.input.Seguible;
-import com.dametumanolegal.domain.port.output.AdminPersistence;
-import com.dametumanolegal.domain.port.output.ClientePersitence;
-import com.dametumanolegal.domain.port.output.SecretariaPersistence;
-import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
-import com.dametumanolegal.domain.AbogadoDomain;
-import com.dametumanolegal.domain.StaffLegalDomain;
-import com.dametumanolegal.domain.port.input.Autenticable;
-import com.dametumanolegal.domain.port.input.Cuentable;
+import com.dametumanolegal.domain.port.input.*;
+import com.dametumanolegal.domain.port.output.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -44,6 +35,11 @@ public class AppConfig {
     @Bean
     public Gestionable secretariaModulo(SecretariaPersistence secrePersistence){
         return new SecretariaDomain(secrePersistence);
+    }
+
+    @Bean
+    public Procurable procurableModulo(ProcuradorPersistence procuradorPersistence){
+        return new ProcuradorDomain(procuradorPersistence);
     }
 
 

@@ -1,0 +1,176 @@
+-- Tabla figuralegal********************************************************************************************
+INSERT INTO figuralegal (is_active, apellidos, ci, direccion, email, fecha_nacimiento, fecha_registro, genero, nombres, rol, telefono)
+VALUES
+(1, 'Miranda', '1234567', 'Calle de las Flores', 'abogado@duloc.com', '1990-01-01', '2023-01-01', 'Femenino', 'Dulcinea', 'Abogada', '555-1234'),
+(1, 'Lopez', '1234567', 'Calle de las Flores', 'burro@duloc.com', '1990-01-01', '2023-01-01', 'Masculino', 'Jose', 'Abogado', '555-1234'),
+(1, 'Fiona', '1234568', 'Castillo en las Nubes 456', 'fiona@farfaraway.com', '1980-01-01', '2023-01-01', 'Femenino', 'Princesa Fiona', 'Abogada', '555-5678'),
+
+(1, 'Jengibre', '4567890', 'Casa de Dulces 202', 'jengibre@dulces.com', '1995-10-10', '2023-01-02', 'Masculino', 'Galleta de Jengibre', 'Cliente', '555-1234'),
+(1, 'Shrek', '7654321', 'Pantano del Oeste 123', 'shrek@pantano.com', '1970-05-05', '2023-01-02', 'Masculino', 'Shrek', 'Cliente', '555-8765'),
+(1, 'Pinocho', '2345678', 'Bosque Encantado 345', 'pinocho@bosque.com', '1985-05-15', '2023-01-02', 'Masculino', 'Pinocho', 'Cliente', '555-9876'),
+(1, 'Burro', '3456789', 'Pantano del Oeste 567', 'burro@pantano.com', '1990-09-09', '2023-01-02', 'Masculino', 'Burro', 'Cliente', '555-3456'),
+(1, 'Dragoncito', '4567891', 'Cueva del Dragón 789', 'dragoncito@cueva.com', '2000-05-05', '2023-01-02', 'Masculino', 'Dragoncito', 'Cliente', '555-6543'),
+(1, 'Trescerditos', '5678910', 'Aldea de los Tres Cerditos', 'cerditos@aldea.com', '1995-11-11', '2023-01-02', 'Masculino', 'Tres Cerditos', 'Cliente', '555-1235'),
+(1, 'Loboferoz', '6789101', 'Bosque Tenebroso 999', 'loboferoz@tenebroso.com', '1980-12-12', '2023-01-02', 'Masculino', 'Lobo Feroz', 'Cliente', '555-7890'),
+
+(1, 'López', '7654321', 'Avenida Norte 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Femenino', 'Ana', 'Secretaria', '555-5678'),
+(1, 'Cenicienta', '3456782', 'Castillo en las Nubes 789', 'ceni@farfaraway.com', '1985-03-03', '2023-01-02', 'Femenino', 'Cenicienta', 'Secretaria', '555-1236'),
+(1, 'Rapunzel', '2345673', 'Torre de Rapunzel 101', 'rapunzel@torre.com', '1988-07-07', '2023-01-02', 'Femenino', 'Rapunzel', 'Secretaria', '555-6547'),
+(1, 'Alicia', '4567892', 'País de las Maravillas 202', 'alicia@maravillas.com', '1992-06-06', '2023-01-02', 'Femenino', 'Alicia', 'Secretaria', '555-3210'),
+
+(1, 'López', '7654321', 'Avenida Los Procuradores', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Roberto', 'Procurador', '555-5678'),
+(1, 'Hada', '3456784', 'Cueva Encantada 345', 'hada@encantada.com', '1980-08-08', '2023-01-02', 'Femenino', 'Hada Madrina', 'Procuradora', '555-7891'),
+(1, 'Espejo', '2345675', 'Castillo de Duloc 123', 'espejo@duloc.com', '1980-02-02', '2023-01-02', 'Masculino', 'Espejo Mágico', 'Procurador', '555-1237'),
+
+(1, 'Reina', '3333333', 'Palacio de Far Far Away', 'reina@farfaraway.com', '1950-01-01', '2023-01-02', 'Femenino', 'Reina Lillian', 'Juez', '555-5678'),
+(1, 'JuezaMuffin', '4567893', 'Calle de las Galletas 456', 'muffin@dulces.com', '1960-04-04', '2023-01-02', 'Femenino', 'Jueza Muffin', 'Juez', '555-6780'),
+(1, 'Gepetto', '5678911', 'Taller de Gepetto 789', 'gep@duloc.com', '1940-09-09', '2023-01-02', 'Masculino', 'Gepetto', 'Juez', '555-5679'),
+
+(1, 'Rey', '4444444', 'Palacio de Far Far Away', 'rey@farfaraway.com', '1950-01-01', '2023-01-02', 'Masculino', 'Rey Harold', 'Fiscal', '555-6789'),
+(1, 'LordFarquaad', '6789102', 'Castillo de Duloc 101', 'farquaad@duloc.com', '1960-03-03', '2023-01-02', 'Masculino', 'Lord Farquaad', 'Fiscal', '555-3211'),
+(1, 'CapitanGarfio', '2345676', 'Barco Pirata 303', 'garfio@piratas.com', '1970-06-06', '2023-01-02', 'Masculino', 'Capitán Garfio', 'Fiscal', '555-7892'),
+
+(1, 'Hombrelobo', '5555555', 'Bosque Tenebroso 505', 'hombrelobo@tenebroso.com', '1975-05-05', '2023-01-02', 'Masculino', 'Hombre Lobo', 'Investigador', '555-1234'),
+(1, 'Gato', '2345677', 'Calle de las Botas 101', 'gato@botas.com', '1985-08-08', '2023-01-02', 'Masculino', 'Gato con Botas', 'Detective Privado', '555-6789'),
+(1, 'Blancanieves', '5678912', 'Bosque Encantado 202', 'blanca@encantada.com', '1980-01-01', '2023-01-02', 'Femenino', 'Blancanieves', 'Investigadora', '555-5670');
+
+
+
+
+
+-- Tabla subsanacion
+INSERT INTO subsanacion (plazo_en_dias, descripcion, fecha_inicio, fecha_limite) VALUES
+(4, 'Subsanar reclamo de Donkey', '2023-06-15', '2023-06-19'),
+(5, 'Subsanar memorial de Shrek', '2023-06-16', '2023-06-21');
+
+
+
+
+-- Tabla honorario***************************************************************************
+INSERT INTO honorario (monto, descripcion, moneda, tipo_servicio) VALUES
+(500, 'Para tipos de tramite', 'Dolares', 'Trámite'),
+(600, 'Para demandas', 'Dolares', 'Caso Judicial'),
+(700, 'Para denuncias', 'Dolares', 'Caso Penal'),
+(600, 'Para familias', 'Dolares', 'Caso Familiar'),
+
+
+
+-- Tabla documentacion
+INSERT INTO documentacion (is_documento_inicial, descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, nombre, observaciones, responsable, tipo_caso) VALUES
+(b'1', 'Documentos para trámite de rescate', 'Sin copias', '2023-06-10', '2023-06-12', 'Certificado de nacimiento', 'Sin Observaciones', 'Abogado y cliente', 'Tramite'),
+(b'0', 'Declaración de impuestos del castillo', 'Sin utilizar', '2023-06-11', '2023-06-13', 'Certificado de NIT de Duloc', 'Ninguno', 'Procurador, abogado, cliente', 'Cambio de poseedor de bien inmueble');
+
+-- Tabla notificacion
+INSERT INTO notificacion (contenido, fecha, tipo) VALUES
+('Notificación para el caso legal penal contra Lord Farquaad', '2023-06-17', 'Penal'),
+('Notificación para el cambio de nombre de Burro', '2023-06-18', 'Derechos Reales');
+
+-- Tabla cuaderno
+INSERT INTO cuaderno (descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, numero, observaciones, responsable, tipo_cuaderno, titulo) VALUES
+('Cuaderno del juzgado de Duloc', 'En progreso', '2023-06-15', '2023-06-17', '5', 'Subsanar una cosa', 'Abogado, cliente, procurador', 'Penal', 'Caso de la sopa envenenada'),
+('Cuaderno de la abuela del bosque', 'Finalizado', '2023-06-10', '2023-06-12', '7', 'No perder la receta de galletas de jengibre', 'Abuela, nieto, gato', 'Civil', 'Disputa por la receta secreta'),
+('Cuaderno del procurador distraído', 'Pendiente', '2023-06-11', '2023-06-13', '13', 'Encontrar el bolígrafo rojo perdido', 'Procurador, detective privado, perro rastreador', 'Penal', 'El bolígrafo desaparecido'),
+('Cuaderno del caso de la pizza de Duloc', 'En progreso', '2023-06-12', '2023-06-14', '21', 'Averiguar quién se comió la última porción', 'Chef, repartidor, ratón', 'Comercial', 'El misterio de la pizza desaparecida'),
+('Cuaderno del abogado soñador', 'Suspendido', '2023-06-13', '2023-06-15', '42', 'Resolver el caso del sueño misterioso', 'Abogado, psicoanalista, almohada', 'Laboral', 'El sueño del fumador misterioso'),
+('Cuaderno del gato detective', 'Concluido', '2023-06-14', '2023-06-16', '9', 'Descubrir quién robó el pescado', 'Gato, ratón sospechoso, pez dorado', 'Penal', 'El gran robo del acuario');
+
+-- Tabla fiscalia
+INSERT INTO fiscalia (ciudad, departamento, direccion, email, nombre, pais, telefono, tipo) VALUES
+('Duloc', 'Duloc', 'Esquina del Castillo 123', 'contacto@duloc.com', 'Fiscalía del Reino de Duloc', 'Far Far Away', '555-1234', 'Penal'),
+('Far Far Away', 'Far Far Away', 'Avenida Principal 456', 'contacto@farfaraway.com', 'Fiscalía del Reino de Far Far Away', 'Far Far Away', '555-5678', 'Civil'),
+('Bosque Encantado', 'Bosque Encantado', 'Calle de las Hadas 789', 'contacto@bosque.com', 'Fiscalía del Bosque Encantado', 'Far Far Away', '555-8765', 'Laboral'),
+('Pantano', 'Pantano', 'Calle del Lodo 101', 'contacto@pantano.com', 'Fiscalía del Pantano', 'Far Far Away', '555-4321', 'Penal'),
+('Cueva del Dragón', 'Montaña del Dragón', 'Camino de la Cueva 202', 'contacto@cuevadragon.com', 'Fiscalía de la Cueva del Dragón', 'Far Far Away', '555-6789', 'Familia'),
+('Castillo en las Nubes', 'Reino de Far Far Away', 'Plaza del Castillo 303', 'contacto@castillo.com', 'Fiscalía del Castillo en las Nubes', 'Far Far Away', '555-1234', 'Comercial');
+
+
+
+
+
+INSERT INTO stafflegal(fk_fig_legal_id) VALUES
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8);
+
+INSERT INTO cuenta(is_active, fk_staff_legal_id, ci_usuario, pass_usuario) VALUES
+(1, 1, '1234567', '123'),
+(1, 2, '1234567', '123'),
+(1, 3, '7654321', '123'),
+(1, 4, '7654321', '123'),
+(1, 5, '7654321', '123'),
+(1, 6, '7654321', '123'),
+(1, 7, '7654321', '123'),
+(1, 8, '7654321', '123');
+
+INSERT INTO cliente (fk_staff_legal_id) VALUES
+('3'),
+('4'),
+('5'),
+('6');
+
+INSERT INTO abogado (is_admin, fk_staff_legal_id) VALUES
+(b'1', '2'),
+(b'0', '1');
+
+INSERT INTO tramite (dura_meses, estado, num_etapas, fk_abogado_id, fk_cliente_id, fk_honor_id, fk_subsanacion_id, instancia) VALUES
+('10', b'1', '3', '1', '2', '2', '2', 'Fiscalia'),
+('14', b'1', '5', '2', '3', '1', '1', 'Derechos Reales');
+
+INSERT INTO procurador (fk_staff_legal_id) VALUES ('8');
+
+
+
+
+-- Casos para cada cliente*****************************************************************************
+INSERT INTO caso (fk_abogado_id, fk_cliente_id, fk_honor_id, fk_procurador_id, descripcion, estado, fecha_cierre, fecha_inicio, observaciones, responsable, tipo_caso, titulo) VALUES
+(1, 1, 2, 15, 'Caso de destrucción de la Casa de Dulces por Lord Farquaad', 'En Proceso', NULL, '2023-01-03', 'Se requiere reconstrucción y compensación', 'Abogado Dulcinea', 'Civil', 'Reparación Casa de Dulces'),
+(2, 2, 3, 16, 'Caso de invasión del pantano por criaturas de cuentos de hadas', 'Cerrado', '2023-02-10', '2023-01-04', 'El pantano fue restaurado a su estado original', 'Abogado Dulcinea', 'Penal', 'Invasión del Pantano'),
+(3, 3, 3, 17, 'Caso de falsificación de identidad debido a nariz de Pinocho', 'En Proceso', NULL, '2023-01-05', 'Se investiga la autenticidad de las declaraciones de Pinocho', 'Abogado Dulcinea', 'Penal', 'Falsificación de Identidad'),
+(1, 4, 2, 15, 'Caso de difamación contra Burro por rumores de relación con Dragona', 'Cerrado', '2023-02-20', '2023-01-06', 'Los rumores fueron desmentidos y Burro recibió una disculpa pública', 'Abogado Dulcinea', 'Civil', 'Difamación contra Burro'),
+(2, 5, 4, 16, 'Caso de custodia de Dragoncito tras la partida de Dragona', 'En Proceso', NULL, '2023-01-07', 'Se discute la custodia de Dragoncito y su bienestar', 'Abogado Dulcinea', 'Familia', 'Custodia de Dragoncito'),
+(3, 6, 2, 17, 'Caso de demolición ilegal de las casas de los Tres Cerditos', 'En Proceso', NULL, '2023-01-08', 'Se solicita compensación y reconstrucción de las casas', 'Abogado Dulcinea', 'Civil', 'Demolición de las Casas de los Cerditos'),
+(1, 7, 3, 15, 'Caso de acoso por parte del Lobo Feroz contra los Tres Cerditos', 'En Proceso', NULL, '2023-01-09', 'Se buscan medidas de protección para los Tres Cerditos', 'Abogado Dulcinea', 'Penal', 'Acoso del Lobo Feroz');
+
+
+
+
+
+
+-- Memoriales para los casos existentes (distribuidos aleatoriamente entre los 7 casos)************************************************************
+INSERT INTO memorial (fk_caso_id, contenido, fecha_creacion, titulo) VALUES
+(1, 'Memorial inicial presentado en el caso de acusación de malversación de fondos contra Gingy. Se demuestra la correcta administración de recursos y se solicita una disculpa pública por las acusaciones infundadas.', '2023-01-10', 'Memorial de Defensa de Gingy'),
+(1, 'Memorial final presentado en el caso de acusación de malversación de fondos contra Gingy. Se concluye que Gingy es inocente y se solicita compensación por daño moral.', '2023-02-15', 'Memorial de Innocencia de Gingy'),
+(1, 'Memorial presentado en apoyo a la Casa de Dulces en su lucha contra la demolición. Se argumenta por la importancia cultural y el derecho a la propiedad de los habitantes de Duloc.', '2023-03-20', 'Memorial de Defensa de la Casa de Dulces'),
+(2, 'Memorial final presentado tras la resolución del caso de invasión del pantano por criaturas de cuentos de hadas. Se concluye que la restauración del pantano ha sido un éxito y se solicita compensación para Shrek y sus amigos.', '2023-02-24', 'Memorial de Resolución del Caso del Pantano'),
+(2, 'Memorial presentado en defensa de Shrek en el caso de acusación de agresión. Se demuestra que actuó en legítima defensa y se solicita el retiro de los cargos.', '2023-03-25', 'Memorial de Defensa de Shrek'),
+(3, 'Memorial presentado en el caso de disputa de identidad relacionado con las afirmaciones de Pinocho sobre su nariz. Se busca justicia y la protección de la integridad personal de Pinocho.', '2023-01-25', 'Memorial de Disputa de Identidad de Pinocho'),
+(3, 'Memorial presentado en el caso de difamación contra Pinocho. Se demuestra la falsedad de las acusaciones y se solicita una rectificación pública.', '2023-03-30', 'Memorial de Defensa de Pinocho'),
+(4, 'Memorial presentado en defensa de Burro contra las acusaciones de difamación. Se demuestra la falsedad de los rumores y se solicita una rectificación pública y compensación por daño moral.', '2023-02-26', 'Memorial de Defensa de Burro'),
+(5, 'Memorial presentado en el caso de custodia de Dragoncito tras la partida de Dragona. Se argumenta por la estabilidad emocional y el bienestar del menor en su nuevo entorno familiar.', '2023-01-27', 'Memorial de Custodia de Dragoncito'),
+(5, 'Memorial presentado en el caso de agresión contra Dragoncito por parte de otros niños en la escuela. Se solicita protección y medidas disciplinarias contra los agresores.', '2023-04-01', 'Memorial de Agresión contra Dragoncito'),
+(6, 'Memorial presentado en el caso de demolición ilegal de las casas de los Tres Cerditos. Se solicita compensación por los daños y la reconstrucción de las viviendas conforme a normativas de seguridad vigentes.', '2023-01-28', 'Memorial de Demolición de las Casas de los Tres Cerditos'),
+(7, 'Memorial presentado en el caso de acoso por parte del Lobo Feroz contra los Tres Cerditos. Se solicita una orden de restricción y medidas de protección para salvaguardar la seguridad de los demandantes.', '2023-01-29', 'Memorial de Acoso del Lobo Feroz'),
+(7, 'Memorial presentado en el caso de disputa por la herencia del Lobo Feroz. Se argumenta por la distribución justa de los bienes y la resolución pacífica del conflicto familiar.', '2023-04-05', 'Memorial de Disputa de Herencia del Lobo Feroz'),
+(1, 'Memorial presentado en el caso de fraude contra el Hada Madrina. Se demuestra la malversación de fondos y se solicita una investigación completa sobre las prácticas financieras del Hada Madrina.', '2023-03-02', 'Memorial de Fraude contra el Hada Madrina'),
+(2, 'Memorial presentado en el caso de negligencia médica en la atención de Asno. Se solicita compensación por los daños sufridos y la implementación de mejores prácticas de atención médica en Duloc.', '2023-03-10', 'Memorial de Negligencia Médica de Asno'),
+(3, 'Memorial presentado en el caso de discriminación contra los ogros en el mercado laboral de Duloc. Se exige la igualdad de oportunidades y la eliminación de prácticas discriminatorias.', '2023-04-12', 'Memorial de Discriminación en el Mercado Laboral de Duloc'),
+(4, 'Memorial presentado en el caso de invasión de propiedad por los Tres Cerditos en el pantano de Shrek. Se solicita una orden de desalojo y compensación por los daños causados a la propiedad de Shrek.', '2023-02-28', 'Memorial de Invasión de Propiedad por los Tres Cerditos'),
+(5, 'Memorial presentado en el caso de incumplimiento de contrato por parte de Rumpelstiltskin. Se busca la ejecución del contrato y compensación por los daños y perjuicios causados.', '2023-03-05', 'Memorial de Incumplimiento de Contrato por Rumpelstiltskin'),
+(6, 'Memorial presentado en el caso de acoso contra el Gato con Botas. Se solicita una orden de restricción y medidas de protección para evitar futuros incidentes.', '2023-03-08', 'Memorial de Acoso contra el Gato con Botas'),
+(7, 'Memorial presentado en el caso de negligencia municipal en el mantenimiento del Bosque Tenebroso. Se busca la reparación de daños ambientales y la implementación de medidas de conservación.', '2023-03-15', 'Memorial de Negligencia Municipal en el Bosque Tenebroso');
+
+
+
+INSERT INTO secretaria (fk_staff_legal_id) VALUES ('7');
+
+INSERT INTO fiscal (fk_fig_legal_id, fk_fiscalia_id) VALUES
+('10', '2');
+
+INSERT INTO caso_fiscalia (fk_caso_id,) VALUES
+('1'),
+('2');

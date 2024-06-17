@@ -2,16 +2,63 @@ INSERT INTO figuralegal (is_active, apellidos, ci, direccion, email, fecha_nacim
 VALUES
 (1, 'Pérez', '1234567', 'Calle Principal 123', 'perez@example.com', '1980-01-01', '2022-01-01', 'Masculino', 'Juan', 'Abogado', '555-1234'),
 (1, 'Pérez', '1234567', 'Calle Principal 123', 'perez@example.com', '1980-01-01', '2022-01-01', 'Femenino', 'Laura', 'Abogada', '555-1234'),
+
 (1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Jose', 'Cliente', '555-5678'),
 (1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Mocos', 'Cliente', '555-5678'),
 (1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Joselo', 'Cliente', '555-5678'),
 (1, 'López', '7654321', 'Avenida Comercial 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Pancho', 'Cliente', '555-5678'),
+
+
 (1, 'López', '7654321', 'Avenida Norte 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Femenino', 'Ana', 'Secretaria', '555-5678'),
 (1, 'López', '7654321', 'Avenida Los Procuradores', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Roberto', 'Procurador', '555-5678'),
 
 (1, 'López', '7654321', 'Avenida cielo Mall 456', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Femenino', 'María', 'Juez', '555-5678'),
 (1, 'López', '7654321', 'Avenida Norte Calle', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Mario', 'Fiscal', '555-5678'),
 (1, 'López', '7654321', 'Avenida Medio Local', 'lopez@example.com', '1985-05-05', '2022-01-02', 'Masculino', 'Carlos', 'Investigador', '555-5678');
+
+
+
+INSERT INTO subsanacion (plazo_en_dias, descripcion, fecha_inicio, fecha_limite) VALUES
+('4', 'Subsanar Memorial', '23232323', '45454545'),
+('5', 'Subsanar Memorial Del Cliente', '6666666', '0000000999999');
+
+INSERT INTO honorario (monto, descripcion, moneda, tipo_servicio) VALUES
+('23', 'Tramite', 'Dolares', 'Tramite'),
+('25', 'Caso de Penales', 'Dolares', 'Caso Judicial'),
+('50', 'Investigaciones de quién dejó la tapa del inodoro levantada', 'Dolares', 'Caso Doméstico'),
+('75', 'Casos de conflictos por ronquidos nocturnos', 'Dolares', 'Caso Vecinal'),
+('100', 'Defensas de gatos acusado de robar pescado', 'Dolares', 'Caso Animal'),
+('150', 'Casos del vecinos que canta en la ducha a las 3 AM', 'Dolares', 'Caso Vecinal'),
+('200', 'Tramites para declarar a las plantas de oficinas como mascotas', 'Dolares', 'Tramite Especial');
+
+INSERT INTO documentacion (is_documento_inicial, descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, nombre, observaciones, responsable, tipo_caso) VALUES
+(b'1', 'Documentos para tramite', 'Sin copias', '888888888888888', '99999999999999999', 'Certificado nacimiento', 'Sin Observaciones', 'Abogado y cliente', 'Tramite'),
+(b'0', 'declaracion de impuestos', 'sin utilizar', '444444444', '5555555555', 'certificado de NIT de trabajo', 'ninguno', 'Procurador, abogado, cliente', 'Cambio de poseedor de bien inmueble');
+
+INSERT INTO notificacion (id, contenido, fecha, tipo) VALUES
+('Notificacion para el caso legal penal TAL', '777777777', 'Penal'),
+(Notificacion para el cambio de nombre', '8888888888888', 'Derechos Reales');
+
+INSERT INTO cuaderno(descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, numero, observaciones, responsable, tipo_cuaderno, titulo) VALUES
+('cuaderno del juzgado', 'en progreso', '77777777', '8888888888', '5', 'Subsanar una cosa', 'Abgado, cliente, procurador', 'Penal', 'Caso Jabon en la olla'),
+('cuaderno de la abuela', 'finalizado', '12345678', '87654321', '7', 'No perder la receta de las galletas', 'Abuela, nieto, gato', 'Civil', 'Disputa por la receta secreta'),
+('cuaderno del procurador distraído', 'pendiente', '11111111', '22222222', '13', 'Encontrar el bolígrafo rojo perdido', 'Procurador, detective privado, perro rastreador', 'Penal', 'El bolígrafo desaparecido'),
+('cuaderno del caso de la pizza', 'en progreso', '33333333', '44444444', '21', 'Averiguar quién se comió la última porción', 'Chef, repartidor, ratón', 'Comercial', 'El misterio de la pizza desaparecida'),
+('cuaderno del abogado soñador', 'suspendido', '55555555', '66666666', '42', 'Resolver el caso del sueño misterioso', 'Abogado, psicoanalista, almohada', 'Laboral', 'El sueño del fumador misterioso'),
+('cuaderno del gato detective', 'concluido', '99999999', '00000000', '9', 'Descubrir quién robó el pescado', 'Gato, ratón sospechoso, pez dorado', 'Penal', 'El gran robo del acuario');
+
+INSERT INTO fiscalia (ciudad, departamento, direccion, email, nombre, pais, telefono, tipo) VALUES
+('La Paz', 'La Paz', 'Esquina Juanito Calle', 'asdf@correo.com', 'Fiscalia primero del Estado Pluri', 'Bolivia', '12544121', 'Penal'),
+('Santa Cruz', 'Santa Cruz', 'Avenida Principal 123', 'cruz@correo.com', 'Fiscalia Segunda del Estado', 'Bolivia', '11223344', 'Civil'),
+('Cochabamba', 'Cochabamba', 'Calle Flores 456', 'flores@correo.com', 'Fiscalia Tercera de Justicia', 'Bolivia', '55667788', 'Laboral'),
+('Sucre', 'Chuquisaca', 'Plaza Mayor 789', 'mayor@correo.com', 'Fiscalia Cuarta de Investigaciones', 'Bolivia', '99887766', 'Penal'),
+('Potosi', 'Potosi', 'Zona Alta 101', 'alta@correo.com', 'Fiscalia Quinta de Protección', 'Bolivia', '44556677', 'Familia'),
+('Tarija', 'Tarija', 'Bulevar Central 202', 'central@correo.com', 'Fiscalia Sexta de Derechos', 'Bolivia', '22334455', 'Comercial');
+
+
+
+
+
 
 INSERT INTO stafflegal(fk_fig_legal_id) VALUES
 (1),
@@ -33,20 +80,6 @@ INSERT INTO cuenta(is_active, fk_staff_legal_id, ci_usuario, pass_usuario) VALUE
 (1, 7, '7654321', '123'),
 (1, 8, '7654321', '123');
 
-INSERT INTO subsanacion (plazo_en_dias, descripcion, fecha_inicio, fecha_limite) VALUES
-('4', 'Subsanar Memorial', '23232323', '45454545'),
-('5', 'Subsanar Memorial Del Cliente', '6666666', '0000000999999');
-
-INSERT INTO honorario (monto, descripcion, moneda, tipo_servicio) VALUES
-('23', 'Tramite', 'Dolares', 'Tramite'),
-('25', 'Caso de Penales', 'Dolares', 'Caso Judicial'),
-('50', 'Investigaciones de quién dejó la tapa del inodoro levantada', 'Dolares', 'Caso Doméstico'),
-('75', 'Casos de conflictos por ronquidos nocturnos', 'Dolares', 'Caso Vecinal'),
-('100', 'Defensas de gatos acusado de robar pescado', 'Dolares', 'Caso Animal'),
-('150', 'Casos del vecinos que canta en la ducha a las 3 AM', 'Dolares', 'Caso Vecinal'),
-('200', 'Tramites para declarar a las plantas de oficinas como mascotas', 'Dolares', 'Tramite Especial');
-
-
 INSERT INTO cliente (fk_staff_legal_id) VALUES
 ('3'),
 ('4'),
@@ -61,21 +94,6 @@ INSERT INTO tramite (dura_meses, estado, num_etapas, fk_abogado_id, fk_cliente_i
 ('10', b'1', '3', '1', '2', '2', '2', 'Fiscalia'),
 ('14', b'1', '5', '2', '3', '1', '1', 'Derechos Reales');
 
-INSERT INTO documentacion (is_documento_inicial, descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, nombre, observaciones, responsable, tipo_caso) VALUES
-(b'1', 'Documentos para tramite', 'Sin copias', '888888888888888', '99999999999999999', 'Certificado nacimiento', 'Sin Observaciones', 'Abogado y cliente', 'Tramite'),
-(b'0', 'declaracion de impuestos', 'sin utilizar', '444444444', '5555555555', 'certificado de NIT de trabajo', 'ninguno', 'Procurador, abogado, cliente', 'Cambio de poseedor de bien inmueble');
-
-INSERT INTO notificacion (id, contenido, fecha, tipo) VALUES ('Notificacion para el caso legal penal TAL', '777777777', 'Penal'),
-(Notificacion para el cambio de nombre', '8888888888888', 'Derechos Reales');
-
-INSERT INTO cuaderno(descripcion, estado, fecha_creacion, fecha_ultima_actualizacion, numero, observaciones, responsable, tipo_cuaderno, titulo) VALUES
-('cuaderno del juzgado', 'en progreso', '77777777', '8888888888', '5', 'Subsanar una cosa', 'Abgado, cliente, procurador', 'Penal', 'Caso Jabon en la olla'),
-('cuaderno de la abuela', 'finalizado', '12345678', '87654321', '7', 'No perder la receta de las galletas', 'Abuela, nieto, gato', 'Civil', 'Disputa por la receta secreta'),
-('cuaderno del procurador distraído', 'pendiente', '11111111', '22222222', '13', 'Encontrar el bolígrafo rojo perdido', 'Procurador, detective privado, perro rastreador', 'Penal', 'El bolígrafo desaparecido'),
-('cuaderno del caso de la pizza', 'en progreso', '33333333', '44444444', '21', 'Averiguar quién se comió la última porción', 'Chef, repartidor, ratón', 'Comercial', 'El misterio de la pizza desaparecida'),
-('cuaderno del abogado soñador', 'suspendido', '55555555', '66666666', '42', 'Resolver el caso del sueño misterioso', 'Abogado, psicoanalista, almohada', 'Laboral', 'El sueño del fumador misterioso'),
-('cuaderno del gato detective', 'concluido', '99999999', '00000000', '9', 'Descubrir quién robó el pescado', 'Gato, ratón sospechoso, pez dorado', 'Penal', 'El gran robo del acuario');
-
 INSERT INTO procurador (fk_staff_legal_id) VALUES ('8');
 
 INSERT INTO caso (fk_abogado_id, fk_cliente_id, fk_honor_id, fk_procurador_id, descripcion, estado, fecha_cierre, fecha_inicio, observaciones, responsable, tipo_caso, titulo) VALUES
@@ -83,7 +101,6 @@ INSERT INTO caso (fk_abogado_id, fk_cliente_id, fk_honor_id, fk_procurador_id, d
 ('2', '2', '2', '1', 'Caso del zapato desaparecido', 'Pendiente', '11111111', '88888888', 'Solo encontramos uno', 'abogado, procurador, cliente', 'Civil', 'El zapato fantasma'),
 ('1', '3', '3', '1', 'Caso de la lámpara que nunca se apagaba', 'Resuelto', '22222222', '99999999', 'Los vecinos no podían dormir', 'abogado, procurador, cliente', 'Vecinal', 'Luz eterna'),
 ('2', '4', '4', '1', 'Caso de la nevera parlante', 'En Progreso', '33333333', '10101010', 'La nevera tiene muchas historias', 'abogado, procurador, cliente', 'Consumo', 'Cuentos fríos');
-
 
 INSERT INTO memorial (fk_caso_id, contenido, fecha_creacion, titulo) VALUES
 ('4', 'Tiene muchos archivos', '77777777777', 'Memorial para el Caso nevera parlante'),
@@ -108,14 +125,6 @@ INSERT INTO memorial (fk_caso_id, contenido, fecha_creacion, titulo) VALUES
 ('1', 'Este caso tiene más giros que una novela', '22233344455', 'Memorial para el Caso del escritor creativo');
 
 INSERT INTO secretaria (fk_staff_legal_id) VALUES ('7');
-
-INSERT INTO fiscalia (ciudad, departamento, direccion, email, nombre, pais, telefono, tipo) VALUES
-('La Paz', 'La Paz', 'Esquina Juanito Calle', 'asdf@correo.com', 'Fiscalia primero del Estado Pluri', 'Bolivia', '12544121', 'Penal'),
-('Santa Cruz', 'Santa Cruz', 'Avenida Principal 123', 'cruz@correo.com', 'Fiscalia Segunda del Estado', 'Bolivia', '11223344', 'Civil'),
-('Cochabamba', 'Cochabamba', 'Calle Flores 456', 'flores@correo.com', 'Fiscalia Tercera de Justicia', 'Bolivia', '55667788', 'Laboral'),
-('Sucre', 'Chuquisaca', 'Plaza Mayor 789', 'mayor@correo.com', 'Fiscalia Cuarta de Investigaciones', 'Bolivia', '99887766', 'Penal'),
-('Potosi', 'Potosi', 'Zona Alta 101', 'alta@correo.com', 'Fiscalia Quinta de Protección', 'Bolivia', '44556677', 'Familia'),
-('Tarija', 'Tarija', 'Bulevar Central 202', 'central@correo.com', 'Fiscalia Sexta de Derechos', 'Bolivia', '22334455', 'Comercial');
 
 INSERT INTO fiscal (fk_fig_legal_id, fk_fiscalia_id) VALUES
 ('10', '2');
