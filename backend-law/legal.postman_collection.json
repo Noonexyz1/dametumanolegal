@@ -274,6 +274,194 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "mod Secretaria",
+			"item": [
+				{
+					"name": "set cuaderno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"42\",\r\n    \"titulo\": \"El Caso del Cuaderno Misterioso\",\r\n    \"descripcion\": \"Un cuaderno con notas tan intrigantes que podrían resolver cualquier caso judicial.\",\r\n    \"fechaCreacion\": \"17 de junio de 2024\",\r\n    \"fechaUltimaActualizacion\": \"Justo ahora, mientras la tinta se seca.\",\r\n    \"estado\": \"En espera de la firma del juez y un sello mágico\",\r\n    \"responsable\": \"El abogado maestro de las palabras y los apuntes\",\r\n    \"observaciones\": \"¡Atención! Contiene claves para descifrar el misterio de la justicia.\",\r\n    \"tipoCuaderno\": \"Cuaderno judicial ultra secreto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modSecretaria/setCuaderno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modSecretaria",
+								"setCuaderno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set memorial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"memorial\": {\r\n        \"titulo\": \"El Memorial de las Cosas que Nunca Encontré\",\r\n        \"contenido\": \"Un memorial lleno de recuerdos de todas las cosas perdidas y olvidadas.\",\r\n        \"fechaCreacion\": \"17 de junio de 2024\"\r\n    },\r\n    \"idCaso\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modSecretaria/setMemorial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modSecretaria",
+								"setMemorial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set cita",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"citaRequest\": {\r\n        \"fechaCita\": \"2024-06-17T10:00:00\",\r\n        \"duracion\": 60,\r\n        \"motivo\": \"Reunión para discutir la estrategia de defensa 'Abracadabra Legal'\",\r\n        \"ubicacion\": \"Despacho 404, Edificio Ilusión Jurídica\",\r\n        \"estado\": \"En espera de que los planetas se alineen\",\r\n        \"notas\": \"¡Importante! Llevar sombrero de mago para entrar.\",\r\n        \"fechaCreacion\": \"2024-06-17T09:00:00\",\r\n        \"creador\": \"Abogado Mágico\"\r\n    },\r\n    \"idCliente\": 3,\r\n    \"idSecretaria\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modSecretaria/setCita",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modSecretaria",
+								"setCita"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista cuaderno",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modSecretaria/listaCuaderno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modSecretaria",
+								"listaCuaderno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista memorial",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modSecretaria/listaMemorial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modSecretaria",
+								"listaMemorial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista caso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuentaRequest\": {\r\n        \"id\": null,\r\n        \"ciUsuario\": \"123456789\",\r\n        \"passUsuario\": \"123\",\r\n        \"isActive\": null\r\n    },\r\n    \"idCountToChangePass\": 2,\r\n    \"newPass\": \"diego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/modSecretaria/listaCaso",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"modSecretaria",
+								"listaCaso"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

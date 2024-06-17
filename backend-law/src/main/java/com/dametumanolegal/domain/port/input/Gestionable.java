@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface Gestionable {
     void registrarCuaderno(CuadernoDomain cuadernoNuevo);
-    void registrarMemoria(MemorialDomain nuevoMemorial);
-    void registrarCita(CitaDomain nuevaCita);
+    void registrarMemorial(MemorialDomain nuevoMemorial, Long idCaso);
+    void registrarCita(CitaDomain nuevaCita, Long idCliente, Long idSecre);
 
     List<CuadernoDomain> verCuadernos();
     List<MemorialDomain> verMemoriales();
