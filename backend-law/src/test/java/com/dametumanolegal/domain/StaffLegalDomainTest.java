@@ -35,10 +35,11 @@ public class StaffLegalDomainTest {
     @Test
     public void testIniciarSesion() {
         // GIVEN datos iniciales
-        FiguraLegalDomain figuraLegal = FiguraLegalDomain.builder().id(1L).nombres("Juan").apellidos("Pérez").ci("1234567").direccion("Calle Principal 123").email("perez@example.com").fechaNacimiento("1980-01-01").fechaRegistro("2022-01-01").genero("Masculino").telefono("555-1234").rol("Abogado").build();
-        StaffLegalDomain staff = StaffLegalDomain.builder().id(1L).fkFigLegal(figuraLegal).build();
-        CuentaDomain cuentaDomain = CuentaDomain.builder().isActive(true).fkStaffLegal(staff).id(1L).ciUsuario("1234567").passUsuario("123").build();
-        SesionDomain sesionMock = SesionDomain.builder().idSesion(1L).fechaSesion(LocalDateTime.now().toString()).estadoSesion(true).fkStaffLegal(staff).build();
+        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        CuentaDomain cuentaDomain = new CuentaDomain( 1L, "1234567", "123",true, staff);
+        SesionDomain sesionMock = new SesionDomain(1L, LocalDateTime.now().toString(), true, staff);
+
         CuentaDomain cuentaToPrube = CuentaDomain.builder().ciUsuario("1234567").passUsuario("123").build();
 
         // Mockear el comportamiento del método buscarPorUserYPass en persistencia
@@ -62,9 +63,9 @@ public class StaffLegalDomainTest {
     public void testCerrarSesion() {
         // Datos de prueba
         // GIVEN datos iniciales
-        FiguraLegalDomain figuraLegal = FiguraLegalDomain.builder().id(1L).nombres("Juan").apellidos("Pérez").ci("1234567").direccion("Calle Principal 123").email("perez@example.com").fechaNacimiento("1980-01-01").fechaRegistro("2022-01-01").genero("Masculino").telefono("555-1234").rol("Abogado").build();
-        StaffLegalDomain staff = StaffLegalDomain.builder().id(1L).fkFigLegal(figuraLegal).build();
-        SesionDomain sesionMock = SesionDomain.builder().idSesion(1L).fechaSesion(LocalDateTime.now().toString()).estadoSesion(true).fkStaffLegal(staff).build();
+        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        SesionDomain sesionMock = new SesionDomain(1L, LocalDateTime.now().toString(), true, staff);
 
         // Llamar al método bajo prueba
         staffLegalDomain.cerrarSesion(sesionMock);
@@ -81,11 +82,11 @@ public class StaffLegalDomainTest {
     @Test
     public void testModificarPassword() {
         // GIVEN datos iniciales
-        FiguraLegalDomain figuraLegal = FiguraLegalDomain.builder().id(1L).nombres("Juan").apellidos("Pérez").ci("1234567").direccion("Calle Principal 123").email("perez@example.com").fechaNacimiento("1980-01-01").fechaRegistro("2022-01-01").genero("Masculino").telefono("555-1234").rol("Abogado").build();
-        StaffLegalDomain staff = StaffLegalDomain.builder().id(1L).fkFigLegal(figuraLegal).build();
-        CuentaDomain cuentaDomain = CuentaDomain.builder().isActive(true).fkStaffLegal(staff).id(1L).ciUsuario("1234567").passUsuario("123").build();
+        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        CuentaDomain cuentaDomain = new CuentaDomain( 1L, "1234567", "123",true, staff);
 
-        SesionDomain sesionMock = SesionDomain.builder().idSesion(1L).fechaSesion(LocalDateTime.now().toString()).estadoSesion(true).fkStaffLegal(staff).build();
+        SesionDomain sesionMock = new SesionDomain(1L, LocalDateTime.now().toString(), true, staff);
         CuentaDomain cuentaToPrube = CuentaDomain.builder().ciUsuario("1234567").passUsuario("123").build();
 
         // Mockear el comportamiento del método buscarPorUserYPass en persistencia
