@@ -6,18 +6,21 @@ import lombok.*;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SecretariaDomain implements Gestionable {
-    private Long id;
-
-    private StaffLegalDomain fkStaffLegal;
+public class SecretariaDomain extends StaffLegalDomain implements Gestionable {
+    private Long idSecretaria;
 
     private SecretariaPersistence secrePersistence;
     public SecretariaDomain(SecretariaPersistence secrePersistence){
         this.secrePersistence = secrePersistence;
+    }
+
+    public SecretariaDomain(Long id, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive, Long idSecretaria){
+        super(id, nombres, apellidos, ci, direccion, telefono, email, rol, fechaNacimiento, genero, fechaRegistro, isActive);
+        this.idSecretaria = idSecretaria;
     }
 
 

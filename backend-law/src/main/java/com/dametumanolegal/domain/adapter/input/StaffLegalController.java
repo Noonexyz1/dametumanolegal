@@ -9,6 +9,7 @@ import com.dametumanolegal.dtos.request.SesionRequest;
 import com.dametumanolegal.dtos.response.SesionResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/modStaffLegal")
 public class StaffLegalController {
     @Autowired //para recibir la injeccion
+    @Qualifier("staffLegalModulo")
     private Autenticable autenticable;
     @Autowired
     private ModelMapper modelMapper;
@@ -37,9 +39,9 @@ public class StaffLegalController {
 
     @PostMapping("/cambiarPass")
     public void modificarPassword(@RequestBody ChangePassRequest changePassRequest) {
-        SesionDomain sesionDomain = modelMapper.map(changePassRequest.getSesionRequest(), SesionDomain.class);
-        CuentaDomain cuentaDomain = modelMapper.map(changePassRequest.getCuentaRequest(), CuentaDomain.class);
-        String newPass = changePassRequest.getNewPass();
+        SesionDomain sesionDomain = modelMapper.map(changePassRequest.sesionRequest(), SesionDomain.class);
+        CuentaDomain cuentaDomain = modelMapper.map(changePassRequest.cuentaRequest(), CuentaDomain.class);
+        String newPass = changePassRequest.newPass();
         autenticable.modificarPassword(sesionDomain, cuentaDomain, newPass);
     }
 }

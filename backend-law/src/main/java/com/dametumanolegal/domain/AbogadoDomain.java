@@ -3,40 +3,52 @@ package com.dametumanolegal.domain;
 import com.dametumanolegal.domain.port.output.AdminPersistence;
 import com.dametumanolegal.domain.port.input.Cuentable;
 import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 //Esta clase se encarga de recibir entradas de TIPOS o ATRIBUTOS o ENTIDADES DE DOMINIO
 //y hacer la operacion de devolver de ENTIDADES DE DOMINIO o TIPOS como respuesta
+@EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AbogadoDomain implements Cuentable{
+public class AbogadoDomain extends StaffLegalDomain  implements Cuentable {
     private Long idAbogado;
     private boolean isAdmin;
-    private StaffLegalDomain fkStaffLegal;
 
     private AdminPersistence adminPersistence;
-    private StaffLegalPersistence staffLegalPersistence;
+    //private StaffLegalPersistence staffLegalPersistence;
+    //porque estoy volviendo a escribir esta dependencia si la dependencia ya viene del padre al hacer herencia
+    //Osea, no es ambiguo??????
 
-    public AbogadoDomain(AdminPersistence adminPersistence, StaffLegalPersistence staffLegalPersistence){
+    /*public AbogadoDomain(AdminPersistence adminPersistence, StaffLegalPersistence staffLegalPersistence){
         this.adminPersistence = adminPersistence;
         this.staffLegalPersistence = staffLegalPersistence;
+    }*/
+    public AbogadoDomain(AdminPersistence adminPersistence){
+        this.adminPersistence = adminPersistence;
+    }
+
+
+    public AbogadoDomain(Long id, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive, Long idAbogado, boolean isAdmin){
+        super(id, nombres, apellidos, ci, direccion, telefono, email, rol, fechaNacimiento, genero, fechaRegistro, isActive);
+        this.idAbogado = idAbogado;
+        this.isAdmin = isAdmin;
     }
 
     @Override
     public void crearCuentaParaStaff(Long idCuenta) {
         //traer el staff que tiene este idCuenta
         StaffLegalDomain staffLegalDomain = adminPersistence.traerStaffPorId(idCuenta);
-        if (staffLegalDomain != null && staffLegalDomain.getFkFigLegal().isActive()){
+        // ANTES de la HERENCIA
+        //if (staffLegalDomain != null && staffLegalDomain.getFkFigLegal().isActive()){
+
+        //DESPUES DE LA HERENCIA
+        if (staffLegalDomain != null && staffLegalDomain.isActive()){
             //crear la cuenta con los datos de el staff legal obtenido
             CuentaDomain cuentaDomain = CuentaDomain.builder()
-                    .ciUsuario(staffLegalDomain.getFkFigLegal().getCi())
-                    .passUsuario(staffLegalDomain.getFkFigLegal().getCi())
-                    .isActive(staffLegalDomain.getFkFigLegal().isActive())
+                    .ciUsuario(staffLegalDomain.getCi())
+                    .passUsuario(staffLegalDomain.getCi())
+                    .isActive(staffLegalDomain.isActive())
                     .fkStaffLegal(staffLegalDomain)
                     .build();
             adminPersistence.crearCuentaParaStaff(cuentaDomain);
@@ -64,7 +76,8 @@ public class AbogadoDomain implements Cuentable{
 
     @Override
     public void modifiPassCuentaDeStaff(CuentaDomain cuentaAdmin, Long idCuenta, String newPass) {
-        CuentaDomain cuentaDomainAdmin = staffLegalPersistence.buscarPorUserYPass(cuentaAdmin.getCiUsuario(), cuentaAdmin.getPassUsuario());
+        //CuentaDomain cuentaDomainAdmin = staffLegalPersistence.buscarPorUserYPass(cuentaAdmin.getCiUsuario(), cuentaAdmin.getPassUsuario());
+        CuentaDomain cuentaDomainAdmin = getStaffLegalPersistence().buscarPorUserYPass(cuentaAdmin.getCiUsuario(), cuentaAdmin.getPassUsuario());
         CuentaDomain cuentaDomainChange = adminPersistence.traerCuentaPorID(idCuenta);
         if (cuentaDomainAdmin != null && cuentaDomainChange != null) {
             cuentaDomainChange.setPassUsuario(newPass);

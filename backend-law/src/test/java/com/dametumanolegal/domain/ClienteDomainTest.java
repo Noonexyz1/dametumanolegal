@@ -27,13 +27,8 @@ class ClienteDomainTest {
 
     @Test
     void verTramite() {
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(3L, "Jose", "López", "7654321", "Avenida Comercial 456", "555-5678", "lopez@example.com", "Cliente", "1985-05-05", "Masculino", "2022-01-02", true);
-        StaffLegalDomain staff = new StaffLegalDomain(3L, figuraLegal, null);
-        ClienteDomain cliente = new ClienteDomain(1L, staff, null);
-
-        FiguraLegalDomain figuraLegal2 = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
-        StaffLegalDomain staff2 = new StaffLegalDomain(1L, figuraLegal2, null);
-        AbogadoDomain abogado = new AbogadoDomain(2L, false, staff2, null, null);
+        ClienteDomain cliente = new ClienteDomain(3L, "Jose", "López", "7654321", "Avenida Comercial 456", "555-5678", "lopez@example.com", "Cliente", "1985-05-05", "Masculino", "2022-01-02", true, 1L);
+        AbogadoDomain abogado = new AbogadoDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true,1L, true);
         HonorarioDomain honorario = new HonorarioDomain(1L, "Caso Judicial", "Caso de Judicial de un atraco", 200D, "Dolares");
         SubsanacionDomain subsanacion = new SubsanacionDomain(1L, 7, "77777", "99999", "Subsanacion de memorial 23-FD");
 
