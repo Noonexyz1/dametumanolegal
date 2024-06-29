@@ -22,12 +22,17 @@ public class AppConfig {
 
     @Bean //registrando este componente manualmente al Scope de Spring para quien sea que quiera la implementacion
     public Autenticable staffLegalModulo(@Qualifier("staffLegalPersistenceAdapter") StaffLegalPersistence staffLegalPersistence) {
+        // Al hacer esto, todas las clases que hereden de esta clase también serán consideradas Autenticables por Spring.
+        // Spring reconocerá múltiples implementaciones de Autenticable debido a la herencia, por lo que se utilizará
+        // el calificador (@Qualifier) para especificar cuál implementación se debe inyectar cuando sea necesario.
+        //Entonces usar Qualifier("nombre del metodo del Bean")
         return new StaffLegalDomain(staffLegalPersistence);
     }
 
     @Bean/*(name = "abogadoCuentable")*/
-    @Qualifier("abogadoAdministradorCuentable")
     public Cuentable abogadoAdminModulo(@Qualifier("adminPersistenceAdapter") AdminPersistence adminPersistence/*, @Qualifier("staffLegalPersistenceAdapter") StaffLegalPersistence staffLegalPersistence*/) {
+        // Estas clases también implementan Autenticable debido a la herencia (AbogadoDomain hereda de StaffLegalDomain),
+        // por lo que se registra esta implementación en el contexto de Spring.
         return new AbogadoDomain(adminPersistence/*, staffLegalPersistence*/);
     }
 
