@@ -14,7 +14,7 @@ import org.modelmapper.ModelMapper;
 
 import java.util.Optional;
 
-@Component
+@Component("staffLegalPersistenceAdapter")
 public class StaffLegalPersistenceAdapter implements StaffLegalPersistence {
     @Autowired
     private CuentaRepository cuentaRepository;

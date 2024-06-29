@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController//ADAPTADOR de ENTRADA      //PUERTO de SALIDA de OTRO SERVICIO
 public class AdminController /*implements Cuentable, Rolable*/ {
 
-    @Autowired //PUERTO DE ENTRADA a mi SERVICIO que toca adaptar
     //@Qualifier("abogadoCuentable")
+    @Autowired //PUERTO DE ENTRADA a mi SERVICIO que toca adaptar
     private Cuentable cuentable;
 
     @Autowired

@@ -6,17 +6,21 @@ import lombok.*;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProcuradorDomain implements Procurable {
-    private Long id;
-    private StaffLegalDomain fkStaffLegal;
+public class ProcuradorDomain extends StaffLegalDomain implements Procurable {
+    private Long idProcurador;
 
     private ProcuradorPersistence procuradorPersistence;
     public ProcuradorDomain(ProcuradorPersistence procuradorPersistence){
         this.procuradorPersistence = procuradorPersistence;
+    }
+
+    public ProcuradorDomain(Long id, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive, Long idProcurador){
+        super(id, nombres, apellidos, ci, direccion, telefono, email, rol, fechaNacimiento, genero, fechaRegistro, isActive);
+        this.idProcurador = idProcurador;
     }
 
     @Override

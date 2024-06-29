@@ -1,18 +1,8 @@
 package com.dametumanolegal.dtos.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class SesionRequest {
-    private Long idSesion;
-    private String fechaSesion;
-    private boolean estadoSesion;
-
-    private StaffLegalRequest fkStaffLegal;
-}
+public record SesionRequest(
+    Long idSesion,
+    String fechaSesion,
+    boolean estadoSesion,
+    StaffLegalRequest fkStaffLegal
+){}

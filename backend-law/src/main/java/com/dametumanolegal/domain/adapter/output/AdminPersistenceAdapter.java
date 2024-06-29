@@ -15,7 +15,8 @@ import java.util.Optional;
 //ESTA CLASE se encarga de transformar ENTIDADES DE DOMINIO a entidades de BD
 //Y este debe devolverlo en entidades de BD a ENTIDADES DE DOMINIO
 
-@Component  //ADAPTADOR de SALIDA   //PUERTO de SALIDA de mi DOMAIN
+                //ADAPTADOR de SALIDA   //PUERTO de SALIDA de mi DOMAIN
+@Component("adminPersistenceAdapter")
 public class AdminPersistenceAdapter implements AdminPersistence {
 
     @Autowired //PUERTO DE ENTRADA a mi SERVICIO para PERSISTENCIA

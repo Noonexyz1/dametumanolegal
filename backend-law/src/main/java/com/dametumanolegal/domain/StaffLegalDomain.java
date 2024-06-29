@@ -6,25 +6,29 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder    //esto no esta registrado en el scope de Spring, lo tengo que hacer manual, por AppConfig
-public class StaffLegalDomain implements Autenticable {
+//esto no esta registrado en el scope de Spring, lo tengo que hacer manual, por AppConfig
+public class StaffLegalDomain extends FiguraLegalDomain implements Autenticable {
     private Long id;
 
-    private FiguraLegalDomain fkFigLegal;
-
     //esto es para recibir la injeccion
-    private StaffLegalPersistence persistencia;
+    private StaffLegalPersistence staffLegalPersistence;
     //aqui esta el unico Constructor
     public StaffLegalDomain(StaffLegalPersistence persistenticia) {
-        this.persistencia = persistenticia;
+        this.staffLegalPersistence = persistenticia;
     }
+
+    public StaffLegalDomain(Long id, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive){
+        super(id, nombres, apellidos, ci, direccion, telefono, email, rol, fechaNacimiento, genero, fechaRegistro, isActive);
+    }
+
 
     @Override   //esto es lo que voy a testear
     public SesionDomain iniciarSesion(CuentaDomain cuentaDomain) {
-        CuentaDomain cuenta = persistencia.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
+        CuentaDomain cuenta = staffLegalPersistence.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
         if (cuenta == null) {
             return null;
         } else {
@@ -34,7 +38,7 @@ public class StaffLegalDomain implements Autenticable {
                     .fkStaffLegal(cuenta.getFkStaffLegal())
                     .build();
 
-            sesionDomain = persistencia.crearSesion(sesionDomain);
+            sesionDomain = staffLegalPersistence.crearSesion(sesionDomain);
             return sesionDomain;
         }
     }
@@ -47,15 +51,15 @@ public class StaffLegalDomain implements Autenticable {
         closeSesion.setIdSesion(null);
         closeSesion.setEstadoSesion(false);
         closeSesion.setFechaSesion(LocalDateTime.now().toString());
-        persistencia.crearSesion(closeSesion);
+        staffLegalPersistence.crearSesion(closeSesion);
     }
 
     @Override
     public void modificarPassword(SesionDomain sesionDomain, CuentaDomain cuentaDomain, String newPass) {
-        CuentaDomain cuenta = persistencia.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
+        CuentaDomain cuenta = staffLegalPersistence.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
         if (!(cuenta == null) && (sesionDomain.getFkStaffLegal().equals(cuenta.getFkStaffLegal()))) {
             cuenta.setPassUsuario(newPass);
-            persistencia.actualizar(cuenta);
+            staffLegalPersistence.actualizar(cuenta);
         }
     }
 }
