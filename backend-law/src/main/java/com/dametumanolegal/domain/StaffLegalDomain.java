@@ -15,6 +15,7 @@ public class StaffLegalDomain extends FiguraLegalDomain implements Autenticable 
     private Long id;
 
     //esto es para recibir la injeccion
+    // Nota: NO VOY A PONER MI @Qualifier AQUI!!, es mi dominio!!, mejor lo pongo en mi Bean de AppConfig y asunto resuelto!!
     private StaffLegalPersistence staffLegalPersistence;
     //aqui esta el unico Constructor
     public StaffLegalDomain(StaffLegalPersistence persistenticia) {
