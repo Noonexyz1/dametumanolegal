@@ -1,12 +1,5 @@
 package com.dametumanolegal.dtos.response;
 
-import com.dametumanolegal.domain.AbogadoDomain;
-import com.dametumanolegal.domain.ClienteDomain;
-import com.dametumanolegal.domain.HonorarioDomain;
-import com.dametumanolegal.domain.SubsanacionDomain;
-import com.dametumanolegal.entities.Abogado;
-import com.dametumanolegal.entities.Cliente;
-import com.dametumanolegal.entities.Honorario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,8 +17,9 @@ public class TramiteResponse {
     private int numEtapas;
     private String instancia;
 
-    private ClienteDomain fkCliente;
-    private AbogadoDomain fkAbogado;
-    private HonorarioDomain fkHonor;
-    private SubsanacionDomain fkSubsanacion;
+    private ClienteResponse fkCliente;
+    private AbogadoResponse fkAbogado;
+    private HonorarioResponse fkHonor;
+
+    private SubsanacionResponse fkSubsanacion;
 }

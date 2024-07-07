@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegistrarCitaRequest {
-    private CitaRequest citaRequest;
     private Long idCliente;
     private Long idSecretaria;
+    private CitaRequest citaRequest;
 }
