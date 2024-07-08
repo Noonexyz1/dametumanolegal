@@ -22,6 +22,4 @@ public class Sesion {
 
     @ManyToOne
     private StaffLegal fkStaffLegal;
-    @ManyToOne
-    private Cuenta fkCuenta;
 }

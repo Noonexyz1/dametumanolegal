@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CuentaResponse {
     private Long id;
-    private String ciUsuario;
-    private String passUsuario;
+    //private String ciUsuario;
+    //private String passUsuario;
     private boolean isActive;
 
     private StaffLegalResponse fkStaffLegal;

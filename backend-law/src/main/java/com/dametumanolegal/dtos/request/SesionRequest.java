@@ -13,6 +13,7 @@ public class SesionRequest{
     private Long idSesion;
     private String fechaSesion;
     private boolean estadoSesion;
-    private StaffLegalRequest fkStaffLegal;
-}
 
+    private StaffLegalRequest fkStaffLegal;
+    //private Long idCuenta;
+}
