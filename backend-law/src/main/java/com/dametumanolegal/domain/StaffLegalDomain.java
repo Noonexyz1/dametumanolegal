@@ -22,8 +22,9 @@ public class StaffLegalDomain extends FiguraLegalDomain implements Autenticable 
         this.staffLegalPersistence = persistenticia;
     }
 
-    public StaffLegalDomain(Long id, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive){
+    public StaffLegalDomain(Long id, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive, Long idStaffLegal){
         super(id, nombres, apellidos, ci, direccion, telefono, email, rol, fechaNacimiento, genero, fechaRegistro, isActive);
+        this.id = idStaffLegal;
     }
 
 

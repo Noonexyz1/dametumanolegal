@@ -29,8 +29,8 @@ public class AbogadoDomain extends StaffLegalDomain  implements Cuentable {
     }
 
 
-    public AbogadoDomain(Long id, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive, Long idAbogado, boolean isAdmin){
-        super(id, nombres, apellidos, ci, direccion, telefono, email, rol, fechaNacimiento, genero, fechaRegistro, isActive);
+    public AbogadoDomain(Long idFiguraLegal, String nombres, String apellidos, String ci, String direccion, String telefono, String email, String rol, String fechaNacimiento, String genero, String fechaRegistro, boolean isActive, Long idStaffLegal, Long idAbogado, boolean isAdmin){
+        super(idFiguraLegal, nombres, apellidos, ci, direccion, telefono, email, rol, fechaNacimiento, genero, fechaRegistro, isActive, idStaffLegal);
         this.idAbogado = idAbogado;
         this.isAdmin = isAdmin;
     }

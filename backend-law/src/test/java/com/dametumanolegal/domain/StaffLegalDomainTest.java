@@ -35,8 +35,7 @@ public class StaffLegalDomainTest {
     @Test
     public void testIniciarSesion() {
         // GIVEN datos iniciales
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
-        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
         CuentaDomain cuentaDomain = new CuentaDomain( 1L, "1234567", "123",true, staff);
         SesionDomain sesionMock = new SesionDomain(1L, LocalDateTime.now().toString(), true, staff);
 
@@ -63,8 +62,7 @@ public class StaffLegalDomainTest {
     public void testCerrarSesion() {
         // Datos de prueba
         // GIVEN datos iniciales
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
-        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
         SesionDomain sesionMock = new SesionDomain(1L, LocalDateTime.now().toString(), true, staff);
 
         // Llamar al método bajo prueba
@@ -82,8 +80,7 @@ public class StaffLegalDomainTest {
     @Test
     public void testModificarPassword() {
         // GIVEN datos iniciales
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
-        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
         CuentaDomain cuentaDomain = new CuentaDomain( 1L, "1234567", "123",true, staff);
 
         SesionDomain sesionMock = new SesionDomain(1L, LocalDateTime.now().toString(), true, staff);
