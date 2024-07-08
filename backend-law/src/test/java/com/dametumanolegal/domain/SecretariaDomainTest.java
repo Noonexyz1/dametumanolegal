@@ -44,9 +44,9 @@ class SecretariaDomainTest {
     void registrarMemorial() {
         HonorarioDomain honorario = new HonorarioDomain(1L, "Caso Judicial", "Caso de Judicial de un atraco", 200D, "Dolares");
 
-        AbogadoDomain abogado = new AbogadoDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true,1L, true);
-        ProcuradorDomain procurador = new ProcuradorDomain(8L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perfez@example.com", "Procurador", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
-        ClienteDomain cliente = new ClienteDomain(3L, "Jose", "López", "7654321", "Avenida Comercial 456", "555-5678", "lopez@example.com", "Cliente", "1985-05-05", "Masculino", "2022-01-02", true, 1L);
+        AbogadoDomain abogado = new AbogadoDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L, 1L, true);
+        ProcuradorDomain procurador = new ProcuradorDomain(8L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perfez@example.com", "Procurador", "1980-01-01", "Masculino", "2022-01-01", true, 1L, 1L);
+        ClienteDomain cliente = new ClienteDomain(3L, "Jose", "López", "7654321", "Avenida Comercial 456", "555-5678", "lopez@example.com", "Cliente", "1985-05-05", "Masculino", "2022-01-02", true, 1L, 1L);
 
         CasoDomain casoDomain = new CasoDomain(1L, "Caso Quien se comio todo el dulce de leche", "En Progreso", "44444444", "22222222", "ninguna", "Judicial", "abogado, procurador, cliente", "Dulce de leche vacia", honorario, cliente, abogado, procurador);
 
@@ -65,10 +65,10 @@ class SecretariaDomainTest {
 
     @Test
     void registrarCita() {
-        ClienteDomain cliente = new ClienteDomain(3L, "Jose", "López", "7654321", "Avenida Comercial 456", "555-5678", "lopez@example.com", "Cliente", "1985-05-05", "Masculino", "2022-01-02", true, 1L);
+        ClienteDomain cliente = new ClienteDomain(3L, "Jose", "López", "7654321", "Avenida Comercial 456", "555-5678", "lopez@example.com", "Cliente", "1985-05-05", "Masculino", "2022-01-02", true, 1L, 1L);
         when(secrePersistence.findClientePorId(anyLong())).thenReturn(cliente);
 
-        SecretariaDomain secretaria = new SecretariaDomain(1L, "Ana", "López", "7654321", "Avenida Norte 456", "555-5678", "lopez@example.com", "Secretaria", "1985-05-05", "Femenino", "2022-01-02", true, 1L);
+        SecretariaDomain secretaria = new SecretariaDomain(1L, "Ana", "López", "7654321", "Avenida Norte 456", "555-5678", "lopez@example.com", "Secretaria", "1985-05-05", "Femenino", "2022-01-02", true, 1L, 1L);
         when(secrePersistence.findSecrePorId(anyLong())).thenReturn(secretaria);
 
         CitaDomain citaDomain = new CitaDomain(60L, "2024-06-17T10:00:00", 60, "Reunión para discutir la estrategia de defensa 'Ab...", "Despacho 404, Edificio Ilusión Jurídica", "En espera de que los planetas se alineen", "¡Importante! Llevar sombrero de mago para entrar.", "2024-06-17T09:00:00", "Abogado Mágico", null, null);

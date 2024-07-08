@@ -32,10 +32,8 @@ class AbogadoDomainTest {
 
     @Test
     void crearCuentaParaStaff() {
-        // Crear el objeto FiguraLegalDomain con los datos necesarios
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
         // Crear el objeto StaffLegalDomain utilizando FiguraLegalDomain
-        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
 
         // Configurar el mock para que devuelva el objeto staff cuando se llame al método traerStaffPorId
         when(adminPersistence.traerStaffPorId(anyLong())).thenReturn(staff);
@@ -57,8 +55,7 @@ class AbogadoDomainTest {
 
     @Test
     void traerCuentaPorId() {
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
-        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
         CuentaDomain cuenta = new CuentaDomain( 1L, "1234567", "123",true, staff);
         when(adminPersistence.traerCuentaPorID(anyLong())).thenReturn(cuenta);
 
@@ -82,8 +79,7 @@ class AbogadoDomainTest {
 
     @Test
     void desactivarCuentaDeStaff() {
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
-        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
         CuentaDomain cuenta = new CuentaDomain( 1L, "1234567", "123",true, staff);
         when(adminPersistence.traerCuentaPorID(anyLong())).thenReturn(cuenta);
 
@@ -103,14 +99,11 @@ class AbogadoDomainTest {
 
     @Test
     void modifiPassCuentaDeStaff() {
-        FiguraLegalDomain figuraLegal = new FiguraLegalDomain(2L, "Ana", "Lopez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Femenino", "2022-01-01", true);
-        StaffLegalDomain staff = new StaffLegalDomain(1L, figuraLegal, null);
+        StaffLegalDomain staff = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
         CuentaDomain cuentaAdmin = new CuentaDomain( 1L, "1234567", "123",true, staff);
         when(staffLegalPersistence.buscarPorUserYPass(anyString(), anyString())).thenReturn(cuentaAdmin);
 
-
-        FiguraLegalDomain figuraLegal1 = new FiguraLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true);
-        StaffLegalDomain staff1 = new StaffLegalDomain(1L, figuraLegal1, null);
+        StaffLegalDomain staff1 = new StaffLegalDomain(1L, "Juan", "Pérez", "1234567", "Calle Principal 123", "555-1234", "perez@example.com", "Abogado", "1980-01-01", "Masculino", "2022-01-01", true, 1L);
         CuentaDomain cuenta = new CuentaDomain( 1L, "1234567", "123",true, staff1);
         when(adminPersistence.traerCuentaPorID(anyLong())).thenReturn(cuenta);
 
