@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0f4cf371-b705-4982-96d6-4f34a27c9309",
+		"_postman_id": "13d7f1d8-4e3f-430f-8668-5c4dad03216e",
 		"name": "legal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36183337"
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": null,\r\n    \"ciUsuario\": \"123456789\",\r\n    \"passUsuario\": \"123\",\r\n    \"isActive\": null\r\n}",
+							"raw": "{\r\n    \"ciUsuario\": \"123456789\",\r\n    \"passUsuario\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idSesion\": 30,\r\n    \"fechaSesion\": \"2024-06-15T17:19:00.861246200\",\r\n    \"estadoSesion\": true,\r\n    \"fkStaffLegal\": {\r\n        \"idStaffLegal\": 1,\r\n        \"fkFigLegalDomain\": {\r\n            \"id\": 1,\r\n            \"nombres\": \"Ana\",\r\n            \"apellidos\": \"Gomez\",\r\n            \"ci\": \"123456789\",\r\n            \"active\": true\r\n        }\r\n    }\r\n}",
+							"raw": "{\r\n    \"idSesion\": 2,\r\n    \"fechaSesion\": \"2024-07-07T20:05:40.224277400\",\r\n    \"estadoSesion\": true,\r\n    \"fkStaffLegal\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

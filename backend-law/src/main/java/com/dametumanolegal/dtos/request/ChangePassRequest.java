@@ -1,7 +1,16 @@
 package com.dametumanolegal.dtos.request;
 
-public record ChangePassRequest(
-    SesionRequest sesionRequest,
-    CuentaRequest cuentaRequest,
-    String newPass
-){}
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ChangePassRequest{
+    private SesionRequest sesionRequest;
+    private CuentaRequest cuentaRequest;
+    private String newPass;
+}

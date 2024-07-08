@@ -25,7 +25,4 @@ public class Cuenta {
 
     @ManyToOne
     private StaffLegal fkStaffLegal;
-
-    @OneToMany(mappedBy = "fkCuenta")
-    private List<Sesion> listaSesiones;
 }

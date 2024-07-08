@@ -24,11 +24,11 @@ public class StaffLegalController {
 
     @PostMapping("/inicioSesion")
     public SesionResponse iniciarSesion(@RequestBody CuentaRequest cuentaRequest) {
-        //Aqui estoy usando el port de mi dominio
         CuentaDomain cuentaDomain = modelMapper.map(cuentaRequest, CuentaDomain.class);
+        //Aqui estoy usando el port de mi dominio
         SesionDomain sesionDomain = autenticable.iniciarSesion(cuentaDomain);
-        SesionResponse abc = modelMapper.map(sesionDomain, SesionResponse.class);
-        return abc;
+        SesionResponse sesionResponse = modelMapper.map(sesionDomain, SesionResponse.class);
+        return sesionResponse;
     }
 
     @PostMapping("/cerrarSesion")
@@ -39,9 +39,9 @@ public class StaffLegalController {
 
     @PostMapping("/cambiarPass")
     public void modificarPassword(@RequestBody ChangePassRequest changePassRequest) {
-        SesionDomain sesionDomain = modelMapper.map(changePassRequest.sesionRequest(), SesionDomain.class);
-        CuentaDomain cuentaDomain = modelMapper.map(changePassRequest.cuentaRequest(), CuentaDomain.class);
-        String newPass = changePassRequest.newPass();
+        SesionDomain sesionDomain = modelMapper.map(changePassRequest.getSesionRequest(), SesionDomain.class);
+        CuentaDomain cuentaDomain = modelMapper.map(changePassRequest.getCuentaRequest(), CuentaDomain.class);
+        String newPass = changePassRequest.getNewPass();
         autenticable.modificarPassword(sesionDomain, cuentaDomain, newPass);
     }
 }

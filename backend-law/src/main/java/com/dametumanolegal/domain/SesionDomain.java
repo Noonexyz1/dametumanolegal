@@ -12,5 +12,4 @@ public class SesionDomain {
     private boolean estadoSesion;
 
     private StaffLegalDomain fkStaffLegal;
-    private CuentaDomain fkCuenta;
 }

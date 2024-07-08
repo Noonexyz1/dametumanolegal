@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class CuentaResponse {
+@AllArgsConstructor
+public class SubsanacionResponse {
     private Long id;
-    //private String ciUsuario;
-    //private String passUsuario;
-    private boolean isActive;
+    private int plazoEnDias;
+    private String fechaInicio;
+    private String fechaLimite;
+    private String descripcion;
 
-    private StaffLegalResponse fkStaffLegal;
 }
+
