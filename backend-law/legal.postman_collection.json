@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "13d7f1d8-4e3f-430f-8668-5c4dad03216e",
+		"_postman_id": "4e6fbc1f-5197-49dc-83b9-c152a853eb24",
 		"name": "legal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36183337"
@@ -268,6 +268,54 @@
 								"modCliente",
 								"verNotificacion",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mod Login",
+			"item": [
+				{
+					"name": "ver login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mod Home",
+			"item": [
+				{
+					"name": "ver home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								""
 							]
 						}
 					},
