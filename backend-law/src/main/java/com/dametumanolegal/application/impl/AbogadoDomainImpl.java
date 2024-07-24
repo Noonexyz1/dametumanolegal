@@ -60,12 +60,13 @@ public class AbogadoDomainImpl implements Cuentable {
     @Override
     public void modifiPassCuentaDeStaff(CuentaDomain cuentaAdmin, Long idCuenta, String newPass) {
         //CuentaDomain cuentaDomainAdmin = staffLegalPersistence.buscarPorUserYPass(cuentaAdmin.getCiUsuario(), cuentaAdmin.getPassUsuario());
-        CuentaDomain cuentaDomainAdmin = getStaffLegalPersistence().buscarPorUserYPass(cuentaAdmin.getCiUsuario(), cuentaAdmin.getPassUsuario());
+        //TODO
+        /*CuentaDomain cuentaDomainAdmin = getStaffLegalPersistence().buscarPorUserYPass(cuentaAdmin.getCiUsuario(), cuentaAdmin.getPassUsuario());
         CuentaDomain cuentaDomainChange = adminPersistence.traerCuentaPorID(idCuenta);
         if (cuentaDomainAdmin != null && cuentaDomainChange != null) {
             cuentaDomainChange.setPassUsuario(newPass);
             adminPersistence.crearCuentaParaStaff(cuentaDomainChange);
             //PROBAR ESTE METODO
-        }
+        }*/
     }
 }

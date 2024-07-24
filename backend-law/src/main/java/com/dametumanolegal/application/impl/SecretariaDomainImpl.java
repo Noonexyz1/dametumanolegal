@@ -34,11 +34,12 @@ public class SecretariaDomainImpl implements Gestionable {
 
     @Override
     public void registrarCita(CitaDomain nuevaCita, Long idCliente, Long idSecre) {
-        ClienteDomain clienteDomain = secrePersistence.findClientePorId(idCliente);
+        //TODO
+        /*ClienteDomain clienteDomain = secrePersistence.findClientePorId(idCliente);
         SecretariaDomainImpl secretariaDomain = secrePersistence.findSecrePorId(idSecre);
         nuevaCita.setFkCliente(clienteDomain);
         nuevaCita.setFkSecre(secretariaDomain);
-        secrePersistence.registrarCita(nuevaCita);
+        secrePersistence.registrarCita(nuevaCita);*/
     }
 
 
