@@ -1,7 +1,7 @@
 package com.dametumanolegal.infrastructure.rest.adapter.output;
 
 import com.dametumanolegal.domain.model.*;
-import com.dametumanolegal.domain.port.output.ProcuradorPersistence;
+import com.dametumanolegal.application.port.output.ProcuradorPersistence;
 import com.dametumanolegal.infrastructure.persistence.entities.*;
 import com.dametumanolegal.infrastructure.persistence.repository.*;
 import org.modelmapper.ModelMapper;

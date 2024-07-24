@@ -4,7 +4,7 @@ import com.dametumanolegal.domain.model.DocumentacionDomain;
 import com.dametumanolegal.domain.model.HonorarioDomain;
 import com.dametumanolegal.domain.model.NotificacionDomain;
 import com.dametumanolegal.domain.model.TramiteDomain;
-import com.dametumanolegal.domain.port.output.ClientePersitence;
+import com.dametumanolegal.application.port.output.ClientePersitence;
 import com.dametumanolegal.infrastructure.persistence.entities.Documentacion;
 import com.dametumanolegal.infrastructure.persistence.entities.Honorario;
 import com.dametumanolegal.infrastructure.persistence.entities.Notificacion;

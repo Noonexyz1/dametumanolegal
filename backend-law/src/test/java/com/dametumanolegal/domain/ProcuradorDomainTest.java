@@ -1,7 +1,7 @@
 package com.dametumanolegal.domain;
 
 import com.dametumanolegal.domain.model.*;
-import com.dametumanolegal.domain.port.output.ProcuradorPersistence;
+import com.dametumanolegal.application.port.output.ProcuradorPersistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;

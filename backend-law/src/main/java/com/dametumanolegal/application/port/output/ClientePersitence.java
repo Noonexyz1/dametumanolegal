@@ -1,4 +1,4 @@
-package com.dametumanolegal.domain.port.output;
+package com.dametumanolegal.application.port.output;
 
 import com.dametumanolegal.domain.model.DocumentacionDomain;
 import com.dametumanolegal.domain.model.HonorarioDomain;

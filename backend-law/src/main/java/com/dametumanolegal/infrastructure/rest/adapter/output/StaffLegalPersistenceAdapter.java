@@ -2,7 +2,7 @@ package com.dametumanolegal.infrastructure.rest.adapter.output;
 
 import com.dametumanolegal.domain.model.CuentaDomain;
 import com.dametumanolegal.domain.model.SesionDomain;
-import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
+import com.dametumanolegal.application.port.output.StaffLegalPersistence;
 import com.dametumanolegal.infrastructure.persistence.entities.Cuenta;
 import com.dametumanolegal.infrastructure.persistence.entities.Sesion;
 import com.dametumanolegal.infrastructure.persistence.repository.CuentaRepository;

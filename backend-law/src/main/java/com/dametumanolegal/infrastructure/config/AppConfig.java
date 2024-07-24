@@ -1,8 +1,8 @@
 package com.dametumanolegal.infrastructure.config;
 
+import com.dametumanolegal.application.port.output.*;
 import com.dametumanolegal.domain.model.*;
 import com.dametumanolegal.domain.port.input.*;
-import com.dametumanolegal.domain.port.output.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.dametumanolegal.domain.port.output;
+package com.dametumanolegal.application.port.output;
 
 import com.dametumanolegal.domain.model.*;
 
@@ -10,10 +10,7 @@ public interface ProcuradorPersistence {
     void setActuado(ActuadoDomain nuevoActuado);
 
     List<CasoDomain> getCasos();
-
     List<CuadernoDomain> getCuadernos();
-
     List<FiscalDomain> getFiscales();
-
     List<CasoFiscaliaDomain> getCasosFiscalia();
 }

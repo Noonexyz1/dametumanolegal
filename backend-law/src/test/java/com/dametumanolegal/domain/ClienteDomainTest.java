@@ -1,7 +1,7 @@
 package com.dametumanolegal.domain;
 
 import com.dametumanolegal.domain.model.*;
-import com.dametumanolegal.domain.port.output.ClientePersitence;
+import com.dametumanolegal.application.port.output.ClientePersitence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
