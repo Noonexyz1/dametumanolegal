@@ -1,7 +1,7 @@
 package com.dametumanolegal.domain.port.output;
 
-import com.dametumanolegal.domain.CuentaDomain;
-import com.dametumanolegal.domain.SesionDomain;
+import com.dametumanolegal.domain.model.CuentaDomain;
+import com.dametumanolegal.domain.model.SesionDomain;
 
 public interface StaffLegalPersistence {
     CuentaDomain buscarPorUserYPass(String ci, String pass);

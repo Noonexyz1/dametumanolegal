@@ -1,9 +1,9 @@
 package com.dametumanolegal.domain.port.input;
 
-import com.dametumanolegal.domain.DocumentacionDomain;
-import com.dametumanolegal.domain.HonorarioDomain;
-import com.dametumanolegal.domain.NotificacionDomain;
-import com.dametumanolegal.domain.TramiteDomain;
+import com.dametumanolegal.domain.model.DocumentacionDomain;
+import com.dametumanolegal.domain.model.HonorarioDomain;
+import com.dametumanolegal.domain.model.NotificacionDomain;
+import com.dametumanolegal.domain.model.TramiteDomain;
 
 public interface Seguible {
     TramiteDomain verTramite(Long idTramite);

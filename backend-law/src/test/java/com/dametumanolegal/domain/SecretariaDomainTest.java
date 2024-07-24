@@ -1,7 +1,7 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.domain.model.*;
 import com.dametumanolegal.domain.port.output.SecretariaPersistence;
-import com.dametumanolegal.entities.Cita;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
