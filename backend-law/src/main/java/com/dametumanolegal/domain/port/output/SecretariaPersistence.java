@@ -1,6 +1,6 @@
 package com.dametumanolegal.domain.port.output;
 
-import com.dametumanolegal.domain.*;
+import com.dametumanolegal.domain.model.*;
 
 import java.util.List;
 

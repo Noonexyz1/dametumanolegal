@@ -1,5 +1,8 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.domain.model.AbogadoDomain;
+import com.dametumanolegal.domain.model.CuentaDomain;
+import com.dametumanolegal.domain.model.StaffLegalDomain;
 import com.dametumanolegal.domain.port.output.AdminPersistence;
 import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
 import org.junit.jupiter.api.BeforeEach;

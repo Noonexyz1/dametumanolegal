@@ -1,9 +1,9 @@
 package com.dametumanolegal.domain.port.input;
 
-import com.dametumanolegal.domain.CasoDomain;
-import com.dametumanolegal.domain.CitaDomain;
-import com.dametumanolegal.domain.CuadernoDomain;
-import com.dametumanolegal.domain.MemorialDomain;
+import com.dametumanolegal.domain.model.CasoDomain;
+import com.dametumanolegal.domain.model.CitaDomain;
+import com.dametumanolegal.domain.model.CuadernoDomain;
+import com.dametumanolegal.domain.model.MemorialDomain;
 
 import java.util.List;
 

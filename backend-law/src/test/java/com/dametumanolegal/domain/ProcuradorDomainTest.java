@@ -1,5 +1,6 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.domain.model.*;
 import com.dametumanolegal.domain.port.output.ProcuradorPersistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class ProcuradorDomainTest {
