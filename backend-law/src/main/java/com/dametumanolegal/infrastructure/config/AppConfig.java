@@ -1,8 +1,8 @@
 package com.dametumanolegal.infrastructure.config;
 
-import com.dametumanolegal.domain.model.*;
+import com.dametumanolegal.application.impl.*;
+import com.dametumanolegal.application.port.output.*;
 import com.dametumanolegal.domain.port.input.*;
-import com.dametumanolegal.domain.port.output.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -24,29 +24,29 @@ public class AppConfig {
         // Spring reconocerá múltiples implementaciones de Autenticable debido a la herencia, por lo que se utilizará
         // el calificador (@Qualifier) para especificar cuál implementación se debe inyectar cuando sea necesario.
         //Entonces usar Qualifier("nombre del metodo del Bean")
-        return new StaffLegalDomain(staffLegalPersistence);
+        return new StaffLegalDomainImpl(staffLegalPersistence);
     }
 
     @Bean/*(name = "abogadoCuentable")*/
     public Cuentable abogadoAdminModulo(@Qualifier("adminPersistenceAdapter") AdminPersistence adminPersistence/*, @Qualifier("staffLegalPersistenceAdapter") StaffLegalPersistence staffLegalPersistence*/) {
         // Estas clases también implementan Autenticable debido a la herencia (AbogadoDomain hereda de StaffLegalDomain),
         // por lo que se registra esta implementación en el contexto de Spring.
-        return new AbogadoDomain(adminPersistence/*, staffLegalPersistence*/);
+        return new AbogadoDomainImpl(adminPersistence/*, staffLegalPersistence*/);
     }
 
     @Bean
     public Seguible clienteModulo(@Qualifier("clientePersistenceAdapter") ClientePersitence clientePersitence){
-        return new ClienteDomain(clientePersitence);
+        return new ClienteDomainImpl(clientePersitence);
     }
 
     @Bean
     public Gestionable secretariaModulo(@Qualifier("secretariaPersistenceAdapter") SecretariaPersistence secrePersistence){
-        return new SecretariaDomain(secrePersistence);
+        return new SecretariaDomainImpl(secrePersistence);
     }
 
     @Bean
     public Procurable procurableModulo(@Qualifier("procuradorPersistenceAdapter") ProcuradorPersistence procuradorPersistence){
-        return new ProcuradorDomain(procuradorPersistence);
+        return new ProcuradorDomainImpl(procuradorPersistence);
     }
 
 

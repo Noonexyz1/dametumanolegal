@@ -1,7 +1,8 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.application.impl.SecretariaDomainImpl;
 import com.dametumanolegal.domain.model.*;
-import com.dametumanolegal.domain.port.output.SecretariaPersistence;
+import com.dametumanolegal.application.port.output.SecretariaPersistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -20,7 +21,7 @@ class SecretariaDomainTest {
     @Mock
     private SecretariaPersistence secrePersistence;
     @InjectMocks
-    private SecretariaDomain secretariaDomain;
+    private SecretariaDomainImpl secretariaDomain;
 
     @BeforeEach
     public void setUp(){

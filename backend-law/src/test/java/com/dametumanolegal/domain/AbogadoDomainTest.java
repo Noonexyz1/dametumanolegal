@@ -1,10 +1,10 @@
 package com.dametumanolegal.domain;
 
-import com.dametumanolegal.domain.model.AbogadoDomain;
+import com.dametumanolegal.application.impl.AbogadoDomainImpl;
 import com.dametumanolegal.domain.model.CuentaDomain;
 import com.dametumanolegal.domain.model.StaffLegalDomain;
-import com.dametumanolegal.domain.port.output.AdminPersistence;
-import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
+import com.dametumanolegal.application.port.output.AdminPersistence;
+import com.dametumanolegal.application.port.output.StaffLegalPersistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -25,7 +25,7 @@ class AbogadoDomainTest {
     private StaffLegalPersistence staffLegalPersistence;
 
     @InjectMocks
-    private AbogadoDomain abogadoAdminDomain;
+    private AbogadoDomainImpl abogadoAdminDomain;
 
     @BeforeEach
     public void setUp(){

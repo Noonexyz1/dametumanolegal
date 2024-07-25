@@ -1,9 +1,10 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.application.impl.StaffLegalDomainImpl;
 import com.dametumanolegal.domain.model.CuentaDomain;
 import com.dametumanolegal.domain.model.SesionDomain;
 import com.dametumanolegal.domain.model.StaffLegalDomain;
-import com.dametumanolegal.domain.port.output.StaffLegalPersistence;
+import com.dametumanolegal.application.port.output.StaffLegalPersistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -27,7 +28,7 @@ public class StaffLegalDomainTest {
 
     // Clase bajo prueba, se injectan los mocks
     @InjectMocks    //esto es lo que se adapta, necesita el constructor de esta clase y no Autenticable para funcionar
-    private StaffLegalDomain staffLegalDomain;
+    private StaffLegalDomainImpl staffLegalDomain;
 
     @BeforeEach
     public void setUp() {
