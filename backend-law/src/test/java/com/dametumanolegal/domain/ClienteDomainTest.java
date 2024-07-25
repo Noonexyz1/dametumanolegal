@@ -1,5 +1,6 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.application.impl.ClienteDomainImpl;
 import com.dametumanolegal.domain.model.*;
 import com.dametumanolegal.application.port.output.ClientePersitence;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +19,7 @@ class ClienteDomainTest {
     @Mock
     private ClientePersitence clientePersitence;
     @InjectMocks    //Esto es un adapter
-    private ClienteDomain clienteDomain;
+    private ClienteDomainImpl clienteDomain;
 
     @BeforeEach
     public void setUp(){

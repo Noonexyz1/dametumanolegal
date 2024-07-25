@@ -1,6 +1,6 @@
 package com.dametumanolegal.domain;
 
-import com.dametumanolegal.domain.model.AbogadoDomain;
+import com.dametumanolegal.application.impl.AbogadoDomainImpl;
 import com.dametumanolegal.domain.model.CuentaDomain;
 import com.dametumanolegal.domain.model.StaffLegalDomain;
 import com.dametumanolegal.application.port.output.AdminPersistence;
@@ -25,7 +25,7 @@ class AbogadoDomainTest {
     private StaffLegalPersistence staffLegalPersistence;
 
     @InjectMocks
-    private AbogadoDomain abogadoAdminDomain;
+    private AbogadoDomainImpl abogadoAdminDomain;
 
     @BeforeEach
     public void setUp(){

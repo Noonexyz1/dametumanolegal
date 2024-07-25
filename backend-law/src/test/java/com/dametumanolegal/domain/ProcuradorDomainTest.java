@@ -1,5 +1,6 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.application.impl.ProcuradorDomainImpl;
 import com.dametumanolegal.domain.model.*;
 import com.dametumanolegal.application.port.output.ProcuradorPersistence;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +19,7 @@ class ProcuradorDomainTest {
     @Mock
     private ProcuradorPersistence procuradorPersistence;
     @InjectMocks
-    private ProcuradorDomain procuradorDomain;
+    private ProcuradorDomainImpl procuradorDomain;
 
     @BeforeEach
     public void setUp(){

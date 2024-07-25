@@ -1,5 +1,6 @@
 package com.dametumanolegal.domain;
 
+import com.dametumanolegal.application.impl.StaffLegalDomainImpl;
 import com.dametumanolegal.domain.model.CuentaDomain;
 import com.dametumanolegal.domain.model.SesionDomain;
 import com.dametumanolegal.domain.model.StaffLegalDomain;
@@ -27,7 +28,7 @@ public class StaffLegalDomainTest {
 
     // Clase bajo prueba, se injectan los mocks
     @InjectMocks    //esto es lo que se adapta, necesita el constructor de esta clase y no Autenticable para funcionar
-    private StaffLegalDomain staffLegalDomain;
+    private StaffLegalDomainImpl staffLegalDomain;
 
     @BeforeEach
     public void setUp() {

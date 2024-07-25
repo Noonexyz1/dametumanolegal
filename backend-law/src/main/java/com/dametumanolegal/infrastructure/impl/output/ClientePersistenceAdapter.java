@@ -1,4 +1,4 @@
-package com.dametumanolegal.infrastructure.rest.adapter.output;
+package com.dametumanolegal.infrastructure.impl.output;
 
 import com.dametumanolegal.domain.model.DocumentacionDomain;
 import com.dametumanolegal.domain.model.HonorarioDomain;
