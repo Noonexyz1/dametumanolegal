@@ -1,16 +1,17 @@
 package com.dametumanolegal.application.port.output;
 
+import com.dametumanolegal.application.datacarries.*;
 import com.dametumanolegal.domain.model.*;
 
 import java.util.List;
 
 public interface ProcuradorPersistence {
-    void setNotificacion(NotificacionDomain nuevaNotificacion);
-    CasoDomain getCasoPorId(Long idCaso);
-    void setActuado(ActuadoDomain nuevoActuado);
+    void setNotificacion(NotificacionDataCarrier nuevaNotificacion);
+    CasoDataCarrier getCasoPorId(Long idCaso);
+    void setActuado(ActuadoDataCarrier nuevoActuado);
 
-    List<CasoDomain> getCasos();
-    List<CuadernoDomain> getCuadernos();
-    List<FiscalDomain> getFiscales();
-    List<CasoFiscaliaDomain> getCasosFiscalia();
+    List<CasoDataCarrier> getCasos();
+    List<CuadernoDataCarrier> getCuadernos();
+    List<FiscalDataCarrier> getFiscales();
+    List<CasoFiscaliaDataCarrier> getCasosFiscalia();
 }

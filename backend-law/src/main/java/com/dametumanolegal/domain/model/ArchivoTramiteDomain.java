@@ -1,6 +1,5 @@
 package com.dametumanolegal.domain.model;
 
-import com.dametumanolegal.infrastructure.persistence.entities.Documentacion;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +18,7 @@ public class ArchivoTramiteDomain {
     private String responsable; // Persona responsable del archivo del caso
 
 
-    private Documentacion fkDocu;
+    private DocumentacionDomain fkDocu;
     private TramiteDomain fkTramite;
 
 }

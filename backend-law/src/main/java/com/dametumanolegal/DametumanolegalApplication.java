@@ -8,6 +8,5 @@ public class DametumanolegalApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DametumanolegalApplication.class, args);
-
 	}
 }
