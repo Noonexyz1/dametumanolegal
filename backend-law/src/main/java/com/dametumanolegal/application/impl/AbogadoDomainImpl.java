@@ -1,5 +1,7 @@
 package com.dametumanolegal.application.impl;
 
+import com.dametumanolegal.application.datacarries.CuentaDataCarrier;
+import com.dametumanolegal.application.datacarries.StaffLegalDataCarrier;
 import com.dametumanolegal.application.port.output.AdminPersistence;
 import com.dametumanolegal.domain.model.CuentaDomain;
 import com.dametumanolegal.domain.model.StaffLegalDomain;
@@ -20,40 +22,47 @@ public class AbogadoDomainImpl implements Cuentable {
 
     @Override
     public void crearCuentaParaStaff(Long idCuenta) {
-        //traer el staff que tiene este idCuenta
-        StaffLegalDomain staffLegalDomain = adminPersistence.traerStaffPorId(idCuenta);
-        // ANTES de la HERENCIA
-        //if (staffLegalDomain != null && staffLegalDomain.getFkFigLegal().isActive()){
+        StaffLegalDataCarrier staffLegalDataCarrier = adminPersistence.traerStaffPorId(idCuenta);
 
-        //DESPUES DE LA HERENCIA
-        if (staffLegalDomain != null && staffLegalDomain.isActive()){
-            //crear la cuenta con los datos de el staff legal obtenido
-            CuentaDomain cuentaDomain = CuentaDomain.builder()
-                    .ciUsuario(staffLegalDomain.getCi())
-                    .passUsuario(staffLegalDomain.getCi())
-                    .isActive(staffLegalDomain.isActive())
-                    .fkStaffLegal(staffLegalDomain)
+        if (staffLegalDataCarrier != null && staffLegalDataCarrier.isActive()){
+            CuentaDataCarrier cuentaDataCarrier = CuentaDataCarrier.builder()
+                    .ciUsuario(staffLegalDataCarrier.getCi())
+                    .passUsuario(staffLegalDataCarrier.getCi())
+                    .isActive(staffLegalDataCarrier.isActive())
+                    .fkStaffLegal(staffLegalDataCarrier)
                     .build();
-            adminPersistence.crearCuentaParaStaff(cuentaDomain);
+            adminPersistence.crearCuentaParaStaff(cuentaDataCarrier);
         }
     }
 
     @Override
     public CuentaDomain traerCuentaPorId(Long idCuenta) {
-        CuentaDomain cuentaDomain = adminPersistence.traerCuentaPorID(idCuenta);
-        if (cuentaDomain == null) {
+        CuentaDataCarrier cuentaDataCarrier = adminPersistence.traerCuentaPorID(idCuenta);
+        if (cuentaDataCarrier == null) {
             return null;
         }
-        cuentaDomain.setPassUsuario(null);
+        cuentaDataCarrier.setPassUsuario(null);
+
+        /*TODO Tengo que hacer el mapeo correspondiente aqui debido a la herencia*/
+        StaffLegalDomain staffLegalDomain = new StaffLegalDomain();
+
+        CuentaDomain cuentaDomain = CuentaDomain.builder()
+                .id(cuentaDataCarrier.getId())
+                .ciUsuario(cuentaDataCarrier.getCiUsuario())
+                .passUsuario(cuentaDataCarrier.getPassUsuario())
+                .isActive(cuentaDataCarrier.isActive())
+                .fkStaffLegal(staffLegalDomain)
+                .build();
+
         return cuentaDomain;
     }
 
     @Override
     public void desactivarCuentaDeStaff(Long idCuenta) {
-        CuentaDomain cuentaDomain = adminPersistence.traerCuentaPorID(idCuenta);
-        if (cuentaDomain != null) {
-            cuentaDomain.setActive(false);
-            adminPersistence.crearCuentaParaStaff(cuentaDomain);
+        CuentaDataCarrier cuentaDataCarrier = adminPersistence.traerCuentaPorID(idCuenta);
+        if (cuentaDataCarrier != null) {
+            cuentaDataCarrier.setActive(false);
+            adminPersistence.crearCuentaParaStaff(cuentaDataCarrier);
         }
     }
 

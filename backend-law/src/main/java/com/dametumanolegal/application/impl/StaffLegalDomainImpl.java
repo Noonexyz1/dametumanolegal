@@ -1,5 +1,7 @@
 package com.dametumanolegal.application.impl;
 
+import com.dametumanolegal.application.datacarries.CuentaDataCarrier;
+import com.dametumanolegal.application.datacarries.SesionDataCarrier;
 import com.dametumanolegal.application.port.output.StaffLegalPersistence;
 import com.dametumanolegal.domain.model.CuentaDomain;
 import com.dametumanolegal.domain.model.SesionDomain;
@@ -23,18 +25,30 @@ public class StaffLegalDomainImpl implements Autenticable {
     @Override   //esto es lo que voy a testear
     public SesionDomain iniciarSesion(CuentaDomain cuentaDomain) {
         /*TODO: verificar que el usuario haya cerrado sesion*/
-        CuentaDomain cuenta = staffLegalPersistence.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
-        return  (cuenta != null)? createSesionDomainAndSave(cuenta): null;
+        //TODO hacer mapeo
+        CuentaDataCarrier cuentaDataCarrier = staffLegalPersistence.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
+
+
+        return  (cuentaDataCarrier != null)? createSesionDomainAndSave(cuentaDataCarrier): null;
         //Para no tener que estar propagando nulls, seria mejor que, en lugar de eso, lanzemos Excepciones personalizadas
     }
 
-    private SesionDomain createSesionDomainAndSave(CuentaDomain cuenta){
+    private SesionDomain createSesionDomainAndSave(CuentaDataCarrier cuentaDataCarrier){
+
+        //TODO hacer los mapeos
+        SesionDataCarrier sesionDataCarrier = new SesionDataCarrier();
+
         SesionDomain sesionDomain = SesionDomain.builder()
                 .fechaSesion(LocalDateTime.now().toString())
                 .estadoSesion(true)
-                .fkStaffLegal(cuenta.getFkStaffLegal())
+                //.fkStaffLegal(cuentaDataCarrier.getFkStaffLegal())
                 .build();
-        return staffLegalPersistence.crearSesion(sesionDomain);
+
+        SesionDataCarrier sesionDomain1 = staffLegalPersistence.crearSesion(sesionDataCarrier);
+
+        //TODO hacer los mapeos
+        SesionDomain sesionDomain2 = SesionDomain.builder().build();
+        return sesionDomain2;
     }
 
     @Override
@@ -47,20 +61,24 @@ public class StaffLegalDomainImpl implements Autenticable {
         closeSesion.setIdSesion(null);
         closeSesion.setFechaSesion(LocalDateTime.now().toString());
         closeSesion.setEstadoSesion(false);
-        staffLegalPersistence.crearSesion(closeSesion);
+
+        //TODO hacer el mapeo correspondiente
+        SesionDataCarrier sesionDataCarrier = new SesionDataCarrier();
+
+        staffLegalPersistence.crearSesion(sesionDataCarrier);
     }
 
     @Override
     public void modificarPassword(SesionDomain sesionDomain, CuentaDomain cuentaDomain, String newPass) {
         /*TODO: verificar antes de modificar password, que el usuario haya iniciado sesion*/
-        CuentaDomain cuenta = staffLegalPersistence.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
-        if (isUserAuthenticated(cuenta, sesionDomain)) {
-            cuenta.setPassUsuario(newPass);
-            staffLegalPersistence.actualizar(cuenta);
+        CuentaDataCarrier cuentaDataCarrier = staffLegalPersistence.buscarPorUserYPass(cuentaDomain.getCiUsuario(), cuentaDomain.getPassUsuario());
+        if (isUserAuthenticated(cuentaDataCarrier, sesionDomain)) {
+            cuentaDataCarrier.setPassUsuario(newPass);
+            staffLegalPersistence.actualizar(cuentaDataCarrier);
         }
     }
 
-    private boolean isUserAuthenticated(CuentaDomain cuenta, SesionDomain sesionDomain){
-        return cuenta != null; /*&& (sesionDomain.getFkStaffLegal().equals(cuenta.getFkStaffLegal()));*/
+    private boolean isUserAuthenticated(CuentaDataCarrier cuentaDataCarrier, SesionDomain sesionDomain){
+        return cuentaDataCarrier != null; /*&& (sesionDomain.getFkStaffLegal().equals(cuenta.getFkStaffLegal()));*/
     }
 }

@@ -1,10 +1,10 @@
 package com.dametumanolegal.application.port.output;
 
-import com.dametumanolegal.domain.model.CuentaDomain;
-import com.dametumanolegal.domain.model.StaffLegalDomain;
+import com.dametumanolegal.application.datacarries.CuentaDataCarrier;
+import com.dametumanolegal.application.datacarries.StaffLegalDataCarrier;
 
 public interface AdminPersistence {
-    void crearCuentaParaStaff(CuentaDomain cuentaDomain);
-    CuentaDomain traerCuentaPorID(Long id);
-    StaffLegalDomain traerStaffPorId(Long id);
+    void crearCuentaParaStaff(CuentaDataCarrier cuentaDomain);
+    CuentaDataCarrier traerCuentaPorID(Long id);
+    StaffLegalDataCarrier traerStaffPorId(Long id);
 }
